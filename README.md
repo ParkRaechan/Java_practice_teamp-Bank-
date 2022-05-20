@@ -1,5 +1,5 @@
 # Java_practice_teamp-coconutBank-
-# 코코넛 뱅크
+# 인터넷뱅킹이 가능항 은행
 ----------
   
 ## 진행단계  
