@@ -1,2 +1,2 @@
-# Java_practice_teamp_4-coconutBank-
+# Java_practice_teamp-coconutBank-
 # 코코넛 뱅크
