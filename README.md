@@ -9,7 +9,6 @@
 4. 컨트롤 설계  
 5. 프론트 설계  
 ----------
-![image](https://user-images.githubusercontent.com/100547978/169727585-b9c7d4e1-1756-4798-821d-180637691c2a.png)
 
 ![image](https://user-images.githubusercontent.com/100547978/169727691-e631653e-da70-4539-8cc0-f6a87c65ec5c.png)
 
