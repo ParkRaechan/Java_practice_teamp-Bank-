@@ -8,7 +8,17 @@
 3. db 설계  
 4. 컨트롤 설계  
 5. 프론트 설계  
-  
+----------
+![image](https://user-images.githubusercontent.com/100547978/169727585-b9c7d4e1-1756-4798-821d-180637691c2a.png)
+
+![image](https://user-images.githubusercontent.com/100547978/169727691-e631653e-da70-4539-8cc0-f6a87c65ec5c.png)
+
+![image](https://user-images.githubusercontent.com/100547978/169727707-d5e7ae67-115b-41c7-bc22-46fce35cb6a5.png)
+
+![image](https://user-images.githubusercontent.com/100547978/169727718-08eeb2da-5510-442c-9c9c-88eed4b59c28.png)
+
+![image](https://user-images.githubusercontent.com/100547978/169727727-7b700917-8df2-4bce-8150-b2349d36b69d.png)
+
 ----------
 ### 일정
 
