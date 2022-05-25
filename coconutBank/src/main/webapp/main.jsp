@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>테스트</h3>
+	<%@include file = "header.jsp" %>
+
+	캐러셀 넣는곳
+	
+	<%@include file = "footer.jsp" %>
 </body>
 </html>
