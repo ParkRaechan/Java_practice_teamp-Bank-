@@ -10,7 +10,7 @@
 5. 프론트 설계  
 ----------
 
-![image](https://user-images.githubusercontent.com/100547978/169727691-e631653e-da70-4539-8cc0-f6a87c65ec5c.png)
+![image](https://user-images.githubusercontent.com/100547978/170219473-8afc075e-ccd3-46ed-ac16-0bd7bd018239.png)
 
 ![image](https://user-images.githubusercontent.com/100547978/169760789-39ca820b-c9ba-41a3-a5a0-78887783c77b.png)
 
