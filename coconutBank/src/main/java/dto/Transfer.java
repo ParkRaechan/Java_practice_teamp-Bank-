@@ -1,16 +1,15 @@
 package dto;
 
-public class transfer {
+public class Transfer {
 	private int trfno;
 	private int trfamount;
 	private String trftime;
 	private String achostno;
 	private String acguestno;
-	
-	public transfer() {
+	public Transfer() {
 		super();
 	}
-	public transfer(int trfno, int trfamount, String trftime, String achostno, String acguestno) {
+	public Transfer(int trfno, int trfamount, String trftime, String achostno, String acguestno) {
 		super();
 		this.trfno = trfno;
 		this.trfamount = trfamount;
@@ -20,7 +19,7 @@ public class transfer {
 	}
 	@Override
 	public String toString() {
-		return "transfer [trfno=" + trfno + ", trfamount=" + trfamount + ", trftime=" + trftime + ", achostno="
+		return "Transfer [trfno=" + trfno + ", trfamount=" + trfamount + ", trftime=" + trftime + ", achostno="
 				+ achostno + ", acguestno=" + acguestno + "]";
 	}
 	public int getTrfno() {
@@ -53,6 +52,5 @@ public class transfer {
 	public void setAcguestno(String acguestno) {
 		this.acguestno = acguestno;
 	}
-	
 	
 }

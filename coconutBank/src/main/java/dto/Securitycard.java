@@ -1,14 +1,14 @@
 package dto;
 
-public class securitycard {
+public class Securitycard {
 	private String secno;
 	private String seccon;
 	private String secpw;
 	private int acno;
-	public securitycard() {
+	public Securitycard() {
 		super();
 	}
-	public securitycard(String secno, String seccon, String secpw, int acno) {
+	public Securitycard(String secno, String seccon, String secpw, int acno) {
 		super();
 		this.secno = secno;
 		this.seccon = seccon;
@@ -17,7 +17,7 @@ public class securitycard {
 	}
 	@Override
 	public String toString() {
-		return "securitycard [secno=" + secno + ", seccon=" + seccon + ", secpw=" + secpw + ", acno=" + acno + "]";
+		return "Securitycard [secno=" + secno + ", seccon=" + seccon + ", secpw=" + secpw + ", acno=" + acno + "]";
 	}
 	public String getSecno() {
 		return secno;
@@ -43,6 +43,5 @@ public class securitycard {
 	public void setAcno(int acno) {
 		this.acno = acno;
 	}
-
 	
 }

@@ -1,13 +1,13 @@
 package dto;
 
-public class otp {
+public class Otp {
 	private String otpno;
 	private String otppw;
 	private String acno;
-	public otp() {
+	public Otp() {
 		super();
 	}
-	public otp(String otpno, String otppw, String acno) {
+	public Otp(String otpno, String otppw, String acno) {
 		super();
 		this.otpno = otpno;
 		this.otppw = otppw;
@@ -15,7 +15,7 @@ public class otp {
 	}
 	@Override
 	public String toString() {
-		return "otp [otpno=" + otpno + ", otppw=" + otppw + ", acno=" + acno + "]";
+		return "Otp [otpno=" + otpno + ", otppw=" + otppw + ", acno=" + acno + "]";
 	}
 	public String getOtpno() {
 		return otpno;
@@ -35,6 +35,5 @@ public class otp {
 	public void setAcno(String acno) {
 		this.acno = acno;
 	}
-	
 	
 }
