@@ -9,4 +9,14 @@ public class AccountDao extends Dao {
 	public static AccountDao accountDao = new AccountDao();
 	public static AccountDao getaccAccountDao() {return accountDao;}
 		
+	
+
+
+
+	
+	
+
+
+
+	
 } // class end
