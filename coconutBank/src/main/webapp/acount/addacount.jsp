@@ -1,3 +1,4 @@
+<%@page import="dao.AccountDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
 						<span> 계좌번호[임시입력 - 원래는 112로 시작하는 난수(14자리)] </span>
 					</div>
 					<div class="col-md-5">
-						<input class="form-control" type="text" placeholder="계좌번호"> 
+						<input id="accountno" class="form-control" type="text" placeholder="계좌번호"> 
 					</div>
 				</div>
 ---------------------------------------------
@@ -25,7 +26,7 @@
 						<span> 예금주 </span>
 					</div>
 					<div class="col-md-5">
-						<input class="form-control" type="text" placeholder="예금주"> 
+						<input id="accounthost" class="form-control" type="text" placeholder="예금주"> 
 					</div>
 				</div>
 ---------------------------------------------	
@@ -36,7 +37,7 @@
 					<div class="col-md-5" id="birthday">
 						
 					<div class="col-md-5">
-						<p><input type="date"></p>
+						<p><input id="birth" type="date"></p>
 					</div>
 						
 					</div>
@@ -49,7 +50,7 @@
 					<div class="col-md-5" id="birthday">
 					
 					<div class="col-md-5">
-						<input class="form-control" type="text" placeholder="휴대전화번호"> 
+						<input id="phone" class="form-control" type="text" placeholder="휴대전화번호"> 
 					</div>
 						
 					</div>
@@ -62,7 +63,7 @@
 					<div class="col-md-5" id="birthday">
 					
 					<div class="col-md-5">
-						<input class="form-control" type="text" placeholder="예금액"> 
+						<input id="balance" class="form-control" type="text" placeholder="예금액"> 
 					</div>
 						
 					</div>
@@ -75,7 +76,7 @@
 					<div class="col-md-5" id="birthday">
 					
 					<div class="col-md-5">
-						<input class="form-control" type="text" placeholder="계좌비번"> 
+						<input id="accountpw" class="form-control" type="text" placeholder="계좌비번"> 
 					</div>
 						
 					</div>
@@ -96,5 +97,15 @@
 		
 		
 	</div>
+	<%
+	String salt = AccountDao.getaccAccountDao().getsalt();
+	
+	String hex = AccountDao.getaccAccountDao().sha256(salt, "1234");
+	System.out.println("salt값 :"+salt);
+	System.out.println("hex값 :"+hex);
+	%>
+	
+	
+	<script src="/jigmBank/js/addaccount.js" type="text/javascript"></script>
 </body>
 </html>
