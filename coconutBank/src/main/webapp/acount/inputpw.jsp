@@ -8,17 +8,8 @@
 </head>
 <body>
 	<div class="container">
+			생성할 OTP의 비밀번호 - 랜덤 키패드 입력
 	  <div class="row row-cols-3 btnbox" id="box">
-	  	
-	  	<button onclick="">1</button>
-	    <button onclick="">2</button>
-	    <button onclick="">3</button>
-	    <button onclick="">4</button>
-	    <button onclick="">5</button>
-	    <button onclick="">6</button>
-	    <button onclick="">7</button>
-	    <button onclick="">8</button>
-	    <button onclick="">9</button>
 
 	  </div>
 	</div>
