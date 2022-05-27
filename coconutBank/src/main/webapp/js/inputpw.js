@@ -48,7 +48,7 @@ let pw = '@@@@';
 
 ///변경
 function clickpw( num ){	
-	alert("qwer");
+	alert(num);
 	pw.replace('@',num);
 	console.log(pw);
 }
