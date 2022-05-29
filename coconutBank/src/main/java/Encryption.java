@@ -2,26 +2,20 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.Base64;
+import java.util.Random;
 
 public class Encryption {
-	
-//	// salt 생성
-//	public static String getSalt() {
-//		Random random = new Random();
-//		byte[] salt = new byte[10];
-//		
-//		random.nextBytes(salt);
-//		
-//		StringBuffer sb = new StringBuffer();
-//		
-//		for(int i = 0; i<salt.length; i++) {
-//			sb.append(String.format("%02x", salt[i])); // byte 값을 Hex 값으로 바꾸기
-//		} // for end
-//		return sb.toString();
-//	}
+
+	// 계좌번호 생성 메소드
+	public String getaccountno() {
+		Random rd = new Random();
+		String accountno = ("112-"+rd.nextInt(10)+rd.nextInt(10)+rd.nextInt(10)+"-"+
+				rd.nextInt(10)+rd.nextInt(10)+rd.nextInt(10)+rd.nextInt(10)+rd.nextInt(10)+rd.nextInt(10));
+		return accountno;
+	} // 계좌번호 생성 end
 	
 	// salt 생성 메소드
-	public static String salt() {
+	public String getsalt() {
 		String salt = "";
 		try {
 			SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
@@ -30,32 +24,20 @@ public class Encryption {
 			salt = new String(Base64.getEncoder().encode(bytes));
 		}catch(Exception e) {System.out.println("salt생성시 오류 : "+e);}
 		return salt;
-	}
+	} // salt생성 end
 	
-	// 계좌번호 별 salt 값 찾기
-//	public String getsalt(String account) {
-//		
-//	}
-
-//	
-//	public static String sha256(String password, String hash) {
-//		String salt = hash+password;
-//		String hex = null;
-//		try {
-//			MessageDigest md = MessageDigest.getInstance("SHA-256");
-//			md.update(salt.getBytes());
-//			hex = String.format("%64x", new BigInteger(1, md.digest()));
-//		}catch(Exception e) {System.out.println("256암호화시 오류 : "+e);}
-//		return hex;
-//	}
+	// SHA256 해시함수 사용 메소드
+	public String sha256(String salt, String password) {
+		String saltpw = salt+password;
+		String hex = null;
+		try {
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			md.update(saltpw.getBytes());
+			hex = String.format("%64x", new BigInteger(1, md.digest()));
+		}catch(Exception e) {System.out.println("256암호화시 오류 : "+e);}
+		return hex;
+	} // 암호화 비밀번호 end
 	
-//	// SHA256 해싱 메소드
-//	public static byte[] sha256(String msg) throws NoSuchAlgorithmException{
-//		MessageDigest md = MessageDigest.getInstance("SHA-256");
-//		md.update(msg.getBytes());
-//		return md.digest();
-//	} // sha256 end
-
 	
 	public static void main(String[] args) {
 //		String password = "1234";
@@ -80,7 +62,23 @@ public class Encryption {
 //		
 //		}catch(Exception e) {System.out.println("salt생성시 오류 : "+e);}
 		
+		Random rd = new Random();
+		String accountno = ("112-"+rd.nextInt(10)+rd.nextInt(10)+rd.nextInt(10)+"-"+
+				rd.nextInt(10)+rd.nextInt(10)+rd.nextInt(10)+rd.nextInt(10)+rd.nextInt(10)+rd.nextInt(10));
+		String pw = "2345";
+		System.out.println("accountno :" +accountno);
+		System.out.println("사용자 pw : "+pw);
 		
+			String saltpw = accountno+pw;
+			System.out.println("계좌번호+비밀번호 : "+saltpw);
+			String hex = null;
+			try {
+				MessageDigest md = MessageDigest.getInstance("SHA-256");
+				md.update(saltpw.getBytes());
+				hex = String.format("%64x", new BigInteger(1, md.digest()));
+				System.out.println("256해시함수 : "+hex);
+			}catch(Exception e) {System.out.println("256암호화시 오류 : "+e);}
+			
 		
 		
 		

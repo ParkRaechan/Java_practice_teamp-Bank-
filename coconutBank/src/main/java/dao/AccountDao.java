@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.Base64;
+import java.util.Random;
 
 import dto.Account;
 
@@ -17,6 +18,18 @@ public class AccountDao extends Dao {
 	public static AccountDao getaccAccountDao() {return accountDao;}
 		
 	
+	// 계좌번호 중복체크 메소드
+	public boolean acnocheck(String accountno) {
+		String sql = "select * from account where acno= '"+accountno+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return true;
+			} // if end
+		}catch(Exception e) {System.out.println("계좌번호중복체크오류"+e);}
+		return false;
+	} // 계좌중복 체크 end
 	
 	// salt 생성 메소드
 	public String getsalt() {
@@ -30,7 +43,7 @@ public class AccountDao extends Dao {
 		return salt;
 	} // salt생성 end
 	
-	// salt+비밀번호 암호하 메소드
+	// salt+비밀번호 암호화 메소드
 	public String sha256(String salt, String password) {
 		String saltpw = salt+password;
 		String hex = null;
@@ -64,7 +77,6 @@ public class AccountDao extends Dao {
 		}catch (Exception e) {System.out.println("계좌생성오류"+e);}
 		return false;
 	} // 계좌생성 end
-
 
 	
 	
