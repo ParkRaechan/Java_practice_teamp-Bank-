@@ -44,11 +44,18 @@ function boxview(){
 }
 
 ///선언
-let pw = '@@@@';	
+let pw = '@@@@';	let pwt = 1;	let pww = '@@@@';
 
 ///변경
 function clickpw( num ){	
+
 	alert(num);
-	pw.replace('@',num);
-	console.log(pw);
+	if(pwt == 1){
+		pww = pw.replace('@',num);
+	}
+	else if(pwt == 2){
+		pww = pww.replace('@',num);
+	}
+	console.log(pww);
+	pwt = 2;
 }
