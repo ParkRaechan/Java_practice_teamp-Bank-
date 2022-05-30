@@ -7,12 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<div class="container">
-			생성할 OTP의 비밀번호 - 랜덤 키패드 입력
+			랜덤 키패드 입력
 	  <div class="row row-cols-3 btnbox" id="box">
 
 	  </div>
+	  <div class="row row-cols-12 btnbox" id="comment">
+
+	  </div>
+	  <div class="row row-cols-3 btnbox" id="accin">
+	  	계좌번호 입력
+	  </div>
 	</div>
 	<script src="/jigmBank/js/inputpw.js" type="text/javascript"></script>
+	
 </body>
 </html>

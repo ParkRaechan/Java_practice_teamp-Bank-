@@ -28,4 +28,30 @@ public class AccountDao extends Dao{
 		}catch (Exception e) {System.out.println(e);}return false; 
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	////////////계좌번호,계좌비번 확인 메소드/////////
+	//pww3계좌비번 accnumr계좌번호
+	public int checkaccpw(String pww3,String accnumr) {
+		
+		String sql = "select * from account where acpw = "+pww3+" and = acno"+accnumr;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return 1;
+			}
+		}
+		catch (Exception e) { System.out.println( e );}
+		return 2;
+	}
+	
+	
 }
