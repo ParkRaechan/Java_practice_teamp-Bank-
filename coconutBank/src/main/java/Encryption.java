@@ -97,6 +97,7 @@ public class Encryption {
 			byte[] bytePublickey = Base64.getDecoder().decode(stringPublickey.getBytes() );
 			
 		}catch(Exception e) {System.out.println("암호화오류 : "+e);}
+		return null;
 	} // 암호화 end
 	
 	
@@ -136,7 +137,7 @@ public class Encryption {
 		String pw = "0536";
 		String password = acno.replace("-", "")+pw;
 		System.out.println(password);
-		int password2 = Integer.parseInt(password);
+		int password2 = Integer.parseInt(password)*2;
 		System.out.println(password2);
 		
 		

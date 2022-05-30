@@ -7,15 +7,15 @@ public class Account {
 	private String acpw;
 	private String acname;
 	private String acbirth;
+	private String acphone;
 	private int acbalance;
-	private String acranno;
 	private String acactive;
 
 	
 	public Account() {}
 
 
-	public Account(int acidno, String acno, String acpw, String acname, String acbirth, int acbalance, String acranno,
+	public Account(int acidno, String acno, String acpw, String acname, String acbirth, String acphone, int acbalance,
 			String acactive) {
 		super();
 		this.acidno = acidno;
@@ -23,8 +23,8 @@ public class Account {
 		this.acpw = acpw;
 		this.acname = acname;
 		this.acbirth = acbirth;
+		this.acphone = acphone;
 		this.acbalance = acbalance;
-		this.acranno = acranno;
 		this.acactive = acactive;
 	}
 
@@ -79,6 +79,16 @@ public class Account {
 	}
 
 
+	public String getAcphone() {
+		return acphone;
+	}
+
+
+	public void setAcphone(String acphone) {
+		this.acphone = acphone;
+	}
+
+
 	public int getAcbalance() {
 		return acbalance;
 	}
@@ -86,16 +96,6 @@ public class Account {
 
 	public void setAcbalance(int acbalance) {
 		this.acbalance = acbalance;
-	}
-
-
-	public String getAcranno() {
-		return acranno;
-	}
-
-
-	public void setAcranno(String acranno) {
-		this.acranno = acranno;
 	}
 
 
@@ -113,9 +113,9 @@ public class Account {
 	@Override
 	public String toString() {
 		return "Account [acidno=" + acidno + ", acno=" + acno + ", acpw=" + acpw + ", acname=" + acname + ", acbirth="
-				+ acbirth + ", acbalance=" + acbalance + ", acranno=" + acranno + ", acactive=" + acactive + "]";
+				+ acbirth + ", acphone=" + acphone + ", acbalance=" + acbalance + ", acactive=" + acactive + "]";
 	}
-
+	
 
 
 }
