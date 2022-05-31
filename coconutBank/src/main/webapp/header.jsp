@@ -23,10 +23,11 @@
 				<div class="col-md-4 offset-4"> <!-- offset 공백그리드 -->
 				
 					<ul class="nav"> <!-- nav : li 가로배치  -->
-						<li><a href="#" onclick="pagechange('addacount')">계좌 생성</a></li>
+						<li><a href="#" onclick="pagechange('addacount')">계좌생성</a></li>
 						<li>&nbsp&nbsp&nbsp&nbsp</li>
-						<li><a href="#" onclick="pagechange('transfer')">보안생성</a></li>
-						
+						<li><a href="#" onclick="pagechange('createsecurity')">보안생성</a></li>
+						<li>&nbsp&nbsp&nbsp&nbsp</li>
+						<li><a href="#" onclick="pagechange('transfer')">OTP보안사용이체</a></li>
 					</ul>
 				</div>
 			</div>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>계좌추가</h3>
+	<h3>계좌생성</h3>
 	<div>
 			<form id="addform" class="col-md-11">
 ---------------------------------------------

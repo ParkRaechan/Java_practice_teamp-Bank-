@@ -7,24 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>계좌추가</h3>
-	<div>
-			<form id="addform" class="col-md-11">
-			<br><br><br>
-			<div class="row">
-				<div class="col-md-5">
-					<button type="button" onclick="pagechange('inputpw')">OTP</button> 
-				</div>
-				<div class="col-md-5">
-					<button type="button" onclick="#)">보안카드</button>
-				</div>
-			</div>
-		
-		</form>
-		
-		
+	<h3>OTP보안사용이체</h3>
+	<div class="container">
+	  <div class="row row-cols-3" id="box">
+
+	  </div>
+	  <div class="row row-cols-3" id="accin">
+
+	  </div>
+	  <div class="row row-cols-12" id="comment">
+
+	  </div>
 	</div>
+	<script src="/jigmBank/js/inputpw2.js" type="text/javascript"></script>
 	
-	<script src="/jigmBank/js/main.js" type="text/javascript"></script>
 </body>
 </html>

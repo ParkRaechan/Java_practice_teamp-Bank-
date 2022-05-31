@@ -7,17 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h3>보안생성</h3>
 	<div class="container">
-			랜덤 키패드 입력
-	  <div class="row row-cols-3 btnbox" id="box">
+	  <div class="row row-cols-3" id="box">
 
 	  </div>
-	  <div class="row row-cols-12 btnbox" id="comment">
+	  <div class="row row-cols-3" id="accin">
 
 	  </div>
-	  <div class="row row-cols-3 btnbox" id="accin">
-	  	계좌번호 입력
+	  <div class="row row-cols-12" id="comment">
+
 	  </div>
 	</div>
 	<script src="/jigmBank/js/inputpw.js" type="text/javascript"></script>

@@ -52,6 +52,24 @@ public class AccountDao extends Dao{
 		catch (Exception e) { System.out.println( e );}
 		return 2;
 	}
-	
+	//pww21보내는계좌비번 achostno보내는계좌번호 acguestno받는계좌번호
+		public int checkaccpw2(String pww21,String achostno,String acguestno) {
+			
+			String sql = "select * from account where acpw = '"+pww21+"' and acno = '"+achostno+"'";
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					sql = "select * from account where acno = '"+acguestno+"'";
+					ps = con.prepareStatement(sql);
+					rs = ps.executeQuery();
+					if(rs.next()) {
+						return 1;
+					}
+				}
+			}
+			catch (Exception e) { System.out.println( e );}
+			return 2;
+		}
 	
 }

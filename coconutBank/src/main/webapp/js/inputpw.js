@@ -106,7 +106,7 @@ function removeone(){
 
 //비번보관 실행
 function checkpw(){
-	checkpw0(pww,pwt);
+	checkpw0();
 }
 
 
