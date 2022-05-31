@@ -41,7 +41,7 @@ public class AccountDao extends Dao{
 	//pww3계좌비번 accnumr계좌번호
 	public int checkaccpw(String pww3,String accnumr) {
 		
-		String sql = "select * from account where acpw = "+pww3+" and = acno"+accnumr;
+		String sql = "select * from account where acpw = '"+pww3+"' and acno = '"+accnumr+"'";
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
