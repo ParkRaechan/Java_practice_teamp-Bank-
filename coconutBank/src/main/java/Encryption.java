@@ -40,65 +40,28 @@ public class Encryption {
 	String acno = "112-120-120120";
 	String pw = "0536";
 	
-	// 계좌+비번+추가 
+	// **키 생성
 	public String dbpassword(String acno, String pw) {
-		String password = acno.replace("-", "")+pw;
-		int password2 = Integer.parseInt(password)*2022228;
-		System.out.println(password2);
+		String password1 = acno.replace("-", "")+pw;
+		long password2 = Long.parseLong(password1);
+		long password3 = password2/19941218;
+		
+		
 		return null;
 	}
 	
-	// SHA256 해시함수 사용 메소드
-	public String sha256(String acno, String pw) {
-		String password = acno+pw;
-		String hex = null;
-		try {
-			MessageDigest md = MessageDigest.getInstance("SHA-256");
-			md.update(saltpw.getBytes());
-			hex = String.format("%64x", new BigInteger(1, md.digest()));
-		}catch(Exception e) {System.out.println("256암호화시 오류 : "+e);}
-		return hex;
-	} // 암호화 비밀번호 end
-	
+//	// SHA256 해시함수 사용 메소드
+//	public String sha256(String acno, String pw) {
+//		String password = acno+pw;
+//		String hex = null;
+//		try {
+//			MessageDigest md = MessageDigest.getInstance("SHA-256");
+//			md.update(saltpw.getBytes());
+//			hex = String.format("%64x", new BigInteger(1, md.digest()));
+//		}catch(Exception e) {System.out.println("256암호화시 오류 : "+e);}
+//		return hex;
+//	} // 암호화 비밀번호 end
 
-/////////////////////////////////////////////////////////////// RSA 사용 //////////////////////////////////////////////////////////////////////	
-	
-	// 
-	static final int key_size = 2048;
-	
-	// 키페어생성 메소드
-	static HashMap<String, String> createkeypair(){
-		HashMap<String , String> stringkeypair = new HashMap<String, String>();
-		try {
-			SecureRandom srd = new SecureRandom();
-			KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-			kpg.initialize(key_size, srd);
-			KeyPair keyPair = kpg.genKeyPair();
-			
-			PublicKey publicKey = keyPair.getPublic();
-			PrivateKey privateKey = keyPair.getPrivate();
-			
-			String stringPublickey = Base64.getEncoder().encodeToString(publicKey.getEncoded() );
-			String stringPrivatekey = Base64.getEncoder().encodeToString(privateKey.getEncoded() );
-			
-			stringkeypair.put("publicKey", stringPublickey);
-			stringkeypair.put("privateKey", stringPrivatekey);
-			
-		}catch(Exception e) {System.out.println("키페어생성오류 : "+e);}
-		return stringkeypair;
-	} // 키페어생성 end
-	
-	// 암호화 메소드
-	static String encode(String acps, String stringPublickey) {
-		String encryptedData = null;
-		try {
-			// 평문으로 전달받은 공개키를 공개키객체로 만드는 과정
-			KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-			byte[] bytePublickey = Base64.getDecoder().decode(stringPublickey.getBytes() );
-			
-		}catch(Exception e) {System.out.println("암호화오류 : "+e);}
-		return null;
-	} // 암호화 end
 	
 	
 	
@@ -106,7 +69,7 @@ public class Encryption {
 //		String password = "1234";
 //		System.out.println("입력한 비밀번호값 :"+password);
 //		// 솔트
-//		try {
+		try {
 //		// SALT 생성
 //		SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
 //		byte[] bytes = new byte[16];
@@ -116,28 +79,24 @@ public class Encryption {
 //		// SALT+PASSWORD
 //		String saltpassword = salt+password;
 //		System.out.println("비밀번호+솔트값 :"+saltpassword);
-//		// 암호화(SHA256)
-//		MessageDigest md = MessageDigest.getInstance("SHA-256");
-//		md.update(salt.getBytes());
-//		String hex = String.format("%64x", new BigInteger(1, md.digest()));
-//		System.out.println("암호화된값(최종저장) :"+hex);
-//		
-//		
-//		}catch(Exception e) {System.out.println("salt생성시 오류 : "+e);}
+		// 암호화(SHA256)
+		String pw1 = "56225311";
+		MessageDigest md = MessageDigest.getInstance("SHA-256");
+		md.update(pw1.getBytes());
+		String hex = String.format("%64x", new BigInteger(1, md.digest()));
+		System.out.println("암호화된값(최종저장) :"+hex);
 		
-		HashMap<String, String> rsakeypair = createkeypair();
-		String publickey = rsakeypair.get("publicKey");
-		String privatekey = rsakeypair.get("privateKey");
 		
-		System.out.println("만들어진 공개키 : "+publickey);
-		System.out.println("만들어진 개인키 : "+privatekey);
+		}catch(Exception e) {System.out.println("salt생성시 오류 : "+e);}
+		
+
 
 		
 		String acno = "112-120-120120";
 		String pw = "0536";
 		String password = acno.replace("-", "")+pw;
 		System.out.println(password);
-		int password2 = Integer.parseInt(password)*2;
+		long password2 = Long.parseLong(password)/19941218;
 		System.out.println(password2);
 		
 		
