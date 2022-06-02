@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<%@include file = "../header.jsp" %>
+
 
 <div class="container">
 	<div class="row "> <!-- 계좌번호 입력 -->
@@ -29,12 +29,12 @@
 		</div>
 	</div>
 	<div>
-		<button class="form-control" type="button" >확인</button> 
+		<button class="form-control" type="button" onclick="accountcheck()" >확인</button> 
 	</div>
 	
 </div>
 
-<%@include file = "../footer.jsp" %>
+	<script src="/jigmBank/js/addsccard.js" type="text/javascript"></script>
 
 </body>
 </html>
