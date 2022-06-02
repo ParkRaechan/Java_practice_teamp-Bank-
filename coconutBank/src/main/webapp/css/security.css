@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+.security__main__container {
+	margin: 200px 150px;
+	text-align: center;
+}
+.security__text {
+	opacity: 0;
+	display:none;
+	position: relative;
+}
+#security__err__text {
+	font-size:16px;
+	color:red;
+	font-weight:200;
+	margin-top:15px;
+}
+.input__box {
+	margin-top: 20px;
+	padding: 10px;
+	border: 1px solid rgba(113, 113, 113, 0.352);
+	border-radius: 7px;
+	animation-duration: 0.3s;
+	animation-name: focus__end;
+	width: 300px;
+	letter-spacing: 35px;
+	text-align: center;
+}
+.active {
+	opacity: 1 !important ;
+	display:inline-block !important ;
+}
+.input__box:focus {
+	outline: none;
+	animation-duration: 0.5s;
+	animation-name: focus;
+	padding:10px 15px;
+	border: 1px solid rgba(19, 73, 165, 0.545);
+	width: 340px;
+	animation-direction: alternate;
+}
+
+@keyframes focus {
+	from {
+		padding: 10px;
+		border: 1px solid rgba(113, 113, 113, 0.352);
+		width: 300px;
+	}
+
+	to {
+		padding: 10px 15px;
+		border: 1px solid rgba(19, 73, 165, 0.545);
+		width: 340px;
+	}
+}
+
+@keyframes focus__end {
+	from {
+		padding: 10px 15px;
+		border: 1px solid rgba(19, 73, 165, 0.545);
+		width: 340px;
+	}
+
+	to {
+		padding: 10px;
+		border: 1px solid rgba(113, 113, 113, 0.352);
+		width: 300px;
+	}
+}

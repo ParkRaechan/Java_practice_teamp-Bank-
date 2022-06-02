@@ -2,3 +2,6 @@
 function pagechange( page ){
 	$("#mainbox").load( "acount/"+page+".jsp");
 }
+function pagechangesec(page) {
+	$("#mainbox").load( "securitycard/"+page+".jsp");
+}
