@@ -37,11 +37,6 @@ $(function(){
 		} // else end
 	}); // 전화번호check end
 	
-	
-	$("#balance").keyup(function(){
-	
-	});
-	
 }); // 문서열리면 실행 end
 
 
@@ -74,28 +69,12 @@ function next(){
 	}
 } // 인적사항입력 end
 
-
-function input(obj){
-	obj = String(obj.value);
-	obj.to
-}
-
 // 예금액 천단위 쉼표
-function inputNumberFormat(obj) {
-     obj.value = comma(uncomma(obj.value));
+function input(balance){
+	balance = balance.replace(/[^0-9]/g,'');   // 입력값이 숫자가 아니면 공백
+	balance = balance.replace(/,/g,'');        // ,값 공백처리
+	$("#balance").val(balance.replace(/\B(?=(\d{3})+(?!\d))/g, ",")); // 정규식을 이용해서 3자리 마다 , 추가 
 }
-function comma(str) {
-     str = String(str);
-     return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
-}
-function uncomma(str) {
-     str = String(str);
-     return str.replace(/[^\d]+/g, '');
-}
-
-
-
-
 
 
 

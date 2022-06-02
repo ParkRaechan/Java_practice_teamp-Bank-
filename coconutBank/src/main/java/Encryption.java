@@ -53,7 +53,7 @@ public class Encryption {
 //	// SHA256 해시함수 사용 메소드
 //	public String sha256(String acno, String pw) {
 //		String password = acno+pw;
-//		String hex = null;
+//		String hex = null;`
 //		try {
 //			MessageDigest md = MessageDigest.getInstance("SHA-256");
 //			md.update(saltpw.getBytes());

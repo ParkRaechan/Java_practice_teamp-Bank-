@@ -64,7 +64,7 @@
 						<span> 예금액 </span>
 					</div>
 					<div class="col-md-5">
-						<input id="balance" class="form-control" type="text" placeholder="예금액" onkeyup="input(this)"> 원
+						<input id="balance" class="form-control" type="text" placeholder="예금액" onkeyup="input(this.value)"> 원
 					</div>
 				</div>
 ---------------------------------------------				
