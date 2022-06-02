@@ -233,9 +233,135 @@ function checkaccpw(pww3,accnumr){
 		success : function( result ){	/* 통신 성공시 받는 데이터 */
 			if( result == 1 ){  
 				alert("정보가 일치합니다.~문자보냄");
+				
+				
+				
+				
+				////////////////////
+				//////키패드리뉴얼/////
+				bxb = '<div></div><div></div><div></div>';
+				$("#box").html(bxb);
+				////////////////////
+					
+					
+				
+				///////////////////
+				/////인증번호입력/////
+				com='';$("#comment").html(com);
+				let acc = '<div></div>';
+				acc += 
+				'<form action="">'+
+				'전화번호 <input type="text">'+
+				'인증번호 (1분 안에 입력 바랍니다.)'+
+				'<button onclick="makeSignature()">발송</button> <br>'+
+				'인증번호 입력 <input type="text">'+
+				'<button>확인</button>'+
+				'</form>';
+				
+				$("#accin").html(acc);
+				//////////////////////
+				random();
+				OO();
+				
+				
+				///////////////////
+				//setTimeout(function() {
+				//  alert("시간다됨");
+				//}, 3000);
+				//3초
+					
+					
+				//입력성공시 시간 초기화
+				//clearTimeout(myTimer);
+				
+				
+				////////////////////
+				//////유효성검사//////
+				keycheck();
+				////////////////////
+				
+				
 			}else{ 
-				alert("해당정보가 틀렸습니다.~문자안보냄");
+				alert("해당정보가 틀렸습니다.");
 			}
 		}
 	});	
+}
+
+
+/////////////문자api js////
+function makeSignature(){
+	alert("통신2"); //통신
+	
+	$.ajax({ //안으로 안 들어옴
+		url : 'makeSignature',
+		success : function(re){
+			alert("통신"+re); //안들어옴
+			
+		}
+	});
+};
+////////////////////////
+
+
+
+//계좌에 해당하는 전화번호 불러오기
+/*
+function checkphonenum(accnumr){
+	$.ajax({
+		url : "/jigmBank/checkaccpw" ,
+		data : { "accnumr" : accnumr },
+		type : "POST",
+		success : function( result ){
+			if(result==1){
+				console.log("qwe");
+			}
+		}
+	});
+}
+*/
+///////////////
+
+
+
+
+///////////////시간제한////
+function OO(){
+	const timeLimitValue = 60; // 1분 
+	var timeLimit = 60; 
+	var min, sec;
+	var timerObj = setInterval(callTimer, 1000);
+	callTimer();
+	// 1초 간격으로 함수 호출
+	
+	function callTimer(){
+	
+	
+		min = parseInt(timeLimit/60);
+		sec = parseInt(timeLimit%60);
+	
+		const displayTime = min.toString().padStart(2,"0") + " : " + sec.toString().padStart(2,"0");
+	    $("#accin2").html(displayTime);
+	
+		timeLimit -= 1;
+	
+		if(timeLimit < -1) {
+			alert("시간초과");
+			timerObj = setInterval(callTimer, 1000);
+			clearInterval(timerObj);
+			timeLimit = timeLimitValue;
+	 		return;
+	     }
+	}
+}
+
+
+//////////난수생성///
+function random(){
+	let certification = [0,0,0,0,0,0]
+	for(let t=0; t<6; t++){
+		let renum = Math.floor(Math.random() * 10);
+		certification[t] = renum;
+	}
+	console.log(certification);
 }

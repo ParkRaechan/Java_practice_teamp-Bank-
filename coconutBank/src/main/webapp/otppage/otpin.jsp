@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>보안생성</h3>
+	<h3>OTP발생</h3>
 	<div class="container">
 	  <div class="row row-cols-3" id="box">
 
@@ -18,12 +18,8 @@
 	  <div class="row row-cols-12" id="comment">
 
 	  </div>
-	  <div class="row row-cols-3" id="accin2">
-
-	  </div>
 	</div>
-	<script src="/jigmBank/js/inputpw.js" type="text/javascript"></script>
-	<script type="text/javascript" src="./CryptoJS/rollups/hmac-sha256.js"></script>
-	<script type="text/javascript" src="./CryptoJS/components/enc-base64.js"></script>
+	<script src="/jigmBank/js/inputpw3.js" type="text/javascript"></script>
+	
 </body>
 </html>

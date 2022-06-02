@@ -327,7 +327,9 @@ function checkaccpw2(pww21,achostno,acguestno){
 				key3check();
 				////////////////////
 				
-				alert("OTP발생-fx?웹페이지?(웹페이지면 해킹안당하려나??)");
+				/////OTP발생 팝업창///
+				popup();
+				///////////////////
 			}else{ 
 				matchaccpw = false;
 				alert("정보불일치");
@@ -355,4 +357,9 @@ function key3check(){
 }
 
 
-
+function popup(){
+    var url = "/jigmBank/otppage/firewall.jsp";
+    var name = "popup";
+    var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+    window.open(url, name, option);
+}
