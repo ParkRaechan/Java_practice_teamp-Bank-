@@ -1,4 +1,4 @@
-<%@page import="dao.AccountDao"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -73,7 +73,7 @@
 						<span> 계좌비번 </span>
 					</div>
 					<div class="col-md-5">
-						<input id="accountpw" class="form-control" type="text" placeholder="계좌비번"> 
+						<input id="accountpw" class="form-control" type="password" placeholder="계좌비번" maxlength="4"> 
 					</div>
 				</div> 
 ---------------------------------------------	

@@ -37,6 +37,7 @@ $(function(){
 		} // else end
 	}); // 전화번호check end
 	
+	
 }); // 문서열리면 실행 end
 
 
@@ -77,19 +78,24 @@ function input(balance){
 }
 
 
-
-
+// 계좌생성
 function add(){
 	let accounthost = $("#accounthost").val();
 	let birth = $("#birth").val();
 	let phone = $("#phone").val();
-	
+	let accountno = $("#accountno").html();
+	let balance = $("#balance").val().replace(/,/g, '');
+	let accountpw = $("#accountpw").val();
+
 	$.ajax({
 		url : "/jigmBank/account/addaccount",
 		type : "POST",
 		data : {"accounthost" : accounthost,
 			"birth" : birth,
-			"phone" : phone},
+			"phone" : phone,
+			"accountno" : accountno,
+			"balance" : balance,
+			"accountpw" : accountpw},
 		success : function(result){
 			if(result == 1){
 				alert("계좌생성이 완료되었습니다.");
@@ -101,4 +107,5 @@ function add(){
 		} // success end
 	}); // ajax end
 	
-} // 계좌등록 end
+	
+} // 계좌생성 end

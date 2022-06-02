@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.AccountDao;
 import dto.Account;
+import dto.Encryption;
+
 
 /**
  * Servlet implementation class addaccount
@@ -38,31 +40,27 @@ public class addaccount extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String accountno = request.getParameter("accountno");
 		String accounthost = request.getParameter("accounthost");
 		String birth = request.getParameter("birth");
 		String phone = request.getParameter("phone");
+		String accountno = request.getParameter("accountno");
 		int balance = Integer.parseInt(request.getParameter("balance"));
 		String inputpw = request.getParameter("accountpw");
 		
-		// salt 생성
-		String salt = AccountDao.getaccAccountDao().getsalt();
+		// 패스워드+키 추가
+		String keypw = Encryption.getEncryption().keyplus(accountno, inputpw);
+		// 비밀번호 암호화(DB저장 비밀번호)
+		String dbpw = Encryption.getEncryption().sha256(keypw);
 		
-		// 비밀번호 salt
-		String hex = AccountDao.getaccAccountDao().sha256(salt, inputpw);
-		System.out.println("salt값 :"+salt);
-		System.out.println("hex값 :"+hex);
-		
-//		// 객체화
-//		Account account = new Account(accountno, accounthost, birth, balance, accountpw, "사용가능");
-//		// DAO처리
-//		boolean result = AccountDao.getaccAccountDao().addaccount(account);
-//		// 결과
-//		if(result) {
-//			response.getWriter().print(1);
-//		}else {
-//			response.getWriter().print(2);
-//		}
+		// 객체화
+		Account account = new Account(0, accountno, dbpw, accounthost, birth, phone, balance, "사용가능");
+		boolean result = AccountDao.getaccAccountDao().addaccount(account);
+		// 결과
+		if(result) {
+			response.getWriter().print(1);
+		}else {
+			response.getWriter().print(2);
+		}
 		
 	}
 
