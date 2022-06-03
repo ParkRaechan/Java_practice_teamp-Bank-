@@ -9,13 +9,14 @@
 <body>
 	<%@include file = "header.jsp" %>
 
- 	<form action="">
+ 	<form>
 		전화번호 <input type="text" id="phonenum"> <!-- 입력값 받아서 서블릿의 from으로 옮김 --> <br>
 	
 		인증번호 (1분 안에 입력 바랍니다.)
-		<button onclick="makeSignature()">발송</button> <br>
-		인증번호 입력 <input type="text"> <!-- 여기에 카운트다운 -->
-		<button>확인</button>
+		<button onclick="makeSignature()" type="button">발송</button> <br>
+		
+		인증번호 입력 <input type="text" id="phonenum2"> <!-- 여기에 카운트다운 -->
+		<button onclick="make2()" type="button" >확인</button>
 	</form>
 	
 	<%@include file = "footer.jsp" %>

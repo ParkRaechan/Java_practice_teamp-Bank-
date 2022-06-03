@@ -1,21 +1,26 @@
 
+let rand = null;
+
 function makeSignature(){
 	alert("통신2"); //통신
 	
 	let phonenum = $("#phonenum").val();
 	
-	$.ajax({ //안으로 안 들어옴
-		url : 'makeSignature',
+	$.ajax({ //폰번호를 받아서 그 번호로 문자 발송 성공
+		url : '/jigmBank/makeSignature',
 		data : { "phonenum" : phonenum } ,
 		success : function(re){
-			alert("통신"+re); //안들어옴
-			
+			rand = re; 
 		}
 	});
-};
+}
 
 /////	비동기	메인에서	띄우기	/////
 function pagechange( page ){
 	$("#mainbox").load( "acount/"+page+".jsp");
 };
+
+function make2(){
+	if( rand == $("#phonenum2").val() ){ alert("통신성공"); }
+}
 

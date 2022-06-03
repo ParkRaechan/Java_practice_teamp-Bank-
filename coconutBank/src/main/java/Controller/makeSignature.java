@@ -29,7 +29,6 @@ public class makeSignature extends HttpServlet {
 		String phonenum = request.getParameter("phonenum");
 		int rand = (int)(Math.random() * (99999 - 10000 + 1)) + 10000;
 		
-		
 		String api_key = "NCSDEAGBJ6JLD1GV";
 	    String api_secret = "H3S6CEOSGQ9VEAH4FSBWO33F5E2VWUBV";
 	    Message coolsms = new Message(api_key, api_secret);
@@ -45,14 +44,19 @@ public class makeSignature extends HttpServlet {
 	    try {
 	      JSONObject obj = (JSONObject) coolsms.send(params);
 	      System.out.println(obj.toString());
+	      
 	    } catch (CoolsmsException e) {
 	      System.out.println(e.getMessage());
 	      System.out.println(e.getCode());
-	    }	}
+	    }	
+	    
+	    response.getWriter().print( rand );
+	}
+	
+	
+	
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
