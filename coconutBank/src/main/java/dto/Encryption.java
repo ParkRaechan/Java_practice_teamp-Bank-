@@ -18,22 +18,10 @@ public class Encryption {
 		
 	// **키 생성
 	public String keyplus(String acno, String pw) {
-		System.out.println("메소드에서"+acno);
-		System.out.println("메소드에서"+pw);
 		String password1 = acno.replace("-", "")+pw;
-		System.out.println("메소드에서"+password1);
 		long password2 = Long.parseLong(password1);
-		System.out.println("메소드에서"+password2);
-		long password3 = password2/19941218;
-		System.out.println("메소드에서"+password3);
+		long password3 = password2%19941218;
 		String keypw = Long.toString(password3);
-		String no = "112340227231";
-		String pww = "1234";
-		String nopw = no+pww;
-		System.out.println("서블릿테스트:"+nopw);
-		long nopw2 = Long.parseLong(nopw);
-		long nopw3 = nopw2/19941218;
-		System.out.println("서블릿테스트 : "+nopw3);
 		return keypw;
 	} // 키 end
 	

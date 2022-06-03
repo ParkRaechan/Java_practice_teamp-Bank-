@@ -11,7 +11,7 @@
 
 
 <div class="container">
-	<div class="row "> <!-- 계좌번호 입력 -->
+	<div class="row"> <!-- 계좌번호 입력 -->
 		<div class="col-md-4 ">
 			<span> 계좌번호 </span>
 		</div>
@@ -20,7 +20,7 @@
 		</div>
 	</div>
 	
-	<div class="row "> <!-- 계좌비밀번호 입력 -->
+	<div class="row" id="acpw"> <!-- 계좌비밀번호 입력 -->
 		<div class="col-md-4 " >
 			<span> 계좌비번 </span>
 		</div>

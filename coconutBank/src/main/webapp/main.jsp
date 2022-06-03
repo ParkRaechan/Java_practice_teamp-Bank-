@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%@include file = "header.jsp" %>
-
+	
 	캐러셀 넣는곳
 	
 	<%@include file = "footer.jsp" %>

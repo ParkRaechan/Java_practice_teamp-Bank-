@@ -39,16 +39,13 @@ public class accountcheck extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String accountno = request.getParameter("accountno");
 		String inputpw = request.getParameter("accountpw");
-		System.out.println("서블릿에서"+inputpw);
 		
 		// 패스워드+키 추가
-		String keypw = Encryption.getEncryption().keyplus(accountno, inputpw);
+		String keypw = Encryption.getEncryption().keyplus(accountno, inputpw);	
 		// 비밀번호 암호화
 		String hexpw = Encryption.getEncryption().sha256(keypw);
-		System.out.println("서블릿에서"+hexpw);
 		// 회원번호 출력
 		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
-		System.out.println("서블릿에서"+acidno);
 		
 		// 계좌비밀번호 확인
 		boolean result = AccountDao.getaccAccountDao().passwordcheck(acidno, hexpw);
