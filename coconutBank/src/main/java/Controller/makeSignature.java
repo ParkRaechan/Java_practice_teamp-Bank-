@@ -26,6 +26,10 @@ public class makeSignature extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String phonenum = request.getParameter("phonenum");
+		int rand = (int)(Math.random() * (99999 - 10000 + 1)) + 10000;
+		
+		
 		String api_key = "NCSDEAGBJ6JLD1GV";
 	    String api_secret = "H3S6CEOSGQ9VEAH4FSBWO33F5E2VWUBV";
 	    Message coolsms = new Message(api_key, api_secret);
@@ -33,9 +37,9 @@ public class makeSignature extends HttpServlet {
 	    // 4 params(to, from, type, text) are mandatory. must be filled
 	    HashMap<String, String> params = new HashMap<String, String>();
 	    params.put("to", "01041487895");
-	    params.put("from", "01041487895");
+	    params.put("from", phonenum);
 	    params.put("type", "SMS");
-	    params.put("text", "인증번호는 asd입니다. 1분 안에 입력 해주세요.");
+	    params.put("text", "인증번호는 "+rand+"입니다. 1분 안에 입력 해주세요.");
 	    params.put("app_version", "test app 1.2"); // application name and version
 
 	    try {

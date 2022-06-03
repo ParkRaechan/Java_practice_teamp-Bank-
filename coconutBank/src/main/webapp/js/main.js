@@ -2,8 +2,11 @@
 function makeSignature(){
 	alert("통신2"); //통신
 	
+	let phonenum = $("#phonenum").val();
+	
 	$.ajax({ //안으로 안 들어옴
 		url : 'makeSignature',
+		data : { "phonenum" : phonenum } ,
 		success : function(re){
 			alert("통신"+re); //안들어옴
 			

@@ -10,14 +10,21 @@
 	<%@include file = "header.jsp" %>
 
  	<form action="">
-		전화번호 <input type="text"> <!-- 입력값 받아서 서블릿의 from으로 옮김 --> <br>
+		전화번호 <input type="text" id="phonenum"> <!-- 입력값 받아서 서블릿의 from으로 옮김 --> <br>
 	
 		인증번호 (1분 안에 입력 바랍니다.)
 		<button onclick="makeSignature()">발송</button> <br>
 		인증번호 입력 <input type="text"> <!-- 여기에 카운트다운 -->
 		<button>확인</button>
 	</form>
+	
 	<%@include file = "footer.jsp" %>
+	
+	
+	
+	
+	
+	
 <script type="text/javascript" src="./CryptoJS/rollups/hmac-sha256.js"></script>
 <script type="text/javascript" src="./CryptoJS/components/enc-base64.js"></script>
 <!-- 사용자 정의 js -->
