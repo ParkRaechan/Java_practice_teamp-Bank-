@@ -14,21 +14,22 @@
 </head>
 <body>
 	<div class="py-4">
-			<div class="row col-md-12"> <!-- row : 가로배치 -->
-				<div class="col-md-4 offset-4"> <!-- offset 공백그리드 -->
-					<ul class="nav"> <!-- nav : li 가로배치  -->
-						<li><a href="#" onclick="pagechange('otpin')">OTP발생</a></li>
-					</ul>
-				</div>
+
+		<div class="row col-md-12"> <!-- row : 가로배치 -->
+			<div class="col-md-4 offset-4"> <!-- offset 공백그리드 -->
+				<ul class="nav"> <!-- nav : li 가로배치  -->
+					<li><a href="#" onclick="pagechange('otpin')">OTP발생</a></li>
+				</ul>
 			</div>
 		</div>
+	</div>
 	<div class="container">
 		<div class="container" id="mainbox">
 			<h3><br><br><br><br><br></h3><br> 
 		</div>
 	</div>
 	
-		<script src="/jigmBank/js/main.js"type="text/javascript"></script>
+		<script src="/jigmBank/js/firewall.js"type="text/javascript"></script>
 		<!-- 부트스트랩 js cdn -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 		<!-- jquery 최신 cdn -->

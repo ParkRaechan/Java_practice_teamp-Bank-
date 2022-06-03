@@ -9,6 +9,9 @@
 <body>
 	<h3>보안생성</h3>
 	<div class="container">
+	  <div class="row row-cols-7 offset-5" id="billboard">
+
+	  </div>
 	  <div class="row row-cols-3" id="box">
 
 	  </div>

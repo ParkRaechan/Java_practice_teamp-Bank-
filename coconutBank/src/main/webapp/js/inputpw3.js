@@ -17,13 +17,13 @@ function boxview3(){	//comment키패드 쓰임새 설명
 		let renum = Math.floor(Math.random() * 10);
 		if(t==0){bxx[0]=renum;}
 		else{
-			let i;
-			for(i=0; i<t; i++){
-				if(renum==bxx[i]){
+			let iii;
+			for(iii=0; iii<t; iii++){
+				if(renum==bxx[iii]){
 					renum = Math.floor(Math.random() * 10);
-					i=-1;
+					iii=-1;
 				}
-				else if(i==t-1){
+				else if(iii==t-1){
 					bxx[t]=renum;
 				}
 				else{
@@ -36,15 +36,57 @@ function boxview3(){	//comment키패드 쓰임새 설명
 /////////////랜덤배열 버튼만들기/////////////
 
 	let bxb = '<div></div><div></div><div></div>';
-	let ii;
-	for(ii=0; ii<10; ii++ ){
-		if(ii==9){
-			bxb += '<button class="btn btn-success" onclick="removeone()"><-</button>';
+	let iiii;
+	for(iiii=0; iiii<10; iiii++ ){
+		if(iiii==9){
+			bxb += '<button class="btn btn-success" onclick="removeone3()"><-</button>';
 		}
-		bxb += '<button class="btn btn-success" onclick="clickpw('+bxx[ii]+')">'+bxx[ii]+'</button>';
+		bxb += '<button class="btn btn-success" onclick="clickpw3('+bxx[iiii]+')">'+bxx[iiii]+'</button>';
 	}
-	bxb += '<button type="button" class="btn btn-success" onclick="checkpw()">확인</button>';
+	bxb += '<button type="button" class="btn btn-success" onclick="checkpw3()">확인</button>';
 	$("#box").html(bxb);
 /////////////////////////////////////////
 }
 
+///키패드 이동 관련 선언
+let ttt3 = 0;
+let pwt31 = 0;	let pww31 = '';//OTP비번
+
+
+///키패드 입력
+function clickpw3( num ){
+		if(ttt3==0){//보내는 계좌 비번 입력
+			pww31 += num;pwt31++;
+			////입력값 표시/////
+			let bbb = '<div>'+pww31+'</div>';
+			$("#billboard").html(bbb);	
+		}
+}
+
+//키패드 입력1 지우기
+function removeone3(){
+	if(ttt3==0){
+		if(pwt31>0){
+			pww31 = pww31.slice(0, -1);
+			pwt31--;
+			////입력값 표시/////
+			let bbb = '<div>'+pww31+'</div>';
+			$("#billboard").html(bbb);	
+		}
+	}
+}
+
+//비번보관 실행
+function checkpw3(){
+	checkpw000();
+}
+
+
+//비번임시보관
+function checkpw000(){
+	if(ttt3==1){
+		////입력값 표시/////
+		let bbb = '<div></div>';
+		$("#billboard").html(bbb);
+	}
+}

@@ -9,6 +9,9 @@
 <body>
 	<h3>OTP보안사용이체</h3>
 	<div class="container">
+	  <div class="row row-cols-7 offset-5" id="billboard">
+
+	  </div>
 	  <div class="row row-cols-3" id="box">
 
 	  </div>

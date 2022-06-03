@@ -58,21 +58,31 @@ let pwt3 = 0;	let pww3 = '';//계좌비번
 let accnumr;
 ////
 
+
 ///키패드 입력
 function clickpw( num ){
 	if(pwt <= 5){	//ttt로 구분한 OTP,확인,계좌 로직
 		if(ttt==0){//OTP비번처음입력
-			pww += num;alert(pww);pwt++;
+			pww += num;pwt++;
+			////입력값 표시/////
+			let bbb = '<div>'+pww+'</div>';
+			$("#billboard").html(bbb);
 		}	
 	}
 	else if(pwt2 <= 5){
 		if(ttt==1){//OTP비번확인입력
-			pww2 += num;alert(pww2);pwt2++;
+			pww2 += num;pwt2++;
+			////입력값 표시/////
+			let bbb = '<div>'+pww2+'</div>';
+			$("#billboard").html(bbb);
 		}	
 	}
 	else if(pwt3 <=3){
 		if(ttt==2){//계좌비번입력
-			pww3 += num;alert(pww3);pwt3++;
+			pww3 += num;pwt3++;
+			////입력값 표시/////
+			let bbb = '<div>'+pww3+'</div>';
+			$("#billboard").html(bbb);
 		}	
 	}
 }
@@ -84,21 +94,27 @@ function removeone(){
 		if(pwt>0){
 			pww = pww.slice(0, -1);
 			pwt--;
-			alert(pww);		
+			////입력값 표시/////
+			let bbb = '<div>'+pww+'</div>';
+			$("#billboard").html(bbb);
 		}
 	}
 	else if(ttt==1){
 		if(pwt2>0){
 			pww2 = pww2.slice(0, -1);
 			pwt2--;
-			alert(pww2);		
+			////입력값 표시/////
+			let bbb = '<div>'+pww2+'</div>';
+			$("#billboard").html(bbb);	
 		}
 	}
 	else if(ttt==2){
 		if(pwt3>0){
 			pww3 = pww3.slice(0, -1);
 			pwt3--;
-			alert(pww3);		
+			////입력값 표시/////
+			let bbb = '<div>'+pww3+'</div>';
+			$("#billboard").html(bbb);	
 		}
 	}
 }
@@ -124,7 +140,9 @@ function checkpw0(){
 			com = '<h2>OTP의 비밀번호를 한번더 입력해 확인해주십시요.</h2>';
 			$("#comment").html(com);
 			/////////
-			
+			////입력값 표시/////
+			let bbb = '<div></div>';
+			$("#billboard").html(bbb);
 			alert("비밀번호를 한번더 입력하여 비밀번호확인을 진행해주십시오.");
 		}else{alert("6자리 모두 입력해주시길 바랍니다.");}
 		
@@ -133,7 +151,9 @@ function checkpw0(){
 			if(pww2==pww){
 				
 				alert("일치");
-				
+				////입력값 표시/////
+				let bbb = '<div></div>';
+				$("#billboard").html(bbb);
 				
 				////////////////////
 				//////키패드리뉴얼/////
@@ -235,7 +255,9 @@ function checkaccpw(pww3,accnumr){
 				alert("정보가 일치합니다.~문자보냄");
 				
 				
-				
+				////입력값 표시/////
+				let bbb = '<div></div>';
+				$("#billboard").html(bbb);
 				
 				////////////////////
 				//////키패드리뉴얼/////

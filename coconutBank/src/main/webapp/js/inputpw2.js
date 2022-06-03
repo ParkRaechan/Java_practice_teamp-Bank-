@@ -103,8 +103,6 @@ function keycheck2(){
 ///키패드 이동 관련 선언
 let ttt2 = 0;
 let pwt21 = 0;	let pww21 = '';//OTP비번
-//let pwt22 = 0;	let pww22 = '';//OTP비번확인
-//let pwt23 = 0;	let pww23 = '';//계좌비번
 
 ////++++추가) 계좌번호 선언
 let accnumr;
@@ -182,7 +180,10 @@ function boxview2(){	//comment키패드 쓰임새 설명
 function clickpw2( num ){
 	if(pwt21 <= 3){	//ttt로 구분한 OTP,확인,계좌 로직
 		if(ttt2==1){//보내는 계좌 비번 입력
-			pww21 += num;alert(pww21);pwt21++;
+			pww21 += num;pwt21++;
+			////입력값 표시/////
+			let bbb = '<div>'+pww21+'</div>';
+			$("#billboard").html(bbb);	
 		}	
 	}
 	/* //전코드
@@ -205,7 +206,9 @@ function removeone2(){
 		if(pwt21>0){
 			pww21 = pww21.slice(0, -1);
 			pwt21--;
-			alert(pww21);		
+			////입력값 표시/////
+			let bbb = '<div>'+pww21+'</div>';
+			$("#billboard").html(bbb);	
 		}
 	}
 	/* //전코드
@@ -237,6 +240,9 @@ function checkpw2(){
 function checkpw00(){
 	if(ttt2==1){
 		if(pww21.length==4){
+			////입력값 표시/////
+				let bbb = '<div></div>';
+				$("#billboard").html(bbb);
 			checkaccpw2(pww21,achostno,acguestno);
 			
 		}else{alert("4자리 모두 입력해주시길 바랍니다.");}
