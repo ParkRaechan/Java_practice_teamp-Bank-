@@ -7,19 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AccountDao;
+import dao.OtpDao;
 
 /**
- * Servlet implementation class checkaccpw
+ * Servlet implementation class putrand
  */
-@WebServlet("/checkaccpw")
-public class checkaccpw extends HttpServlet {
+@WebServlet("/putrand")
+public class putrand extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public checkaccpw() {
+    public putrand() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,8 @@ public class checkaccpw extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -37,11 +38,17 @@ public class checkaccpw extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
-			String pww3 = request.getParameter("pww3");
-			String accnumr = request.getParameter("accnumr");
+			String r1 = request.getParameter("r1");
+			String r2 = request.getParameter("r2");
+			String r3 = request.getParameter("r3");
+			String r4 = request.getParameter("r4");
+			String r5 = request.getParameter("r5");
+			String r6 = request.getParameter("r6");
+			String otpno = request.getParameter("otpno");
+			boolean result = OtpDao.getOtpDao().putrand(otpno,r1,r2,r3,r4,r5,r6);
 			
-			int result = AccountDao.getAccountDao().checkaccpw(pww3, accnumr);
-			if(result==1) {
+			
+			if(result) {
 				response.getWriter().print(1);
 			}else {
 				response.getWriter().print(2);

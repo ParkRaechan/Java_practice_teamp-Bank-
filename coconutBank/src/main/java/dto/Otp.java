@@ -8,6 +8,12 @@ public class Otp {
 	private String otpactive;
 	
 	public Otp() {}
+	
+	public Otp(String otpno, String otpactive) {
+		super();
+		this.otpno = otpno;
+		this.otpactive = otpactive;
+	}
 
 	public Otp(String otpno, String otppw, String acno, String otpactive) {
 		super();

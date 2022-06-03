@@ -368,7 +368,6 @@ function OO(){
 		timeLimit -= 1;
 	
 		if(timeLimit < -1) {
-			alert("시간초과");
 			timerObj = setInterval(callTimer, 1000);
 			clearInterval(timerObj);
 			timeLimit = timeLimitValue;
