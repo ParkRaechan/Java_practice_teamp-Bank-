@@ -12,7 +12,7 @@ function accountcheck(){
 		success : function(result){
 			if(result == 1){
 				alert("해당계좌확인");
-				addsccard();
+				$("#sccardpwview").css("display","block");
 			}else{ 
 				alert("비밀번호불일치"+(index+1)+"회/3회");
 				index++;
@@ -61,7 +61,6 @@ function boxran(){
 
 // 보안카드생성
 function addsccard(){
-	$("#sccardpw").css("display","block");
 	let secno = secnoran(10); 	// 보안카드 일련번호 난수
 	let scbox = boxran();		// 보안카드 박스 난수
 	let accountno = $("#accountno").val();

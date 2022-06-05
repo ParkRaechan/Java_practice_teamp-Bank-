@@ -33,9 +33,9 @@
 	</div>
 	
 	<!-- 보안카드생성 test -->
-	<div style="display: none">
+	<div id="sccardpwview" style="display: none">
 		<input id="sccardpw" class="form-control" type="text" placeholder="보안카드 비밀번호" maxlength="6">
-		<button class="form-control" type="button" onclick="add()" >확인</button> 
+		<button class="form-control" type="button" onclick="addsccard()" >생성</button> 
 	</div>
 	
 </div>
