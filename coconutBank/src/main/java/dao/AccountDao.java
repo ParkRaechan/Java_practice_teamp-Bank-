@@ -69,6 +69,16 @@ public class AccountDao extends Dao {
 		return 0;
 	} // 계좌식별번호출력 end
 	
+	// 계좌상태 잠금 메소드
+	public boolean activechange(String acno) {
+		String sql = "update account set acactive ='" +"사용불가"+"'"+ "where acno ='" +acno+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+		}catch (Exception e) {System.out.println("계좌상태잠금오류"+e);}
+		return false;
+	} // 계좌잠금 end
 	
 
 

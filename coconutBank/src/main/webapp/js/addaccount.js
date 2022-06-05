@@ -40,6 +40,16 @@ $(function(){
 	
 }); // 문서열리면 실행 end
 
+// 계좌번호 난수생성
+function acnoran(){
+	let ran = "112";
+	for(let i = 0; i<11; i++){
+		ran += Math.floor(Math.random()*10)
+	} // for end
+	let acran = ran.slice(0,3)+"-"+ran.slice(4,7)+"-"+ran.slice(8,14);
+	return acran;
+} // 계좌번호난수생성 end
+
 
 
 // 예금주, 생년월일, 전화번호 작성완료
@@ -50,9 +60,10 @@ function next(){
 	} // for end
 	if(check){
 		$("#addcount").css("display", "block");
-		let accountno = "112-"+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+"-"+
-					Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+
-					Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10);
+//		let accountno = "112-"+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+"-"+
+//					Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+
+//					Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10);
+		let accountno = acnoran();
 		alert(accountno);
 		$.ajax({
 			url : "/jigmBank/account/accountnocheck",

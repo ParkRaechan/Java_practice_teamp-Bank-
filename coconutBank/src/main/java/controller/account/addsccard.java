@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.AccountDao;
-import dto.Encryption;
+import dao.SccardDao;
+import dto.Securitycard;
 
 /**
- * Servlet implementation class accountcheck
+ * Servlet implementation class addsccard
  */
-@WebServlet("/account/accountcheck")
-public class accountcheck extends HttpServlet {
+@WebServlet("/account/addsccard")
+public class addsccard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public accountcheck() {
+    public addsccard() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,26 +38,22 @@ public class accountcheck extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String accountno = request.getParameter("accountno");
-		String inputpw = request.getParameter("accountpw");
-		System.out.println(accountno);
-		// 패스워드+키 추가
-		String keypw = Encryption.getEncryption().keyplus(accountno, inputpw);	
-		// 비밀번호 암호화
-		String hexpw = Encryption.getEncryption().sha256(keypw);
-		// 회원번호 출력
+		String secno = request.getParameter("secno");
+		String scbox = request.getParameter("scbox");
+			String accountno = request.getParameter("accountno");
 		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
+		String sccardpw = request.getParameter("sccardpw");
 		
-		// 계좌비밀번호 확인
-		boolean result = AccountDao.getaccAccountDao().passwordcheck(acidno, hexpw);
-		
+		// 객체화
+		Securitycard securitycard = new Securitycard(secno, scbox, sccardpw, "사용가능", acidno);
+		// DB 추가
+		boolean result = SccardDao.getscSccardDao().addsccard(securitycard);
 		// 결과
-		if(result) { // 결과값이 존재하면
+		if(result) {
 			response.getWriter().print(1);
-		}else { // 결과값이 존재하지 않으면 -> 비밀번호 불일치
+		}else {
 			response.getWriter().print(2);
-		}
-	
+		} // else end
 	}
 
 }
