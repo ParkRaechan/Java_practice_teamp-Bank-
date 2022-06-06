@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.AccountDao;
 import dao.SccardDao;
+import dto.Securitycard;
 
 /**
  * Servlet implementation class getsccard
@@ -33,7 +34,8 @@ public class getsccard extends HttpServlet {
 		
 		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
 		
-		SccardDao.getscSccardDao().getsccard(acidno);
+		Securitycard sccard = SccardDao.getscSccardDao().getsccard(acidno);
+		response.getWriter().print(sccard);
 	}
 
 	/**
