@@ -83,6 +83,4 @@ function addsccard(){
 		} // success end
 	}); // ajax end
 	
-	
 } // 보안카드 생성 end
-
