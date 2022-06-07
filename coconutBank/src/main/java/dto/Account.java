@@ -10,13 +10,14 @@ public class Account {
 	private String acphone;
 	private int acbalance;
 	private String acactive;
+	private String secno;
 
 	
 	public Account() {}
 
 
 	public Account(int acidno, String acno, String acpw, String acname, String acbirth, String acphone, int acbalance,
-			String acactive) {
+			String acactive, String secno) {
 		super();
 		this.acidno = acidno;
 		this.acno = acno;
@@ -26,6 +27,7 @@ public class Account {
 		this.acphone = acphone;
 		this.acbalance = acbalance;
 		this.acactive = acactive;
+		this.secno = secno;
 	}
 
 
@@ -109,11 +111,21 @@ public class Account {
 	}
 
 
-	// 테스트용
+	public String getSecno() {
+		return secno;
+	}
+
+
+	public void setSecno(String secno) {
+		this.secno = secno;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Account [acidno=" + acidno + ", acno=" + acno + ", acpw=" + acpw + ", acname=" + acname + ", acbirth="
-				+ acbirth + ", acphone=" + acphone + ", acbalance=" + acbalance + ", acactive=" + acactive + "]";
+				+ acbirth + ", acphone=" + acphone + ", acbalance=" + acbalance + ", acactive=" + acactive + ", secno="
+				+ secno + "]";
 	}
 	
 

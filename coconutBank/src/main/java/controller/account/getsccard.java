@@ -34,8 +34,8 @@ public class getsccard extends HttpServlet {
 		
 		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
 		
-		Securitycard sccard = SccardDao.getscSccardDao().getsccard(acidno);
-		response.getWriter().print(sccard);
+//		Securitycard sccard = SccardDao.getscSccardDao().getsccard(acidno);
+//		response.getWriter().print(sccard);
 	}
 
 	/**

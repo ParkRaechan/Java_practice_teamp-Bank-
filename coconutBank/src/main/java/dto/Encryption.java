@@ -18,15 +18,19 @@ public class Encryption {
 		
 	// ** 비밀번호 키 생성
 	public String keyplus(String acno, String pw) {
-		String password1 = acno.replace("-", "")+pw;
+		String password1 = acno+pw;
 		long password2 = Long.parseLong(password1);
 		long password3 = password2%19941218;
 		String keypw = Long.toString(password3);
 		return keypw;
 	} // 키 end
 	
-	public String nokeyplus() {
-		
+	// 보안카드 or OTP 일련번호 키 생성
+	public String nokeyplus(String no) {
+		long lno = Long.parseLong(no);
+		long kno = lno%2002;
+		String keyno = Long.toString(kno);
+		return keyno;
 	}
 	
 	// SHA256 해시함수 사용 메소드

@@ -51,8 +51,8 @@ function boxran(){
 			box[j] += Math.floor(Math.random()*10)
 		} // for end
 	} // for end
-	alert(box);
-	return box;
+	return box.toString();
+	
 } // 보안박스난수생성 end
 
 /*
@@ -75,7 +75,7 @@ function secnocheck(ran){
 
 // 보안카드생성
 function addsccard(){
-	let secno = secnoran()  	// 보안카드 일련번호 난수
+	let secno = secnoran();  	// 보안카드 일련번호 난수
 	let scbox = boxran();		// 보안카드 박스 난수
 	let accountno = $("#accountno").val();
 	let sccardpw = $("#sccardpw").val();
@@ -87,7 +87,10 @@ function addsccard(){
 		data : {"secno" : secno, "scbox" : scbox, "accountno" : accountno, "sccardpw" : sccardpw},
 		success : function(result){
 			if(result == 1){
-				alert("보안카드생성이 완료되었습니다.");
+				alert("보안카드일련번호 중복");
+				// 보안카드번호 중복시 다시 난수생성 받아서 처리해야함
+			}else if(result == 2){
+				alert("보안카드생성완료");
 				location.href="/jigmBank/main.jsp";
 			}else{
 				alert("보안카드생성실패(관리자에게문의)");

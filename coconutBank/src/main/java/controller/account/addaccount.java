@@ -44,16 +44,17 @@ public class addaccount extends HttpServlet {
 		String birth = request.getParameter("birth");
 		String phone = request.getParameter("phone");
 		String accountno = request.getParameter("accountno");
+			String acno = accountno.replace("-", ""); 
 		int balance = Integer.parseInt(request.getParameter("balance"));
 		String inputpw = request.getParameter("accountpw");
 		
 		// 패스워드+키 추가
-		String keypw = Encryption.getEncryption().keyplus(accountno, inputpw);
+		String keypw = Encryption.getEncryption().keyplus(acno, inputpw);
 		// 비밀번호 암호화(DB저장 비밀번호)
 		String dbpw = Encryption.getEncryption().sha256(keypw);
 		
 		// 객체화
-		Account account = new Account(0, accountno, dbpw, accounthost, birth, phone, balance, "사용가능");
+		Account account = new Account(0, accountno, dbpw, accounthost, birth, phone, balance, "사용가능", "null");
 		boolean result = AccountDao.getaccAccountDao().addaccount(account);
 		// 결과
 		if(result) {

@@ -80,6 +80,17 @@ public class AccountDao extends Dao {
 		return false;
 	} // 계좌잠금 end
 	
+	// 6. 보안카드 생성시 일련번호 추가
+	public boolean addsecno(int acidno, String secno) {
+		String sql = "update account set secno = '"+secno+"'"+ "where acidno ="+acidno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+		}catch (Exception e) {System.out.println("보안카드일련번호추가오류"+e);}
+		return false;
+	} // 보안카드일련번호 추가 end
+	
 
 
 
