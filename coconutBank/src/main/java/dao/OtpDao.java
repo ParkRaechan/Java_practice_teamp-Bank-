@@ -18,6 +18,7 @@ public class OtpDao extends Dao {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			if(rs.next()) {
+				System.out.println(rs.getString(3));
 				return rs.getString(3);
 			}
 		}
@@ -34,5 +35,5 @@ public class OtpDao extends Dao {
 		}catch (Exception e) { System.out.println( e ); }return false;
 	}
 
-
+	
 }

@@ -106,50 +106,19 @@ function checkpw000(){
 
 
 function checkotpyno(otpno){
-	/////otp랜덤생성//////
-	let r = random();
-	putrand(otpno,r[0],r[1],r[2],r[3],r[4],r[5]);
-	///////저장된 난수 빼오기////////
-	let rr = catchactive(otpno);
-	///////////////////
-	
-	let modal = 
-			'<!-- Button trigger modal -->'+
-		'<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">'+
-		  'Launch static backdrop modal'+
-		'</button>'+
-		'<!-- Modal -->'+
-		'<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">'+
-		  '<div class="modal-dialog">'+
-		    '<div class="modal-content">'+
-		      '<div class="modal-header">'+
-		        '<h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>'+
-		        '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>'+
-		      '</div>'+
-		      '<div class="modal-body">'+
-		        'otp - 60초 마다 바뀌는'+rr+'<div id="timein"></div>'
-		      '</div>'+
-		      '<div class="modal-footer">'+
-		        '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>'+
-		      '</div>'+
-		    '</div>'+
-		  '</div>'+
-		'</div>';
-
-		$("#box00").html(modal);
-		timeout();
+	timeout(otpno);
+	gear(otpno);
 
 }
 
 
 
 //시간재기
-function timeout(){
+function timeout(otpno){
 	const timeLimitValue = 60; // 1분 
 	var timeLimit = 60; 
 	var min, sec;
 	var timerObj = setInterval(callTimer, 1000);
-	callTimer(otpno);
 	// 1초 간격으로 함수 호출
 	
 	function callTimer(){
@@ -163,35 +132,15 @@ function timeout(){
 	
 		timeLimit -= 1;
 	
-		if(timeLimit < -1) {
+		if(timeLimit < 0) {
 			timerObj = setInterval(callTimer, 1000);
 			clearInterval(timerObj);
 			timeLimit = timeLimitValue;
+			gear(otpno);
 	 		return;
 	     }
 	}
 }
-
-//OTP난수 확인
-function catchactive(otpno){
-	$.ajax({
-		url : "/jigmBank/checkotpyno" ,
-		data : { "otpno" : otpno },
-		type : "POST",
-		success : function( result ){	/* 통신 성공시 받는 데이터 */
-			if( result != "false" ){  
-				alert("고유번호 존재");
-				alert(result);
-				return result;
-			}else{ 
-				alert("정보불일치");
-				return result;
-			}
-		}
-	});	
-	return result;
-}
-///////////////////
 
 
 //////////난수생성///
@@ -213,9 +162,9 @@ function putrand(otpno,r1,r2,r3,r4,r5,r6){
 		type : "POST",
 		success : function( result ){	/* 통신 성공시 받는 데이터 */
 			if( result != "false" ){  
-				
+				console.log(result);
 			}else{ 
-
+				console.log(result);
 			}
 		}
 	});	
@@ -228,8 +177,13 @@ function gear(otpno){
 	let r = random();
 	putrand(otpno,r[0],r[1],r[2],r[3],r[4],r[5]);
 	///////저장된 난수 빼오기////////
-	let rr = catchactive(otpno);
-	///////////////////
-	alert(rr);
-	return rr;
+	let rr = ''+r[0]+r[1]+r[2]+r[3]+r[4]+r[5];
+	let rr00 = '<div>'+rr+'</div>';
+	$("#box0000").html(rr00);
+}
+
+function gear2(otpno){
+	let rr = gear(otpno);
+	let rr00 = '<div>'+rr+'</div>';
+	$("#box0000").html(rr00);
 }

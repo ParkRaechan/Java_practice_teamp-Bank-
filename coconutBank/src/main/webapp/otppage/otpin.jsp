@@ -31,6 +31,12 @@
 	  <div class="row row-cols-12" id="box00">
 	  	
 	  </div>
+	  <div id="box0000">
+	  	
+	  </div>
+	  <div id="timein">
+	  	
+	  </div>
 	</div>
 	<script src="/jigmBank/js/inputpw3.js" type="text/javascript"></script>
 	

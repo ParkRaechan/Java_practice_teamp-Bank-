@@ -7,20 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AccountDao;
-import dao.OtpDao;
+import dao.TransferDao;
 
 /**
- * Servlet implementation class checkotpyno
+ * Servlet implementation class transferlast
  */
-@WebServlet("/checkotpyno")
-public class checkotpyno extends HttpServlet {
+@WebServlet("/transferlast")
+public class transferlast extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public checkotpyno() {
+    public transferlast() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,18 +38,20 @@ public class checkotpyno extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
-			String otpno = request.getParameter("otpno");
-			String result = OtpDao.getOtpDao().otpac(otpno);
+			String accnumr1 = request.getParameter("accnumr1");
+			String accnumr2 = request.getParameter("accnumr2");
+			String money = request.getParameter("money");
+			int result = TransferDao.gettranTransferDao().transferla(accnumr1, accnumr2,money);
 			
-			
-			if(result.equals("false")) {
-				response.getWriter().print("false");
+			if(result==1) {
+				response.getWriter().print(1);
 			}else {
-				response.getWriter().print(result);
+				response.getWriter().print(2);
 			}
 		}catch (Exception e) {
 			System.out.print(e);
 		}
 	}
+	
 
 }

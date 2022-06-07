@@ -28,12 +28,13 @@
 			<h3><br><br><br><br><br></h3><br> 
 		</div>
 	</div>
-	
+		
+		<!-- jquery 최신 cdn -->
+		<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+		
 		<script src="/jigmBank/js/firewall.js"type="text/javascript"></script>
 		<!-- 부트스트랩 js cdn -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-		<!-- jquery 최신 cdn -->
-		<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 		
 </body>
 </html>

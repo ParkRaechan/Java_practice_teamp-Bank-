@@ -103,9 +103,12 @@ function keycheck2(){
 ///키패드 이동 관련 선언
 let ttt2 = 0;
 let pwt21 = 0;	let pww21 = '';//OTP비번
+let pwt22 = 0;	let pww22 = '';
 
-////++++추가) 계좌번호 선언
-let accnumr;
+////++++추가) 계좌번호 선언, 금액선언
+let accnumr1;
+let accnumr2;
+let	money;
 ////
 
 
@@ -115,8 +118,11 @@ function accpw2(){
 		
 	//계좌번호 임시 저장//
 	achostno = $("#achostno").val();
+	accnumr1 = achostno;
 	acguestno = $("#acguestno").val();
+	accnumr2 = acguestno;
 	trfamount = $("#trfamount").val();
+	money = trfamount;
 	
 	////키패드 형태변환///
 	ttt2=1;
@@ -186,18 +192,15 @@ function clickpw2( num ){
 			$("#billboard").html(bbb);	
 		}	
 	}
-	/* //전코드
-	else if(pwt2 <= 5){
-		if(ttt==1){//OTP비번확인입력
-			pww2 += num;alert(pww2);pwt2++;
+	else if(pwt22 <=5){
+		if(ttt2==2){//보내는 계좌 비번 입력
+			pww22 += num;pwt22++;
+			////입력값 표시/////
+			let bbb = '<div>'+pww22+'</div>';
+			$("#billboard").html(bbb);	
 		}	
 	}
-	else if(pwt3 <=3){
-		if(ttt==2){//계좌비번입력
-			pww3 += num;alert(pww3);pwt3++;
-		}	
-	}
-	*/
+
 }
 
 //키패드 입력1 지우기
@@ -211,22 +214,15 @@ function removeone2(){
 			$("#billboard").html(bbb);	
 		}
 	}
-	/* //전코드
-	else if(ttt==1){
-		if(pwt2>0){
-			pww2 = pww2.slice(0, -1);
-			pwt2--;
-			alert(pww2);		
+	else if(ttt2==2){
+		if(pwt22>0){
+			pww22 = pww22.slice(0, -1);
+			pwt22--;
+			////입력값 표시/////
+			let bbb = '<div>'+pww22+'</div>';
+			$("#billboard").html(bbb);	
 		}
 	}
-	else if(ttt==2){
-		if(pwt3>0){
-			pww3 = pww3.slice(0, -1);
-			pwt3--;
-			alert(pww3);		
-		}
-	}
-	*/
 }
 
 
@@ -236,7 +232,7 @@ function checkpw2(){
 }
 
 
-//비번임시보관
+//키패드입력확인
 function checkpw00(){
 	if(ttt2==1){
 		if(pww21.length==4){
@@ -248,58 +244,66 @@ function checkpw00(){
 		}else{alert("4자리 모두 입력해주시길 바랍니다.");}
 		
 	}
-	/*	//전코드
-	else if(ttt==1){
-		if(pww21.length==6){
-			if(pww21==pww21){
-				
-				alert("일치");
-				
-				
-				////////////////////
-				//////키패드리뉴얼/////
-				bxb = '<div></div><div></div><div></div>';
-				$("#box").html(bxb);
-				////////////////////
-					
-					
-				
-				///////////////////
-				/////계좌번호입력/////
-				com='';$("#comment").html(com);
-				let acc = '<div></div>';
-				acc += '<h3>계좌번호입력</h3><br>'+
-				
-				'<input id="accnum" name="accnum" class="form-control"  placeholder="계좌번호" rows=3>'+
-				'<button class="form-control" type="button" onclick="accpw()">입력</button>'+
-				'<span id="acccheckspan" name="acccheckspan">유효성검사</span>';
-				
-				$("#accin").html(acc);
-				///////////////////
-				
-				
-					
-				////////////////////
-				//////유효성검사//////
-				keycheck();
-				////////////////////
-				
-			}
-			else{
-				alert("입력 비밀번호 불일치");
-			}
-		}else{
-			alert("6자리 모두 입력해주시길 바랍니다.");
-		}
-	}else if(ttt==2){
-		if(pww3.length==4){
-			/////계좌번호,계좌비번확인과정////
-		checkaccpw(pww3,accnumr);
-		}else{
-			alert("4자리 모두 입력해주시길 바랍니다.");
-		}
+	else if(ttt2==2){
+		if(pww22.length==6){
+			////입력값 표시/////
+				let bbb = '<div></div>';
+				$("#billboard").html(bbb);
+				finalcheck();
+		}else{alert("6자리 모두 입력해주시길 바랍니다.");}
+		
 	}
-	*/
+}
+
+
+//otp확인
+function finalcheck(){
+	alert("otp번호 확인중");
+	$.ajax({
+		url : "/jigmBank/finalotpconfirm" ,
+		data : { "accnumr" : accnumr1,"pww22":pww22},
+		type : "POST",
+		success : function( result ){	/* 통신 성공시 받는 데이터 */
+			if( result == 1 ){  
+				alert("일치");
+				transfer1();
+			}else{ 
+				alert("실패");
+			}
+		}
+	});	
+}
+
+//이체1-받는사람
+function transfer1(){
+	$.ajax({
+		url : "/jigmBank/transferready" ,
+		data : { "accnumr1" : accnumr1,"accnumr2":accnumr2 , "money":money},
+		type : "POST",
+		success : function( result ){	/* 통신 성공시 받는 데이터 */
+			if( result == 1 ){  
+				alert("이체준비완료");
+				transfer2();
+			}else{ 
+				alert("이체준비실패");
+			}
+		}
+	});	
+}
+//이체2-하는사람
+function transfer2(){
+	$.ajax({
+		url : "/jigmBank/transferlast" ,
+		data : { "accnumr1" : accnumr1,"accnumr2":accnumr2 , "money":money},
+		type : "POST",
+		success : function( result ){	/* 통신 성공시 받는 데이터 */
+			if( result == 1 ){  
+				alert("이체완료");
+			}else{ 
+				alert("이체실패");
+			}
+		}
+	});	
 }
 
 
@@ -316,23 +320,10 @@ function checkaccpw2(pww21,achostno,acguestno){
 				matchaccpw = true;
 				alert("정보일치");
 				
-				//////키패드리뉴얼/////
-				alert("성공");
-				let bxb = '<div></div><div></div><div></div>';
-				$("#box").html(bxb);
-				////////////////////
-				
-				com = '<br><br><br>'+
-					'<input id="otppw" name="otppw" class="form-control"  placeholder="OTP번호를 받아 입력해주시오." rows=3>'+
-					'<button class="form-control" type="button" onclick="otpconnfirm()">입력</button>'+
-					'<span id="otpspan" name="otpspan">유효성검사</span>';
-					
+				ttt2=2;
+				boxview2();
+				com = '<h2>1분마다 바뀌는 OTP 난수 입력바람</h2>';
 				$("#comment").html(com);
-				
-				//////유효성검사//////
-				key3check();
-				////////////////////
-				
 				/////OTP발생 팝업창///
 				popup();
 				///////////////////

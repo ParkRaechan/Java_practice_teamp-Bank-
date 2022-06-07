@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AccountDao;
 import dao.OtpDao;
+import dao.TransferDao;
 
 /**
- * Servlet implementation class checkotpyno
+ * Servlet implementation class finalotpconfirm
  */
-@WebServlet("/checkotpyno")
-public class checkotpyno extends HttpServlet {
+@WebServlet("/finalotpconfirm")
+public class finalotpconfirm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public checkotpyno() {
+    public finalotpconfirm() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,14 +39,14 @@ public class checkotpyno extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
-			String otpno = request.getParameter("otpno");
-			String result = OtpDao.getOtpDao().otpac(otpno);
+			String accnumr = request.getParameter("accnumr");
+			String pww22 = request.getParameter("pww22");
+			int result = TransferDao.gettranTransferDao().finalconfirm(accnumr, pww22);
 			
-			
-			if(result.equals("false")) {
-				response.getWriter().print("false");
+			if(result==1) {
+				response.getWriter().print(1);
 			}else {
-				response.getWriter().print(result);
+				response.getWriter().print(2);
 			}
 		}catch (Exception e) {
 			System.out.print(e);
