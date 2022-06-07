@@ -55,24 +55,6 @@ function boxran(){
 	
 } // 보안박스난수생성 end
 
-/*
-// 보안카드 일련번호 중복체크
-function secnocheck(ran){
-	$.ajax({
-		url : "/jigmBank/account/secnocheck",
-		data : {"secno" : ran},
-		success : function(result){
-			if(result == 1){
-				// 보안카드번호 중복시 다시 난수생성받아서 처리해야함
-			}else{
-				alert("보안카드 일련번호 생성!");
-				return result;
-			} // else end
-		} // success end
-	}); // ajax end
-}
-*/
-
 // 보안카드생성
 function addsccard(){
 	let secno = secnoran();  	// 보안카드 일련번호 난수
@@ -92,6 +74,8 @@ function addsccard(){
 			}else if(result == 2){
 				alert("보안카드생성완료");
 				location.href="/jigmBank/main.jsp";
+			}else if(result == 3){
+				alert("보안카드이미존재합니다.");
 			}else{
 				alert("보안카드생성실패(관리자에게문의)");
 				location.href="/jigmBank/main.jsp";

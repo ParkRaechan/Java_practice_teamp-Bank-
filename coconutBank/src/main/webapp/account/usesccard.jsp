@@ -23,10 +23,54 @@
 		<input type="radio" name="transfer" value="sccard"> 보안카드
 	</div>
 	
-	<div>
-		<button class="form-control" type="button" onclick="transfer()">이체</button>
+	<div>												<!-- onclick="transfer()" -->
+		<button class="form-control" type="button" onclick="ran()">이체</button>
 	</div>
-
+	
+	<!-- 보안카드사용 -->
+	<div class="container" style="border: solid 1px #999999; width: 500px;">
+		<div class="row"> <!-- 로고 & 일련번호 -->
+			<div class="col-md-4">지금은행</div>
+			<div class="col-md-4 offset-4">No. **********</div>
+		</div>
+		<div class="row"> <!-- 보안카드 박스 -->	
+			<%
+				for(int i = 0; i<30; i++){
+					if(i%6 == 0){
+			%>
+					<div class="col-md-2">
+						<div class="row">
+							<span class="col-md-6"><%=i+1 %></span>
+							<span class="col-md-6">****</span>
+						</div>
+					</div>
+			<% 		}else{%>
+						
+			<% 		} 
+				}%>	
+	
+		</div>
+	</div>
+	
+	<!-- 사용자 입력부분ㅌ -->
+	<div class="container" style="border: solid 1px #999999; width: 500px;">
+		<div class="row"> <!-- 첫번째 칸 -->
+			<div class="col-md-8"> <!-- 숫자입력부분 -->
+				<input type="text">●●
+			</div>
+			<div class="col-md-4" id="ranbox1">
+				<span>[13] 앞의 두자리</span>
+			</div>
+		</div>
+		<div class="row"> <!-- 두번째 칸 -->
+			<div class="col-md-8"> <!-- 숫자입력부분 -->
+				●●<input type="text">
+			</div>
+			<div class="col-md-4" id="ranbox1">
+				<span>[27] 뒤의 두자리</span>
+			</div>
+		</div>
+	</div>
 
 <!-- 사용자정의 js -->
 <script src="/jigmBank/js/usesccard.js" type="text/javascript"></script>
