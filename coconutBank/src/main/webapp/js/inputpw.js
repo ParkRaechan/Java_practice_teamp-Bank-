@@ -220,9 +220,8 @@ function keycheck(){
 function accpw(){
 	if(pass == true){
 		
-	//계좌전호 임시 저장//
+	//계좌번호 저장//
 	accnumr = $("#accnum").val();
-
 	////키패드 형태변환///
 	ttt=2;
 	
@@ -252,10 +251,8 @@ function checkaccpw(pww3,accnumr){
 		type : "POST",
 		success : function( result ){	/* 통신 성공시 받는 데이터 */
 			if( result == 1 ){  
-				alert("정보가 일치합니다.~문자보냄");
 				
-				
-				////입력값 표시/////
+				////입력값 표시 리뉴얼/////
 				let bbb = '<div></div>';
 				$("#billboard").html(bbb);
 				
@@ -264,45 +261,8 @@ function checkaccpw(pww3,accnumr){
 				bxb = '<div></div><div></div><div></div>';
 				$("#box").html(bxb);
 				////////////////////
-					
-					
-				
-				///////////////////
-				/////인증번호입력/////
-				com='';$("#comment").html(com);
-				let acc = '<div></div>';
-				acc += 
-				'<form action="">'+
-				'전화번호 <input type="text">'+
-				'인증번호 (1분 안에 입력 바랍니다.)'+
-				'<button onclick="makeSignature()">발송</button> <br>'+
-				'인증번호 입력 <input type="text">'+
-				'<button>확인</button>'+
-				'</form>';
-				
-				$("#accin").html(acc);
-				//////////////////////
-				random();
-				OO();
-				
-				
-				///////////////////
-				//setTimeout(function() {
-				//  alert("시간다됨");
-				//}, 3000);
-				//3초
-					
-					
-				//입력성공시 시간 초기화
-				//clearTimeout(myTimer);
-				
-				
-				////////////////////
-				//////유효성검사//////
-				keycheck();
-				////////////////////
-				
-				
+				checkphonenum(accnumr);
+
 			}else{ 
 				alert("해당정보가 틀렸습니다.");
 			}
@@ -313,42 +273,66 @@ function checkaccpw(pww3,accnumr){
 
 /////////////문자api js////
 function makeSignature(){
-	alert("통신2"); //통신
+	alert("js연결"); //통신
+	let phonenum = $("#phonenum").val();
+	timeout(phonenumber);
 	
-	$.ajax({ //안으로 안 들어옴
-		url : 'makeSignature',
-		success : function(re){
-			alert("통신"+re); //안들어옴
-			
-		}
-	});
-};
+	//문자보내기api적용
+//	$.ajax({ //안으로 안 들어옴
+//		url : 'makeSignature',
+//		data : { "phonenum" : phonenum } ,
+//		success : function(re){
+//			alert("통신"+re); //안들어옴	
+//			
+//		}
+//	});
+
+}	
 ////////////////////////
 
 
 
+/////전번변수선언
+let phonenumber;
 //계좌에 해당하는 전화번호 불러오기
-/*
 function checkphonenum(accnumr){
 	$.ajax({
-		url : "/jigmBank/checkaccpw" ,
+		url : "/jigmBank/getphone" ,
 		data : { "accnumr" : accnumr },
 		type : "POST",
 		success : function( result ){
-			if(result==1){
-				console.log("qwe");
+			if(result!="false"){
+				phonenumber = result;
+				com = '<h2>문자로 받은 숫자를 입력해주세요.</h2>';
+				$("#comment").html(com);
+				loadpp(phonenumber);
+			}else{
+				alert("전화번호 불러오기 실패!");
 			}
 		}
 	});
 }
-*/
+///////////////
+//계좌에 해당하는 전화번호 불러오기
+function loadpp(phonenumber){
+	
+	phapi = '<form action="">'+
+				'전화번호 <input type="text" id="phonenum" value='+phonenumber+' readonly>  <br>'+							
+				'인증번호 (1분 안에 입력 바랍니다.)'+
+				'<button onclick="makeSignature()">발송</button> <br>'+
+				'인증번호 입력 <input type="text"> '+
+				'<button>확인</button>'+
+			'</form>';
+
+	$("#accin2").html(phapi);
+				
+}
 ///////////////
 
 
 
-
 ///////////////시간제한////
-function OO(){
+function timeout(phonenumber){
 	const timeLimitValue = 60; // 1분 
 	var timeLimit = 60; 
 	var min, sec;
@@ -363,14 +347,14 @@ function OO(){
 		sec = parseInt(timeLimit%60);
 	
 		const displayTime = min.toString().padStart(2,"0") + " : " + sec.toString().padStart(2,"0");
-	    $("#accin2").html(displayTime);
+	    $("#box").html(displayTime);
 	
 		timeLimit -= 1;
 	
-		if(timeLimit < -1) {
-			timerObj = setInterval(callTimer, 1000);
-			clearInterval(timerObj);
-			timeLimit = timeLimitValue;
+		if(timeLimit < 0) {
+			let bxb = '<div></div>';
+			$("#box").html(bxb);
+			loadpp(phonenumber);
 	 		return;
 	     }
 	}
@@ -386,3 +370,9 @@ function random(){
 	}
 	console.log(certification);
 }
+
+
+
+
+
+

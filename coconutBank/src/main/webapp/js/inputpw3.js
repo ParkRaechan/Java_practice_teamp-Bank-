@@ -181,9 +181,3 @@ function gear(otpno){
 	let rr00 = '<div>'+rr+'</div>';
 	$("#box0000").html(rr00);
 }
-
-function gear2(otpno){
-	let rr = gear(otpno);
-	let rr00 = '<div>'+rr+'</div>';
-	$("#box0000").html(rr00);
-}

@@ -32,7 +32,21 @@ public class AccountDao extends Dao{
 	
 	
 	
-	
+	public String checkphone(String accnumr) {
+		String sql = "select acphone from account where acno = '"+accnumr+"'";
+		System.out.println(accnumr);
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				String rr = rs.getString(1);
+				System.out.println(rr);
+				return rr;
+			}
+		}
+		catch (Exception e) { System.out.println( e );}
+		return "false";
+	}
 	
 	
 	
