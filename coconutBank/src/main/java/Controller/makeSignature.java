@@ -26,13 +26,14 @@ public class makeSignature extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String phonenum = request.getParameter("phonenum");
-		int rand = (int)(Math.random() * (99999 - 10000 + 1)) + 10000;
+		String phonenum = request.getParameter("phonenum"); //jsp에서 입력된 전화번호를 받아옴
+		int rand = (int)(Math.random() * (999999 - 100000 + 1)) + 100000; //6자리 난수 생성
 		
-		String api_key = "NCSDEAGBJ6JLD1GV";
-	    String api_secret = "H3S6CEOSGQ9VEAH4FSBWO33F5E2VWUBV";
+		//coolsms 제공 api
+		String api_key = "NCSKVJ7MLDCGI0CM";
+	    String api_secret = "4STLLEOANTZHCPKAGOACTZZJJU6ATG4L";
 	    Message coolsms = new Message(api_key, api_secret);
-
+	    
 	    // 4 params(to, from, type, text) are mandatory. must be filled
 	    HashMap<String, String> params = new HashMap<String, String>();
 	    params.put("to", "01041487895");
