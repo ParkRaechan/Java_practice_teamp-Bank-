@@ -24,7 +24,7 @@ function checkotp(){ //입력한 랜덤번호가 발송한 랜덤번호와 일�
 	} else {
 		alert("인증 번호가 다릅니다. 다시 진행 해주세요.");
 		location.reload(true); //현재 페이지 새로고침
-		}
+	}
 }
 
 
