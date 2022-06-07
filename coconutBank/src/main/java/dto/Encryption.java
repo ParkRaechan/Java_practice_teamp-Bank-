@@ -16,7 +16,7 @@ public class Encryption {
 	
 /////////////////////////////////////////////////////////////// 암호화 //////////////////////////////////////////////////////////////////////	
 		
-	// **키 생성
+	// ** 비밀번호 키 생성
 	public String keyplus(String acno, String pw) {
 		String password1 = acno.replace("-", "")+pw;
 		long password2 = Long.parseLong(password1);
@@ -24,6 +24,10 @@ public class Encryption {
 		String keypw = Long.toString(password3);
 		return keypw;
 	} // 키 end
+	
+	public String nokeyplus() {
+		
+	}
 	
 	// SHA256 해시함수 사용 메소드
 	public String sha256(String keypw) {

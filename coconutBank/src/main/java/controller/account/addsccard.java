@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar;
+
 import dao.AccountDao;
 import dao.SccardDao;
 import dto.Encryption;
@@ -44,10 +46,17 @@ public class addsccard extends HttpServlet {
 			String accountno = request.getParameter("accountno");
 		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
 		String sccardpw = request.getParameter("sccardpw");
+		System.out.println("secno :"+secno);
 		System.out.println(box);
-		// 보안박스 암호화
-		String scbox = Encryption.getEncryption().sha256(box);
-		System.out.println(scbox);
+		
+		boolean result = SccardDao.getscSccardDao().secnocheck(secno);
+		
+		if(result) { // 보안카드 일련번호가 DB에 존재하면
+			response.getWriter().print(1);
+		}else {
+			
+		}
+		
 		
 //		// 객체화
 //		Securitycard securitycard = new Securitycard(secno, scbox, sccardpw, "사용가능", acidno);

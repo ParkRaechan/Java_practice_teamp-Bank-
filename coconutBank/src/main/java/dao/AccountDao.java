@@ -12,7 +12,7 @@ public class AccountDao extends Dao {
 	public static AccountDao getaccAccountDao() {return accountDao;}
 		
 	
-	// 계좌번호 중복체크 메소드
+	// 1. 계좌번호 중복체크 메소드
 	public boolean acnocheck(String accountno) {
 		String sql = "select * from account where acno= '"+accountno+"'";
 		try {
@@ -25,7 +25,7 @@ public class AccountDao extends Dao {
 		return false;
 	} // 계좌중복 체크 end
 	
-	// 계좌생성 메소드
+	// 2. 계좌생성 메소드
 	public boolean addaccount(Account account) {
 		String sql = "insert into account(acno, acpw, acname, acbirth, acphone, acbalance, acactive) values(?, ?, ?, ?, ?, ?, ?)";
 		try {
@@ -43,7 +43,7 @@ public class AccountDao extends Dao {
 		return false;
 	} // 계좌생성 end
 
-	// 계좌비밀번호 일치확인 메소드
+	// 3. 계좌비밀번호 일치확인 메소드
 	public boolean passwordcheck(int acidno, String password) {
 		String sql = "select * from account where acidno = "+acidno+" and acpw ='" +password+"'";
 		try {
@@ -56,7 +56,7 @@ public class AccountDao extends Dao {
 		return false;
 	} // 계좌비밀번호 확인 end
 	
-	// 계좌식별번호 출력 메소드
+	// 4. 계좌식별번호 출력 메소드
 	public int getacidno(String acno) {
 		String sql = "select acidno from account where acno= '"+acno+"'";
 		try {
@@ -69,7 +69,7 @@ public class AccountDao extends Dao {
 		return 0;
 	} // 계좌식별번호출력 end
 	
-	// 계좌상태 잠금 메소드
+	// 5. 계좌상태 잠금 메소드
 	public boolean activechange(String acno) {
 		String sql = "update account set acactive ='" +"사용불가"+"'"+ "where acno ='" +acno+"'";
 		try {

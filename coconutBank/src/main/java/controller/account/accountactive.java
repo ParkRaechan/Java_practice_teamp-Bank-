@@ -1,3 +1,5 @@
+package controller.account;
+
 
 
 import java.io.IOException;
@@ -9,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.AccountDao;
 
-/**
- * Servlet implementation class accountactive
- */
+
 @WebServlet("/account/accountactive")
 public class accountactive extends HttpServlet {
 	private static final long serialVersionUID = 1L;

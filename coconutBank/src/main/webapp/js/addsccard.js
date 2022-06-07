@@ -34,9 +34,9 @@ function accountcheck(){
 } // 계좌비밀번호 일치check end
 
 // 보안카드 일련번호 난수생성
-function secnoran(n){
+function secnoran(){
 	let ran = "";
-	for(let i = 0; i<n; i++){
+	for(let i = 0; i<10; i++){
 		ran += Math.floor(Math.random()*10)
 	} // for end
 	return ran;
@@ -51,23 +51,36 @@ function boxran(){
 			box[j] += Math.floor(Math.random()*10)
 		} // for end
 	} // for end
-	let scbox = JSON.stringify(box);
-	return scbox;
-//	let jsondata = JSON.parse(scbox);
-//	alert(scbox);
-//	alert(jsondata[0]);
-	
+	alert(box);
+	return box;
 } // 보안박스난수생성 end
+
+/*
+// 보안카드 일련번호 중복체크
+function secnocheck(ran){
+	$.ajax({
+		url : "/jigmBank/account/secnocheck",
+		data : {"secno" : ran},
+		success : function(result){
+			if(result == 1){
+				// 보안카드번호 중복시 다시 난수생성받아서 처리해야함
+			}else{
+				alert("보안카드 일련번호 생성!");
+				return result;
+			} // else end
+		} // success end
+	}); // ajax end
+}
+*/
 
 // 보안카드생성
 function addsccard(){
-	let secno = secnoran(10); 	// 보안카드 일련번호 난수
+	let secno = secnoran()  	// 보안카드 일련번호 난수
 	let scbox = boxran();		// 보안카드 박스 난수
 	let accountno = $("#accountno").val();
 	let sccardpw = $("#sccardpw").val();
-	alert(secno);
-	alert(scbox);
-	
+	alert("계좌생성시보안카드일련번호 : "+secno);
+	alert("계좌생성시보안카드번호 : "+scbox);
 	$.ajax({
 		url : "/jigmBank/account/addsccard",
 		type : "POST",
