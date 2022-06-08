@@ -81,3 +81,12 @@ li{ list-style-type: none;}
 #nexplain{
 	height: 200px;
 }
+.btn1 {
+    font-size: 16px;
+    padding: 7px;
+    background-color: #f1f3f4;
+    border-radius: 17px;
+    height: 38px;
+    border:1px solid #c8c8c8;
+    font-weight: 400;
+}
