@@ -24,9 +24,11 @@
 				
 					<ul class="nav"> <!-- nav : li 가로배치  -->
 						<li><a href="#" onclick="pagechange('addacount')">계좌 생성</a></li>
-						<li> </li>
 						<li><a href="#" onclick="pagechangesec('addsecuritycard')">보안 카드 생성</a></li>
-						
+						<li><a href="#" onclick="pagechange('usesccard')">이체</a></li>
+						<li><a href="#" onclick="pagechange('addaccount')">계좌 생성</a></li>
+						<li><a href="#" onclick="pagechange('addsccard')">보안카드 생성</a></li>
+						<li><a href="#" onclick="pagechange('usesccard')">이체</a></li>
 					</ul>
 				</div>
 			</div>

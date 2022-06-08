@@ -12,7 +12,7 @@
 		<h2>보안 카드 생성</h2>
 		<div class="security__text active">
 		<div>비밀번호로 사용 할 숫자 6자리를 입력해주세요.</div>
-		<input maxlength='6' type="text" id="security__password" class="input__box">
+		<input maxlength='6' type="text" id="security__password" class="input__box" >
 		</div>
 		 
 		<div class="security__text">
@@ -21,13 +21,19 @@
 		</div>
 		
 		<div class="security__text">
-		<div>보안카드를 사용하실 계좌를 입력 해주세요</div>
+		<div>보안카드를 사용하실 계좌를 "-"를 제외하고 입력 해주세요</div>
 		<input maxlength='14' type="text" id="security__accnum" class="input__box">
 		</div>
 		
 		<div class="security__text">
 		<div>계좌 비밀번호 4자리를 입력해주세요 </div>
-		<input maxlength='6' type="text" id="security__accpwd" class="security__password input__box">
+		<input maxlength='4' type="text" id="security__accpwd" class="input__box">
+		<div class="security__text">
+		<div>휴대폰 번호를 "-" 를 제외하고 입력해 주세요 </div>
+		<input maxlength='6' type="text" id="" class="input__box">
+		<div class="security__text">
+		<div>계좌 비밀번호 4자리를 입력해주세요 </div>
+		<input maxlength='6' type="text" id="" class="input__box">
 		
 		
 		</div>
@@ -35,6 +41,7 @@
 		 
 		</div>
 	</div>
-	<script src="/jigmBank/js/security.js"></script>
+
+	<script src="/jigmBank/js/security.js" type="text/javascript"></script>
 </body>
 </html>

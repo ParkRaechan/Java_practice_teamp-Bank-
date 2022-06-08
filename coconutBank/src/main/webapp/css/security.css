@@ -15,6 +15,9 @@
 	font-weight:200;
 	margin-top:15px;
 }
+#security__accnum {
+	letter-spacing: 5px;
+}
 .input__box {
 	margin-top: 20px;
 	padding: 10px;
