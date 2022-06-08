@@ -125,6 +125,7 @@ scacpwd.addEventListener("keyup", function(key){
 	}
 });
 
+// 보안카드 일련번호 난수생성
 function secnoran(){
 	let ran = "";
 	for(let i = 0; i<10; i++){
@@ -153,7 +154,7 @@ function addsccard(){
 	alert("계좌생성시보안카드일련번호 : "+secno);
 	alert("계좌생성시보안카드번호 : "+scbox);
 	$.ajax({
-		url : "/jigmBank/account/addsccard",
+		url : "/jigmBank/securitycard/addsccard",
 		type : "POST",
 		data : {"secno" : secno, "scbox" : scbox, "accountno" : arr, "sccardpw" : scacpwd.value},
 		success : function(result){

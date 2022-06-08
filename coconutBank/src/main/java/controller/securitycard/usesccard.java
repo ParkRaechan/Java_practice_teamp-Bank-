@@ -13,7 +13,7 @@ import dao.SccardDao;
 /**
  * Servlet implementation class usesccard
  */
-@WebServlet("/account/usesccard")
+@WebServlet("/securitycard/usesccard")
 public class usesccard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

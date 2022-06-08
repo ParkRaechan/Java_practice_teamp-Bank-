@@ -8,20 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.AccountDao;
-import dao.SccardDao;
-import dto.Securitycard;
 
 /**
- * Servlet implementation class getsccard
+ * Servlet implementation class accountnocheck
  */
-@WebServlet("/account/getsccard")
-public class getsccard extends HttpServlet {
+@WebServlet("/account/accountnocheck")
+public class accountnocheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getsccard() {
+    public accountnocheck() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,12 +28,14 @@ public class getsccard extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("통신확인");
 		String accountno = request.getParameter("accountno");
-		
-		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
-		
-//		Securitycard sccard = SccardDao.getscSccardDao().getsccard(acidno);
-//		response.getWriter().print(sccard);
+		boolean result = AccountDao.getaccAccountDao().acnocheck(accountno);
+		if(result) { // 계좌번호가 존재하면
+			response.getWriter().print(1);
+		}else {
+			response.getWriter().print(2);
+		} // else end
 	}
 
 	/**

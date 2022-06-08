@@ -19,7 +19,7 @@ import dto.Securitycard;
 /**
  * Servlet implementation class addsccard
  */
-@WebServlet("/account/addsccard")
+@WebServlet("/securitycard/addsccard")
 public class addsccard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

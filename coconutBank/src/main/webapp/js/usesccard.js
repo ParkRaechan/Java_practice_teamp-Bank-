@@ -55,7 +55,7 @@ function transfer(){
 	let boxno2 = $("#boxno2").val();
 
 	$.ajax({
-		url : "/jigmBank/account/usesccard",
+		url : "/jigmBank/securitycard/usesccard",
 		type : "POST",
 		data : {"accountno" : accountno, "box1" : maxn, "box2" : minn, "boxno1" : boxno1, "boxno2" : boxno2 },
 		success : function(result){
@@ -66,7 +66,7 @@ function transfer(){
 				index++;
 				if(index >= 3){
 					$.ajax({
-						url : "/jigmBank/account/sccardactive",
+						url : "/jigmBank/securitycard/sccardactive",
 						data : {"accountno" : accountno},
 						success : function(result){
 							if(result == 1){
