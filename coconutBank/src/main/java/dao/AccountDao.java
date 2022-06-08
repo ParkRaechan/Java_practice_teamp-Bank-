@@ -98,7 +98,18 @@ public class AccountDao extends Dao {
 		return 3;
 	} // 보안카드일련번호 추가 end
 	
-
+	// 7.보안카드일련번호 출력[인수 : 계좌식별번호]
+	public String getsecno(int acidno) {
+		String sql = "select secno from account where acidno ="+acidno;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+		}catch (Exception e) {System.out.println("보안카드일려번호출력오류"+e);}
+		return null;
+	}
 
 
 	

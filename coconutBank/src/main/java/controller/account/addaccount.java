@@ -45,6 +45,7 @@ public class addaccount extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String accountno = request.getParameter("accountno");
 			String acno = accountno.replace("-", ""); 
+			System.out.println(acno);
 		int balance = Integer.parseInt(request.getParameter("balance"));
 		String inputpw = request.getParameter("accountpw");
 		
