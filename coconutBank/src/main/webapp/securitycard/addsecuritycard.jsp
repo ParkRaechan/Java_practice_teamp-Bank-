@@ -22,12 +22,14 @@
 		
 		<div class="security__text">
 		<div>보안카드를 사용하실 계좌를 입력 해주세요</div>
-		<input maxlength='14' type="text" class="security__password input__box">
+		<input maxlength='14' type="text" id="security__accnum" class="input__box">
 		</div>
 		
 		<div class="security__text">
-		<div>비밀번호로 사용할 숫자 6자리를 입력해주세요.</div>
-		<input maxlength='6' type="text" class="security__password input__box">
+		<div>계좌 비밀번호 4자리를 입력해주세요 </div>
+		<input maxlength='6' type="text" id="security__accpwd" class="security__password input__box">
+		
+		
 		</div>
 		<div id="security__err__text">
 		 
