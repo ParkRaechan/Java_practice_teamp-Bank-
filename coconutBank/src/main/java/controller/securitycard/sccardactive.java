@@ -1,4 +1,4 @@
-package controller.account;
+package controller.securitycard;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

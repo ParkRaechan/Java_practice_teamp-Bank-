@@ -37,6 +37,7 @@ public class accountcheck extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("계좌번호확인");
 		String accountno = request.getParameter("accountno");
 			String acno = accountno.replace("-", ""); 
 		String inputpw = request.getParameter("accountpw");

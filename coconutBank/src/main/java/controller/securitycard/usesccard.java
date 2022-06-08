@@ -1,4 +1,4 @@
-package controller.account;
+package controller.securitycard;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.AccountDao;
 import dao.SccardDao;
 
-/**
- * Servlet implementation class usesccard
- */
+
 @WebServlet("/securitycard/usesccard")
 public class usesccard extends HttpServlet {
 	private static final long serialVersionUID = 1L;

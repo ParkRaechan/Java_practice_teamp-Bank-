@@ -1,4 +1,4 @@
-package controller.account;
+package controller.securitycard;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,10 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.tomcat.util.net.SecureNio2Channel;
-
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar;
 
 import dao.AccountDao;
 import dao.SccardDao;
@@ -43,10 +39,13 @@ public class addsccard extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("보안카드생성중~");
 		String secno = request.getParameter("secno");
 		String box = request.getParameter("scbox");
 			String accountno = request.getParameter("accountno");
 		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
+		
+		System.out.println("서블릿회원번호"+acidno);
 		String sccardpw = request.getParameter("sccardpw");
 		
 		boolean result = SccardDao.getscSccardDao().secnocheck(secno);
@@ -61,11 +60,12 @@ public class addsccard extends HttpServlet {
 			// 보안카드 비밀번호 암호화
 			String kpw = Encryption.getEncryption().keyplus(secno, sccardpw);
 			String dbpw = Encryption.getEncryption().sha256(kpw);
-			
+		
 			// 객체화
 			Securitycard securitycard = new Securitycard(dbsecno, box, dbpw, "사용가능");
 			// 계좌테이블에 보안카드가 존재하는지 DB확인
 			int result2 = AccountDao.getaccAccountDao().addsecno(acidno, dbsecno);
+			System.out.println("서블릿결과"+result2);
 			if(result2 == 1) { // 보안카드가 존재하면
 				response.getWriter().print(3);
 			}else if(result2 == 2) { // 보안카드가 존재하지않으면
