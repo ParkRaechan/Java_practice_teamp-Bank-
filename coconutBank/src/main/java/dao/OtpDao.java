@@ -41,11 +41,14 @@ public class OtpDao extends Dao {
 		
 		String sql = "select * from otp where otpno = '"+rr1+"'";
 		try {
+			System.out.println("qwe222");
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			if(rs.next()) {
+			if(rs.next()) {System.out.println("qwe333");
 				System.out.println(rs.getString(3));
 				return 1;
+			}else {
+				return 2;
 			}
 		}
 		catch (Exception e) { System.out.println( e );}
@@ -62,7 +65,7 @@ public class OtpDao extends Dao {
 			if(rs.next()) {
 				String ssqlrs = rs.getString(1);
 				sql = "insert into otp(otpno,otppw,otpactive,acidno) "
-						+ "values("+finalf1+finalf2+finalf3+ssqlrs+")";
+						+ "values("+finalf1+","+finalf2+","+finalf3+","+ssqlrs+")";
 				ps = con.prepareStatement(sql);
 				ps.executeUpdate(); 
 				if(rs.next()) {

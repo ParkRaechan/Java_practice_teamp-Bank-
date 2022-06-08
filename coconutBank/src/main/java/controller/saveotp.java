@@ -43,7 +43,7 @@ public class saveotp extends HttpServlet {
 			String finalf3 = request.getParameter("finalf3");
 			String accnumr = request.getParameter("accnumr");
 			
-			int result = OtpDao.getOtpDao().checkoverlap(pww3);
+			int result = OtpDao.getOtpDao().saveotp(finalf1,finalf2,finalf3,accnumr);
 			if(result==1) {
 				response.getWriter().print(1);
 			}else {

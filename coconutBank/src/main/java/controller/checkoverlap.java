@@ -39,13 +39,15 @@ public class checkoverlap extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
-			String pww3 = request.getParameter("rr1");
+			String rr1 = request.getParameter("rr1");
 			
-			int result = OtpDao.getOtpDao().checkoverlap(pww3);
+			int result = OtpDao.getOtpDao().checkoverlap(rr1);
 			if(result==1) {
 				response.getWriter().print(1);
+				System.out.println("qqq1-1-1");
 			}else {
 				response.getWriter().print(2);
+				System.out.println("qqq2-2-2");
 			}
 		}catch (Exception e) {
 			System.out.print(e);

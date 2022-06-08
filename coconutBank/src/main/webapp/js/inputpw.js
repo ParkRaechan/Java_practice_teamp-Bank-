@@ -326,27 +326,7 @@ function saveotp(){
 	//otp고유번호
 	let r1 = random();
 	let rr1 = ''+r1[0]+r1[1]+r1[2]+r1[3]+r1[4]+r1[5];
-	if(checkoverlap(rr1)){
-		//중복없는 otp 고유번호
-		alert(rr1);
-		let finalf1 = rr1;
-		
-		//설정된 otp비번 알림
-		alert(pww);
-		let finalf2 = pww;
-		
-		//otp난수에 무작위수 넣어놓기
-		let r2 = random();
-		let rr2 = ''+r2[0]+r2[1]+r2[2]+r2[3]+r2[4]+r2[5];
-		alert(rr2);
-		let finalf3 = rr2;
-		
-		//db저장
-		saveotp2db(finalf1,finalf2,finalf3,accnumr);
-	}else{
-		saveotp();
-	}
-	
+	checkoverlap(rr1);
 }
 /////////db저장함수
 function saveotp2db(finalf1,finalf2,finalf3,accnumr){
@@ -363,7 +343,7 @@ function saveotp2db(finalf1,finalf2,finalf3,accnumr){
 		}
 	});
 }
-
+let qq=1;
 ////////otp고유번호 중복체크
 function checkoverlap(rr1){
 		$.ajax({
@@ -371,10 +351,31 @@ function checkoverlap(rr1){
 		data : { "rr1" : rr1 },
 		type : "POST",
 		success : function( result ){
-			if(result==1){
-				return false;
+			if(result==2){
+				alert("테스트1");
+				
+				//중복없는 otp 고유번호
+				console.log(qq);
+				alert(rr1);
+				let finalf1 = rr1;
+				
+				//설정된 otp비번 알림
+				alert(pww);
+				let finalf2 = pww;
+				
+				//otp난수에 무작위수 넣어놓기
+				let r2 = random();
+				let rr2 = ''+r2[0]+r2[1]+r2[2]+r2[3]+r2[4]+r2[5];
+				alert(rr2);
+				let finalf3 = rr2;
+				
+				//계좌번호
+				alert(accnumr);
+				
+				//db저장
+				saveotp2db(finalf1,finalf2,finalf3,accnumr);
 			}else{
-				return true;
+				saveotp();
 			}
 		}
 	});
