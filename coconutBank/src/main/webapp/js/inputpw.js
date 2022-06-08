@@ -328,7 +328,7 @@ function saveotp(){
 	let rr1 = ''+r1[0]+r1[1]+r1[2]+r1[3]+r1[4]+r1[5];
 	checkoverlap(rr1);
 }
-/////////db저장함수
+/////////db저장함수/////
 function saveotp2db(finalf1,finalf2,finalf3,accnumr){
 			$.ajax({
 		url : "/jigmBank/saveotp" ,

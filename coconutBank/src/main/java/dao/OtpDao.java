@@ -63,14 +63,15 @@ public class OtpDao extends Dao {
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
+				
 				String ssqlrs = rs.getString(1);
+				System.out.println(ssqlrs);
 				sql = "insert into otp(otpno,otppw,otpactive,acidno) "
-						+ "values("+finalf1+","+finalf2+","+finalf3+","+ssqlrs+")";
+						+ "values('"+finalf1+"','"+finalf2+"','"+finalf3+"','"+ssqlrs+"')";
 				ps = con.prepareStatement(sql);
 				ps.executeUpdate(); 
-				if(rs.next()) {
-					return 1;
-				}
+				return 1;
+
 			}
 		}
 		catch (Exception e) { System.out.println( e );}
