@@ -1,5 +1,7 @@
 package dao;
 
+import dto.Account;
+
 public class OtpDao extends Dao {
 
 	public OtpDao() {
@@ -35,5 +37,42 @@ public class OtpDao extends Dao {
 		}catch (Exception e) { System.out.println( e ); }return false;
 	}
 
+	public int checkoverlap(String rr1) {
+		
+		String sql = "select * from otp where otpno = '"+rr1+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				System.out.println(rs.getString(3));
+				return 1;
+			}
+		}
+		catch (Exception e) { System.out.println( e );}
+		return 2;
+	}
+	
+	public int saveotp( String finalf1, String finalf2,String finalf3,String accnumr) {
+		
+		String sql = "select acidno from account where acno='"+accnumr+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				String ssqlrs = rs.getString(1);
+				sql = "insert into otp(otpno,otppw,otpactive,acidno) "
+						+ "values("+finalf1+finalf2+finalf3+ssqlrs+")";
+				ps = con.prepareStatement(sql);
+				ps.executeUpdate(); 
+				if(rs.next()) {
+					return 1;
+				}
+			}
+		}
+		catch (Exception e) { System.out.println( e );}
+		return 2;
+		
+	}
 	
 }

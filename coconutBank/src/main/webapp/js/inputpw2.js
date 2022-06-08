@@ -118,9 +118,19 @@ function accpw2(){
 		
 	//계좌번호 임시 저장//
 	achostno = $("#achostno").val();
-	accnumr1 = achostno;
+	let arr2 = achostno.slice(undefined,3);
+	let arr3 = achostno.slice(3,6);
+	let arr4 = achostno.slice(6,undefined);
+	let arr = arr2[0]+arr2[1]+arr2[2]+"-"+arr3[0]+arr3[1]+arr3[2]+"-"+arr4[0]+arr4[1]+arr4[2]+arr4[3]+arr4[4]+arr4[5];
+	accnumr1 = arr;
+	
 	acguestno = $("#acguestno").val();
-	accnumr2 = acguestno;
+	let arr22 = acguestno.slice(undefined,3);
+	let arr33 = acguestno.slice(3,6);
+	let arr44 = acguestno.slice(6,undefined);
+	let arr00 = arr22[0]+arr22[1]+arr22[2]+"-"+arr33[0]+arr33[1]+arr33[2]+"-"+arr44[0]+arr44[1]+arr44[2]+arr44[3]+arr44[4]+arr44[5];
+	accnumr2 = arr00;
+
 	trfamount = $("#trfamount").val();
 	money = trfamount;
 	
