@@ -124,3 +124,53 @@ scacpwd.addEventListener("keyup", function(key){
 		
 	}
 });
+
+function secnoran(){
+	let ran = "";
+	for(let i = 0; i<10; i++){
+		ran += Math.floor(Math.random()*10)
+	} // for end
+	return ran;
+} // 일련번호난수생성 end
+
+// 보안카드 보안박스 난수생성
+function boxran(){
+	let box = [];
+	for(let j = 0; j<30; j++){
+		box[j] = "";
+		for(let i = 0; i<4; i++){
+			box[j] += Math.floor(Math.random()*10)
+		} // for end
+	} // for end
+	return box.toString();
+	
+} // 보안박스난수생성 end
+
+// 보안카드생성
+function addsccard(){
+	let secno = secnoran();  	// 보안카드 일련번호 난수
+	let scbox = boxran();		// 보안카드 박스 난수
+	alert("계좌생성시보안카드일련번호 : "+secno);
+	alert("계좌생성시보안카드번호 : "+scbox);
+	$.ajax({
+		url : "/jigmBank/account/addsccard",
+		type : "POST",
+		data : {"secno" : secno, "scbox" : scbox, "accountno" : arr, "sccardpw" : scacpwd.value},
+		success : function(result){
+			if(result == 1){
+				alert("보안카드일련번호 중복");
+				// 보안카드번호 중복시 다시 난수생성 받아서 처리해야함
+			}else if(result == 2){
+				alert("보안카드생성완료");
+				location.href="/jigmBank/main.jsp";
+			}else if(result == 3){
+				alert("보안카드이미존재합니다.");
+			}else{
+				alert("보안카드생성실패(관리자에게문의)");
+				location.href="/jigmBank/main.jsp";
+			} // else end
+		} // success end
+	}); // ajax end
+	
+} // 보안카드 생성 end
+

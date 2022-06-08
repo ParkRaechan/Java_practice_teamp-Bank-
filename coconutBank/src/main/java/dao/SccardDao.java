@@ -1,5 +1,7 @@
 package dao;
 
+import dto.Securitycard;
+
 public class SccardDao extends Dao{
 
 	public SccardDao() {

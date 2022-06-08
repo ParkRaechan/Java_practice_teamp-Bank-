@@ -15,9 +15,6 @@
 	font-weight:200;
 	margin-top:15px;
 }
-#security__accnum {
-	letter-spacing: 5px;
-}
 .input__box {
 	margin-top: 20px;
 	padding: 10px;
@@ -26,7 +23,7 @@
 	animation-duration: 0.3s;
 	animation-name: focus__end;
 	width: 300px;
-	letter-spacing: 35px;
+	letter-spacing: 5px;
 	text-align: center;
 }
 .active {

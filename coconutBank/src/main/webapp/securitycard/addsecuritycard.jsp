@@ -28,15 +28,21 @@
 		<div class="security__text">
 		<div>계좌 비밀번호 4자리를 입력해주세요 </div>
 		<input maxlength='4' type="text" id="security__accpwd" class="input__box">
+		</div>
+		<div class="security__text">
+		<div>생성완료 버튼을 눌러주세요 </div>
+		<input type="button" onclick="addsccard()"  class="input__box">
+		</div>
+		<!--  
 		<div class="security__text">
 		<div>휴대폰 번호를 "-" 를 제외하고 입력해 주세요 </div>
-		<input maxlength='6' type="text" id="" class="input__box">
+		<input maxlength='11' type="text" id="security__phone__num" class="input__box">
+		</div>
 		<div class="security__text">
 		<div>계좌 비밀번호 4자리를 입력해주세요 </div>
-		<input maxlength='6' type="text" id="" class="input__box">
-		
-		
+		<input maxlength='4' type="text" id="security__phone__cer" class="input__box">
 		</div>
+		-->
 		<div id="security__err__text">
 		 
 		</div>
