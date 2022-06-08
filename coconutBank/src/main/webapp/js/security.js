@@ -53,16 +53,25 @@ pwd2.addEventListener("keyup", function(key){
 });
 
 //계좌번호 
-
+let arr = undefined;
 scacnum.addEventListener("keyup", function(key){
+	
 	if(key.keyCode == 13){
-		if(scacnum.value.length == 14){
+		if(scacnum.value.length == 12){
+			
+	//계좌번호 저장//
+	let arr1 = 	scacnum.value;
+	let arr2 = arr1.slice(undefined,3);
+	let arr3 = arr1.slice(3,6);
+	let arr4 = arr1.slice(6,undefined);
+	arr = arr2[0]+arr2[1]+arr2[2]+"-"+arr3[0]+arr3[1]+arr3[2]+"-"+arr4[0]+arr4[1]+arr4[2]+arr4[3]+arr4[4]+arr4[5];
+
 				sctext[2].className = "security__text ";
 				sctext[3].className += "active";
 				errtext.innerHTML = " ";
 				scacpwd.focus();		
 		}else{
-			errtext.innerHTML = "14자리를 모두 입력해주세요."
+			errtext.innerHTML = "12자리를 모두 입력해주세요."
 		}
 	}else {
 		if(scacnum.value != (/[^0-9]/)){
@@ -72,18 +81,15 @@ scacnum.addEventListener("keyup", function(key){
 		
 	}
 });
-
+index = 0;
 //계좌비밀번호
 scacpwd.addEventListener("keyup", function(key){
 	if(key.keyCode == 13){
 		if(scacpwd.value.length == 4){
-			console.log(scacpwd);
-			console.log(scacpwd.value);
-			console.log(scacnum.value);
 			$.ajax({
 				url : "/jigmBank/account/accountcheck",
 				type : "POST",
-				data : {"accountno" : scacnum.value, "accountpw" : scacpwd.value },
+				data : {"accountno" : arr, "accountpw" : scacpwd.value },
 				success : function(result){
 					if(result == 1){
 						alert("해당계좌확인");
@@ -96,7 +102,7 @@ scacpwd.addEventListener("keyup", function(key){
 						if(index >= 3){
 							$.ajax({
 								url : "/jigmBank/account/accountactive",
-								data : {"accountno" : scacnum.value},
+								data : {"accountno" : arr},
 								success : function(result){
 									if(result == 1){
 										alert("비밀번호입력횟수제한-해당계좌잠금(관리자문의)");
@@ -118,4 +124,3 @@ scacpwd.addEventListener("keyup", function(key){
 		
 	}
 });
-

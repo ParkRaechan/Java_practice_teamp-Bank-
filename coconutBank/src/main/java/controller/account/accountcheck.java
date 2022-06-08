@@ -40,14 +40,15 @@ public class accountcheck extends HttpServlet {
 		String accountno = request.getParameter("accountno");
 			String acno = accountno.replace("-", ""); 
 		String inputpw = request.getParameter("accountpw");
-		System.out.println(accountno);
+		System.out.println(acno);
 		// 패스워드+키 추가
 		String keypw = Encryption.getEncryption().keyplus(acno, inputpw);	
 		// 비밀번호 암호화
 		String hexpw = Encryption.getEncryption().sha256(keypw);
+		System.out.println(hexpw);
 		// 회원번호 출력
 		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
-		
+		System.out.println(acidno);
 		// 계좌비밀번호 확인
 		boolean result = AccountDao.getaccAccountDao().passwordcheck(acidno, hexpw);
 		

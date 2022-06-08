@@ -22,7 +22,7 @@
 		
 		<div class="security__text">
 		<div>보안카드를 사용하실 계좌를 "-"를 제외하고 입력 해주세요</div>
-		<input maxlength='14' type="text" id="security__accnum" class="input__box">
+		<input maxlength='12' type="text" id="security__accnum" class="input__box">
 		</div>
 		
 		<div class="security__text">
