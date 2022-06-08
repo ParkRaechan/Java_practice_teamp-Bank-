@@ -40,24 +40,29 @@ public class SccardDao extends Dao{
 		return false;
 	} // 보안카드생성 end
 	
-//	// 계좌식별번호로 보안카드정보 가져오기
-//	public Securitycard getsccard(int acidno) {
-//		String sql = "select * from securitycard where acidno ="+acidno;
-//		try {
-//			ps = con.prepareStatement(sql);
-//			rs = ps.executeQuery();
-//			if(rs.next() ) {
-//				Securitycard sccard = new Securitycard(
-//						rs.getString(1), 
-//						rs.getString(2), 
-//						rs.getString(3), 
-//						rs.getString(4), 
-//						rs.getInt(5) );
-//				return sccard;
-//			} // if end
-//		}catch (Exception e) {System.out.println("보안카드정보출력오류"+e);}
-//		return null;
-//	} // 보안카드정보 출력 end
+	// 3. 보안카드박스 숫자 출력
+	public String getboxno(String secno, int no) {
+		String sql = "select substring_index(substring_index(seccon, ',' ,"+no+" ), ',', -1) from securitycard where secno = '"+secno+"'"; 
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next() ) {
+				return rs.getString(1);
+			}
+		}catch (Exception e) {System.out.println("보안박스숫자출력오류"+e);}
+		return null;
+	} // 보안박스숫자출력 end
+	
+	// 4. 보안카드상태 잠금 메소드
+	public boolean activechange(String secno) {
+		String sql = "update securitycard set secactive ='" +"사용불가"+"'"+ "where secno ='" +secno+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+		}catch (Exception e) {System.out.println("보안카드상태잠금오류"+e);}
+		return false;
+	} // 보안카드상태 잠금 end
 	
 	
 } // class end
