@@ -86,6 +86,7 @@ public class AccountDao extends Dao {
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
+			System.out.println(rs.next());
 			if(rs.next() ) { // 보안카드가 존재하면
 				return 1;
 			}else {

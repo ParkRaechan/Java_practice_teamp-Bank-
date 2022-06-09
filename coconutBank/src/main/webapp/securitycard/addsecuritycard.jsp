@@ -31,7 +31,7 @@
 		</div>
 		<div class="security__text">
 		<div>생성완료 버튼을 눌러주세요 </div>
-		<input type="button" onclick="addsccard()"  class="input__box">
+		<input type="button" onclick="addsccard()" value="생성완료" class="input__box">
 		</div>
 		<!--  
 		<div class="security__text">
