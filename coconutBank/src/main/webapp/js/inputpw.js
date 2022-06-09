@@ -128,9 +128,11 @@ function checkpw(){
 
 //유효성관련 선언
 let pass = false;
-
+//
+let ghgh01=0;
 //비번임시보관
 function checkpw0(){
+
 	if(ttt==0){
 		if(pww.length==6){
 			ttt=1;
@@ -144,7 +146,9 @@ function checkpw0(){
 			let bbb = '<div></div>';
 			$("#billboard").html(bbb);
 			alert("비밀번호를 한번더 입력하여 비밀번호확인을 진행해주십시오.");
-		}else{alert("6자리 모두 입력해주시길 바랍니다.");}
+		}else{
+			alert("6자리 모두 입력해주시길 바랍니다.");
+		}
 		
 	}else if(ttt==1){
 		if(pww2.length==6){
@@ -185,7 +189,12 @@ function checkpw0(){
 				
 			}
 			else{
-				alert("입력 비밀번호 불일치");
+				if(ghgh01==3){
+				window.location.href='main.jsp'
+				}
+				ghgh01+=1;
+				alert("입력 비밀번호 불일치 입력오류횟수:"+ghgh01);
+
 			}
 		}else{
 			alert("6자리 모두 입력해주시길 바랍니다.");
@@ -248,18 +257,20 @@ function accpw(){
 
 ///문자보내기처음유무
 let ppt = 0;
-
+//
+let ghgh02=0;
 ///계좌번호와 비번 db비교 확인///
 function checkaccpw(pww3,accnumr){
 	//pww3 계좌비번
 	//accnumr 계좌번호
-	
+
 	alert("계좌번호 및 비번확인중");
 	$.ajax({
 		url : "/jigmBank/checkaccpw" ,
 		data : { "pww3" : pww3,"accnumr" : accnumr },
 		type : "POST",
 		success : function( result ){	/* 통신 성공시 받는 데이터 */
+			
 			if( result == 1 ){  
 				
 				////입력값 표시 리뉴얼/////
@@ -278,7 +289,14 @@ function checkaccpw(pww3,accnumr){
 				}
 				
 			}else{ 
-				alert("해당정보가 틀렸습니다.");
+				if(ghgh02==3){
+				//계좌잠금
+				accrock();
+				window.location.href='main.jsp'
+				}
+				ghgh02= ghgh02+1;
+				alert("입력 비밀번호 불일치 /// 입력오류횟수:"+ghgh02+"///(입력 오류3번 초과시 계좌잠금)");
+
 			}
 		}
 	});	
@@ -464,6 +482,20 @@ function random(){
 }
 
 
-
+//////계좌잠금
+function accrock(){
+		$.ajax({
+		url : "/jigmBank/accrock" ,
+		data : { "accnumr" : accnumr },
+		type : "POST",
+		success : function( result ){
+			if(result==1){
+				alert("계좌잠금"+accnumr);
+			}else{
+				alert("계좌잠금 실패!");
+			}
+		}
+	});
+}
 
 

@@ -141,7 +141,7 @@ public class AccountDao extends Dao {
 	//pww3계좌비번 accnumr계좌번호
 	public int checkaccpw(String pww3,String accnumr) {
 		
-		String sql = "select * from account where acpw = '"+pww3+"' and acno = '"+accnumr+"'";
+		String sql = "select * from account where acpw = '"+pww3+"' and acno = '"+accnumr+"' and acactive='사용가능'";
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -155,7 +155,7 @@ public class AccountDao extends Dao {
 	//pww21보내는계좌비번 achostno보내는계좌번호 acguestno받는계좌번호
 		public int checkaccpw2(String pww21,String achostno,String acguestno) {
 			
-			String sql = "select * from account where acpw = '"+pww21+"' and acno = '"+achostno+"'";
+			String sql = "select * from account where acpw = '"+pww21+"' and acno = '"+achostno+"' and acactive='사용가능'";
 			try {
 				ps = con.prepareStatement(sql);
 				rs = ps.executeQuery();
@@ -172,6 +172,15 @@ public class AccountDao extends Dao {
 			return 2;
 		}
 
-
+		//계좌잠금
+		public int accrock(String accnumr) {
+			String sql = "update account set acactive = '사용불가' where acno ='"+accnumr+"'";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.executeUpdate();
+				return 1;
+			}catch (Exception e) {System.out.println(e);}
+			return 2;
+		}
 	
 } // class end
