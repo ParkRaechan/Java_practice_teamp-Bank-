@@ -81,22 +81,31 @@ public class AccountDao extends Dao {
 	} // 계좌잠금 end
 	
 	// 6. 보안카드 생성시 일련번호 추가
-	public int addsecno(int acidno, String secno) {
+	public int secnocheck(int acidno) {
 		String sql = "select secno from account where acidno ="+acidno;
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			if(rs.next() == true ) { // 보안카드가 존재하면
-				System.out.println("dao결과"+rs.next());
-				return 1;
-			}else {
-				sql = "update account set secno = '"+secno+"'"+ "where acidno ="+acidno;
-				ps = con.prepareStatement(sql);
-				ps.executeUpdate();
-				return 2; // 보안카드 계좌테이블에 등록
-			} // else end
+			if(rs.next()) { // 계좌가 존재하면
+				if(rs.getString(1) == null ) { // 계좌에 보안카드 일련번호가 null 이면
+					return 1; // 보안카드 계좌테이블에 등록
+				}else { // 계좌에 보안카드 일련번호가 null이 아니면 -> 보안카드가 이미 존재하면
+					return 2;
+				}
+			} // if end
 		}catch (Exception e) {System.out.println("계좌테이블에보안카드확인오류"+e);}
 		return 3;
+	} // 보안카드일련번호 추가 end
+	
+	// 보안카드 생성시 계좌테이블에 보안카드일련번호 추가
+	public boolean addsecno(int acidno, String secno){
+		String sql = "update account set secno = '"+secno+"'"+ "where acidno ="+acidno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+		}catch (Exception e) {System.out.println("계좌테이블에보안카드등록오류"+e);}
+		return false;
 	} // 보안카드일련번호 추가 end
 	
 	// 7.보안카드일련번호 출력[인수 : 계좌식별번호]

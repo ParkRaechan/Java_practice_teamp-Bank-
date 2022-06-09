@@ -64,24 +64,23 @@ public class addsccard extends HttpServlet {
 			// 객체화
 			Securitycard securitycard = new Securitycard(dbsecno, box, dbpw, "사용가능");
 			// 계좌테이블에 보안카드가 존재하는지 DB확인
-			int result2 = AccountDao.getaccAccountDao().addsecno(acidno, dbsecno);
+			int result2 = AccountDao.getaccAccountDao().secnocheck(acidno);
 			System.out.println("서블릿결과"+result2);
-			if(result2 == 1) { // 보안카드가 존재하면
-				response.getWriter().print(3);
-			}else if(result2 == 2) { // 보안카드가 존재하지않으면
+			if(result2 == 1) { // 보안카드가 존재하지 않으면 -> 계좌테이블에 보안카드등록
 				// DB 추가
 				boolean result3 = SccardDao.getscSccardDao().addsccard(securitycard);
-				if(result3) { // 보안카드테이블에 저장
+				if(result3) { // 보안테이블에 보안카드 등록
+					AccountDao.getaccAccountDao().addsecno(acidno, dbsecno);
 					response.getWriter().print(2);
-				}else { // 보안카드테이블에 DB저장X
+				}else { // 보안테이블에 보안카드 DB저장 X
 					response.getWriter().print(4);
-				} // else end
+				}
+			}else if(result2 == 2) { // 보안카드가 존재하면
+				response.getWriter().print(3);
 			}else { // DB 오류
 				response.getWriter().print(4);
 			} // else end
-			
-			
-			
+
 			
 		}
 		
