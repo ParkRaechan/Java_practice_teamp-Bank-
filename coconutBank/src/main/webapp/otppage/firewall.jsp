@@ -8,7 +8,7 @@
 <!-- 부트스트랩 css cdn -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
 <!-- 사용자정의 css -->
-<link href="/jigmBank/css/main.css?ver=1" rel="stylesheet">
+<link href="/jigmBank/css/main.css" rel="stylesheet">
 <!-- 폰트어썸[ 아이콘 ]  -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 </head>
