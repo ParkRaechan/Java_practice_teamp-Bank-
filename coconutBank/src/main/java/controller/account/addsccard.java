@@ -50,7 +50,7 @@ public class addsccard extends HttpServlet {
 		String sccardpw = request.getParameter("sccardpw");
 		
 		boolean result = SccardDao.getscSccardDao().secnocheck(secno);
-		SccardDao.getscSccardDao().sendEmail(secno, box);
+		
 		if(result) { // 보안카드 일련번호가 DB에 존재하면
 			response.getWriter().print(1);
 		}else { // 보안카드 일련번호 중복이 없으면 진행
@@ -74,6 +74,7 @@ public class addsccard extends HttpServlet {
 				boolean result3 = SccardDao.getscSccardDao().addsccard(securitycard);
 				if(result3) { // 보안카드테이블에 저장
 					response.getWriter().print(2);
+					SccardDao.getscSccardDao().sendEmail(secno, box);
 				}else { // 보안카드테이블에 DB저장X
 					response.getWriter().print(4);
 				} // else end
