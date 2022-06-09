@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+#otpimg{
+	width:150%;
+	opacity: 1;	
+	cursor: pointer;
+}
+
 @font-face { /* 웹폰트*/
 	    font-family: 'KOHIBaeumOTF';
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/KOHIBaeumOTF.woff') format('woff');
