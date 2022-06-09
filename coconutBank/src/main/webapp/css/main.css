@@ -298,3 +298,29 @@ background-color: #9FE9D1;
  display: block;
  margin: 0 auto;
 }
+
+#otpimg{
+	width:150%;
+	opacity: 1;	
+	cursor: pointer;
+}
+
+<!-----addaccount ----->
+
+#addaccountbox{
+	display: block; margin: 0 auto;
+}
+
+#addmember{
+	margin: 10px;
+}
+
+.addbox{
+	border: 1px lightgray solid;
+	border-radius: 10px;
+	padding:10px;
+}
+
+.addbox2{
+	margin-top: 20px;
+}

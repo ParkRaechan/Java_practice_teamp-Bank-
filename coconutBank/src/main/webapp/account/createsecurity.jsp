@@ -13,10 +13,8 @@
 			<br><br><br>
 			<div class="row">
 				<div class="col-md-5">
-					<button type="button" onclick="pagechange('inputpw')">OTP</button> 
-				</div>
-				<div class="col-md-5">
-					<button type="button" onclick="#)">보안카드</button>
+					<h3>OTP생성하시려면 이미지를 클릭해주세요.</h3>
+					<img alt="" src="img/OTP발생기.png" id="otpimg"onclick="pagechange('inputpw')">
 				</div>
 			</div>
 		

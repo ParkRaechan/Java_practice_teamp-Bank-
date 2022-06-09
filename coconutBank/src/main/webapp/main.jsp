@@ -31,7 +31,7 @@ a:hover{ color:#a284c0;}
 				<ul class="nav">
 					<li>조회</li>
 					<li><a href="#" onclick="pagechange('usesccard')" style="color:white;">이체</a></li>
-					<li>발급</li>
+					<li><a href="#" onclick="pagechange('make')" style="color:white;">발급</li>
 				</ul>
 			</div>
 			<div class="carousel-caption carouselbox2">
