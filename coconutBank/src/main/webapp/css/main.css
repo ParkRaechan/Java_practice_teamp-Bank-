@@ -300,9 +300,10 @@ background-color: #9FE9D1;
 }
 
 #otpimg{
-	width:150%;
+	width:100%;
 	opacity: 1;	
 	cursor: pointer;
+	margin-top : 50px;
 }
 
 <!-----addaccount ----->
@@ -324,3 +325,4 @@ background-color: #9FE9D1;
 .addbox2{
 	margin-top: 20px;
 }
+
