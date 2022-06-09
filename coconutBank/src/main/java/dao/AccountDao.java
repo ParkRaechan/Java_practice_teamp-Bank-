@@ -119,7 +119,58 @@ public class AccountDao extends Dao {
 			}
 		}catch (Exception e) {System.out.println("보안카드일려번호출력오류"+e);}
 		return null;
+	} // 보안카드일련번호 출력 end
+
+/////////////////////////////////////////////////////////// 래찬이 머지 //////////////////////////////////////////////////////////////////////
+	
+	
+	public String checkphone(String accnumr) {
+		String sql = "select acphone from account where acno = '"+accnumr+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				String rr = rs.getString(1);
+				return rr;
+			}
+		}
+		catch (Exception e) { System.out.println( e );}
+		return "false";
 	}
+	
+	//pww3계좌비번 accnumr계좌번호
+	public int checkaccpw(String pww3,String accnumr) {
+		
+		String sql = "select * from account where acpw = '"+pww3+"' and acno = '"+accnumr+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return 1;
+			}
+		}
+		catch (Exception e) { System.out.println( e );}
+		return 2;
+	}
+	//pww21보내는계좌비번 achostno보내는계좌번호 acguestno받는계좌번호
+		public int checkaccpw2(String pww21,String achostno,String acguestno) {
+			
+			String sql = "select * from account where acpw = '"+pww21+"' and acno = '"+achostno+"'";
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					sql = "select * from account where acno = '"+acguestno+"'";
+					ps = con.prepareStatement(sql);
+					rs = ps.executeQuery();
+					if(rs.next()) {
+						return 1;
+					}
+				}
+			}
+			catch (Exception e) { System.out.println( e );}
+			return 2;
+		}
 
 
 	
