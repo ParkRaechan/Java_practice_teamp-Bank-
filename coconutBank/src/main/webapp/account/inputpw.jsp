@@ -4,29 +4,62 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>OTP 발급</title>
+<style type="text/css">
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{ font-family: 'SUIT-Medium'; }
+
+#box{
+display : block;
+margin: 0 auto;
+
+width: 300px;
+}
+
+#box button{
+width:80px;
+height:60px;
+background-color: white;
+color:gray;
+border: 1px solid gray;
+}
+
+.otpaccountcheck{
+border: 1px solid gray;
+padding: 20px;
+margin-right: 300px;
+}
+
+</style>
 </head>
 <body>
-	<h3>보안생성</h3>
-	<div class="container">
-	  <div class="row row-cols-7 offset-5" id="billboard">
+<div class="container">
 
-	  </div>
-	  <div class="row row-cols-3" id="box">
 
-	  </div>
-	  <div class="row row-cols-3" id="accin">
+	<h4 style="text-align: center;"><b>OTP 발급</b></h4>
+	
 
-	  </div>
-	  <div class="row row-cols-12" id="comment">
+		<div class="row row-cols-7 offset-5" id="billboard"> </div><br>
+		<div class="row row-cols-3" id="box"> </div>
+		<div class="row row-cols-3" id="accin"> </div>
+		 
+		 <br>
+	<div class="row row-cols-12" id="comment"> </div>
+		 <h6 style="text-align: center; color:red;"> 비밀번호 유출에 주의해주시기 바랍니다. </h6>
 
-	  </div>
-	  <div class="row row-cols-3" id="accin2">
+	<!-- 수정x -->
+		<div class="row row-cols-3" id="accin2"> </div>
 
-	  </div>
-	</div>
-	<script src="/jigmBank/js/inputpw.js" type="text/javascript"></script>
-	<script type="text/javascript" src="./CryptoJS/rollups/hmac-sha256.js"></script>
-	<script type="text/javascript" src="./CryptoJS/components/enc-base64.js"></script>
+	  
+	  
+</div> <!-- 컨테이너 종료 -->
+<script src="/jigmBank/js/inputpw.js" type="text/javascript"></script>
+<script type="text/javascript" src="./CryptoJS/rollups/hmac-sha256.js"></script>
+<script type="text/javascript" src="./CryptoJS/components/enc-base64.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@ let com
 $( function(){
 	
 	boxview();
-	com = '<h2>생성할 OTP의 비밀번호를 입력해주십시오.</h2>';
+	com = '<h5 style="text-align: center;">생성할 OTP의 비밀번호를 입력해주십시오.</h5>';
 	$("#comment").html(com);
 });
 //
@@ -167,11 +167,16 @@ function checkpw0(){
 				/////계좌번호입력/////
 				com='';$("#comment").html(com);
 				let acc = '<div></div>';
-				acc += '<h3>계좌번호입력</h3><br>'+
+				acc += 
 				
-				'<input id="accnum" name="accnum" class="form-control"  placeholder="계좌번호" rows=3>'+
-				'<button class="form-control" type="button" onclick="accpw()">입력</button>'+
-				'<span id="acccheckspan" name="acccheckspan">유효성검사</span>';
+				'<h4 style="text-align: center;"><b>계좌번호 입력</b></h4><br>'+
+				
+				'<div class="otpaccountcheck">'+
+ 				'<input id="accnum" name="accnum" class="form-control" placeholder="계좌번호" style="width:300px;">'+
+				'<button class="form-control" type="button" onclick="accpw()"  style="width:150px; margin:50px;">입력</button>'+
+				
+				'</div>'+
+				'<span id="acccheckspan" name="acccheckspan"></span>';
 				
 				$("#accin").html(acc);
 				///////////////////
@@ -240,7 +245,7 @@ function accpw(){
 	
 	//계좌번호 비번입력용 키패드 새로  띄우기//
 	boxview();
-	com = '<h2>계좌의 비밀번호를 입력해주십시오.</h2>';
+	com = '<h5>계좌의 비밀번호를 입력해주십시오.</h5>';
 	$("#comment").html(com);
 	////////////////
 	}
@@ -394,7 +399,7 @@ function checkphonenum(accnumr){
 		success : function( result ){
 			if(result!="false"){
 				phonenumber = result;
-				com = '<h2>문자로 받은 숫자를 입력해주세요.</h2>';
+				com = '<h6>문자로 받은 숫자를 입력해주세요.</h6>';
 				$("#comment").html(com);
 				loadpp(phonenumber);
 			}else{
