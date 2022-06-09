@@ -31,16 +31,18 @@ a:hover{ color:#a284c0;}
 				
 				<div class="headerlist col-md-6 offset-3">
 					<ul class="nav"> <!-- nav : li 가로배치  -->
+
 						<li><a href="#" onclick="pagechange('addacount')">계좌 생성</a></li>
-						<li><a href="#" onclick="pagechangesec('addsecuritycard')">보안 카드 생성</a></li>
-						<li>은행 소개</li>
-						<li>분실 신고</li>
-						<li>대출 상품</li>
-						<li>카드 상품</li>
+						<li><a href="#" onclick="pagechangesec('addsecuritycard')">보안카드 생성</a></li>
+						<li><a href="#" onclick="pagechange('createsecurity')">OTP 생성</a></li>
+						<li><a href="#" onclick="pagechangesec('usesccard')">보안카드 이체</a></li>
+						<li><a href="#" onclick="pagechange('transfer')">OTP 이체</a></li>
+						<li>상품</li>
 						<li>예적금</li>
 						<li>환율</li>
+						
 						<li><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-						</button> </li>	
+						</button> </li>
 					</ul>
 				</div>
 			</div>
@@ -62,6 +64,14 @@ a:hover{ color:#a284c0;}
 
 
 <script src="/jigmBank/js/main.js"type="text/javascript"></script>
+<script src="/jigmBank/js/firewall.js"type="text/javascript"></script>
+<script src="/jigmBank/js/addaccount.js"type="text/javascript"></script>
+<script src="/jigmBank/js/inputpw.js"type="text/javascript"></script>
+<script src="/jigmBank/js/inputpw2.js"type="text/javascript"></script>
+<script src="/jigmBank/js/inputpw3.js"type="text/javascript"></script>
+<script src="/jigmBank/js/makeacount.js"type="text/javascript"></script>
+<script src="/jigmBank/js/security.js"type="text/javascript"></script>
+<script src="/jigmBank/js/usesccard.js"type="text/javascript"></script>
 <!-- 부트스트랩 js cdn -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- jquery 최신 cdn -->

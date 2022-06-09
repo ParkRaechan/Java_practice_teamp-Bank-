@@ -19,6 +19,7 @@ a:hover{ color:#a284c0;}
 <body>
 
 
+
 <%@include file = "header.jsp" %>
 
 <div class="container">
@@ -93,7 +94,7 @@ a:hover{ color:#a284c0;}
 		<img alt="" src="img/asd.jpg">
 	</div>
 	<br>
-	
+
 	<!-- --------------------------------------------------- -->
 	
 	
@@ -217,9 +218,19 @@ a:hover{ color:#a284c0;}
 <script type="text/javascript" src="./CryptoJS/rollups/hmac-sha256.js"></script>
 <script type="text/javascript" src="./CryptoJS/components/enc-base64.js"></script>
 <!-- 사용자 정의 js -->
-<script src="/java_practice_teamp-Bank/js/main.js" type="text/javascript"></script>
+<script src="/jigmBank/js/main.js"type="text/javascript"></script>
+<script src="/jigmBank/js/firewall.js"type="text/javascript"></script>
+<script src="/jigmBank/js/addaccount.js"type="text/javascript"></script>
+<script src="/jigmBank/js/inputpw.js"type="text/javascript"></script>
+<script src="/jigmBank/js/inputpw2.js"type="text/javascript"></script>
+<script src="/jigmBank/js/inputpw3.js"type="text/javascript"></script>
+<script src="/jigmBank/js/makeacount.js"type="text/javascript"></script>
+<script src="/jigmBank/js/security.js"type="text/javascript"></script>
+<script src="/jigmBank/js/usesccard.js"type="text/javascript"></script>
+<script src="/jigmBank/js/main.js" type="text/javascript"></script>
 <!-- jquert 최신 cdn -->
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 
 </body>
 </html>

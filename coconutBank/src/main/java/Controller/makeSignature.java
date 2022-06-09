@@ -25,39 +25,38 @@ public class makeSignature extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String phonenum = request.getParameter("phonenum"); //jsp에서 입력된 전화번호를 받아옴
-		int rand = (int)(Math.random() * (999999 - 100000 + 1)) + 100000; //6자리 난수 생성
+		//폰번호
+		String phonenum = request.getParameter("phonenum");
+		//난수
+		String rr = request.getParameter("rr");
 		
-		//coolsms 제공 api
-		String api_key = "NCSKVJ7MLDCGI0CM";
-	    String api_secret = "4STLLEOANTZHCPKAGOACTZZJJU6ATG4L";
+		
+		String api_key = "NCSDEAGBJ6JLD1GV";
+	    String api_secret = "H3S6CEOSGQ9VEAH4FSBWO33F5E2VWUBV";
 	    Message coolsms = new Message(api_key, api_secret);
-	    
+
 	    // 4 params(to, from, type, text) are mandatory. must be filled
 	    HashMap<String, String> params = new HashMap<String, String>();
 	    params.put("to", "01041487895");
 	    params.put("from", phonenum);
 	    params.put("type", "SMS");
-	    params.put("text", "인증번호는 "+rand+"입니다. 1분 안에 입력 해주세요.");
+	    params.put("text", "인증번호는 "+rr+"입니다. 1분 안에 입력 해주세요.");
 	    params.put("app_version", "test app 1.2"); // application name and version
 
+	    
+	    
+	    
 	    try {
 	      JSONObject obj = (JSONObject) coolsms.send(params);
 	      System.out.println(obj.toString());
-	      
 	    } catch (CoolsmsException e) {
 	      System.out.println(e.getMessage());
 	      System.out.println(e.getCode());
-	    }	
-	    
-	    response.getWriter().print( rand );
-	}
-	
-	
-	
+	    }	}
 
-
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

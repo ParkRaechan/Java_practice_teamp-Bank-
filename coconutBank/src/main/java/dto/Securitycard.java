@@ -6,19 +6,17 @@ public class Securitycard {
 	private String seccon;
 	private String secpw;
 	private String seactive;
-	private int acidno;
 	
 	
 	public Securitycard() {}
 
 
-	public Securitycard(String secno, String seccon, String secpw, String seactive, int acidno) {
+	public Securitycard(String secno, String seccon, String secpw, String seactive) {
 		super();
 		this.secno = secno;
 		this.seccon = seccon;
 		this.secpw = secpw;
 		this.seactive = seactive;
-		this.acidno = acidno;
 	}
 
 
@@ -62,21 +60,11 @@ public class Securitycard {
 	}
 
 
-	public int getAcidno() {
-		return acidno;
-	}
-
-
-	public void setAcidno(int acidno) {
-		this.acidno = acidno;
-	}
-
 
 	// 테스트용
 	@Override
 	public String toString() {
-		return "Securitycard [secno=" + secno + ", seccon=" + seccon + ", secpw=" + secpw + ", seactive=" + seactive
-				+ ", acidno=" + acidno + "]";
+		return "Securitycard [secno=" + secno + ", seccon=" + seccon + ", secpw=" + secpw + ", seactive=" + seactive + "]";
 	}
 	
 	
