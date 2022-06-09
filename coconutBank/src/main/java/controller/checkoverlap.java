@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import dto.Encryption;
 import dao.AccountDao;
 import dao.OtpDao;
 
@@ -40,8 +40,8 @@ public class checkoverlap extends HttpServlet {
 		try {
 			request.setCharacterEncoding("UTF-8");
 			String rr1 = request.getParameter("rr1");
-			
-			int result = OtpDao.getOtpDao().checkoverlap(rr1);
+			String qwe2 = Encryption.getEncryption().nokeyplus(rr1);
+			int result = OtpDao.getOtpDao().checkoverlap(qwe2);
 			if(result==1) {
 				response.getWriter().print(1);
 				System.out.println("qqq1-1-1");

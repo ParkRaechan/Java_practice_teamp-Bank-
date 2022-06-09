@@ -8,10 +8,13 @@ public class Account {
 	private int acbalance;
 	private String acpw;
 	private String acactive;
+	private String secno;
+	private String otpno;
 	
 	public Account() {}
 
-	public Account(String acno, String acname, String acbirth, int acbalance, String acpw, String acactive) {
+	public Account(String acno, String acname, String acbirth, int acbalance, String acpw, String acactive,
+			String secno, String otpno) {
 		super();
 		this.acno = acno;
 		this.acname = acname;
@@ -19,6 +22,14 @@ public class Account {
 		this.acbalance = acbalance;
 		this.acpw = acpw;
 		this.acactive = acactive;
+		this.secno = secno;
+		this.otpno = otpno;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [acno=" + acno + ", acname=" + acname + ", acbirth=" + acbirth + ", acbalance=" + acbalance
+				+ ", acpw=" + acpw + ", acactive=" + acactive + ", secno=" + secno + ", otpno=" + otpno + "]";
 	}
 
 	public String getAcno() {
@@ -69,12 +80,22 @@ public class Account {
 		this.acactive = acactive;
 	}
 
-	// 테스트용
-	@Override
-	public String toString() {
-		return "Account [acno=" + acno + ", acname=" + acname + ", acbirth=" + acbirth + ", acbalance=" + acbalance
-				+ ", acpw=" + acpw + ", acactive=" + acactive + "]";
+	public String getSecno() {
+		return secno;
 	}
+
+	public void setSecno(String secno) {
+		this.secno = secno;
+	}
+
+	public String getOtpno() {
+		return otpno;
+	}
+
+	public void setOtpno(String otpno) {
+		this.otpno = otpno;
+	}
+
 	
 	
 

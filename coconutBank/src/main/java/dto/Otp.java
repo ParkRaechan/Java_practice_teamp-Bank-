@@ -4,7 +4,6 @@ public class Otp {
 	
 	private String otpno;
 	private String otppw;
-	private String acno;
 	private String otpactive;
 	
 	public Otp() {}
@@ -19,7 +18,6 @@ public class Otp {
 		super();
 		this.otpno = otpno;
 		this.otppw = otppw;
-		this.acno = acno;
 		this.otpactive = otpactive;
 	}
 
@@ -39,14 +37,6 @@ public class Otp {
 		this.otppw = otppw;
 	}
 
-	public String getAcno() {
-		return acno;
-	}
-
-	public void setAcno(String acno) {
-		this.acno = acno;
-	}
-
 	public String getOtpactive() {
 		return otpactive;
 	}
@@ -58,7 +48,7 @@ public class Otp {
 	// 테스트용
 	@Override
 	public String toString() {
-		return "Otp [otpno=" + otpno + ", otppw=" + otppw + ", acno=" + acno + ", otpactive=" + otpactive + "]";
+		return "Otp [otpno=" + otpno + ", otppw=" + otppw + ", otpactive=" + otpactive + "]";
 	}
 
 }

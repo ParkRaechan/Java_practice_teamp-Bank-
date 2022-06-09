@@ -20,7 +20,7 @@ public class OtpDao extends Dao {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				System.out.println(rs.getString(3));
+
 				return rs.getString(3);
 			}
 		}
@@ -41,11 +41,11 @@ public class OtpDao extends Dao {
 		
 		String sql = "select * from otp where otpno = '"+rr1+"'";
 		try {
-			System.out.println("qwe222");
+
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			if(rs.next()) {System.out.println("qwe333");
-				System.out.println(rs.getString(3));
+			if(rs.next()) {
+
 				return 1;
 			}else {
 				return 2;
@@ -56,25 +56,26 @@ public class OtpDao extends Dao {
 	}
 	
 	public int saveotp( String finalf1, String finalf2,String finalf3,String accnumr) {
-		
-		String sql = "select acidno from account where acno='"+accnumr+"'";
+		//암호화된 otp고유번호, 암호화된 비번, otp난주저장공간, 계좌번호
+		String sql = "update account set otpno= '"+finalf1+"' where acno='"+accnumr+"'";
+		boolean ffr = true;
 		try {
 			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
-			
-			if(rs.next()) {
-				
-				String ssqlrs = rs.getString(1);
-				System.out.println(ssqlrs);
-				sql = "insert into otp(otpno,otppw,otpactive,acidno) "
-						+ "values('"+finalf1+"','"+finalf2+"','"+finalf3+"','"+ssqlrs+"')";
+			ps.executeUpdate();
+			if(ffr==true) {
+				sql = "insert into otp(otpno,otppw,otpactive) "
+						+ "values('"+finalf1+"','"+finalf2+"','"+finalf3+"')";
 				ps = con.prepareStatement(sql);
 				ps.executeUpdate(); 
 				return 1;
-
 			}
+			else {
+				ffr = false;
+			}
+
+			
 		}
-		catch (Exception e) { System.out.println( e );}
+		catch (Exception e) {ffr = false; System.out.println( e );}
 		return 2;
 		
 	}

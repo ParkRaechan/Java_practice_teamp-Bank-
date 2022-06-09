@@ -17,14 +17,17 @@ public class TransferDao extends Dao{
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			
+
 			if(rs.next()) {
-				String asd = rs.getString(1);
-				sql = "select * from otp where acidno = '"+asd+"' and otpactive='"+pww22+"'";
+				String asd = rs.getString(10);
+
+				sql = "select * from otp where otpno = '"+asd+"' and otpactive='"+pww22+"'";
 				ps = con.prepareStatement(sql);
 				rs = ps.executeQuery();
+
 				if(rs.next()) {
 					return 1;
+					
 				}
 			}
 		}

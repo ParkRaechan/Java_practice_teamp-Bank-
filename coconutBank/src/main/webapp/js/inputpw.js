@@ -205,12 +205,12 @@ function keycheck(){
 	$("#accnum").keyup( function(){  // 비밀번호 입력할때마다
 		let accnum = $("#accnum").val();  
 		
-		let validation = /^[0-9]{14}$/; // 정규표현식
+		let validation = /^[0-9]{12}$/; // 정규표현식
 		
 		if( validation.test( accnum ) ){ // 정규표현식 같으면
 			$("#acccheckspan").html("입력조건 달성"); pass = true;
 		}else{ // 정규현식 다르면
-			$("#acccheckspan").html("14자리 숫자를 입력해주세요."); pass = false;
+			$("#acccheckspan").html("'-'를 제외한 12자리 숫자를 입력해주세요."); pass = false;
 		}
 	}); 
 }
@@ -287,7 +287,7 @@ function checkaccpw(pww3,accnumr){
 let rrrrrr;
 /////////////문자api js////
 function makeSignature(phonenumber){
-	alert("js연결"); //통신
+	//alert("js연결"); //통신
 	let phonenum = $("#phonenum").val();
 	alert(phonenum);
 	
@@ -298,7 +298,7 @@ function makeSignature(phonenumber){
 	let r = random();
 	let rr = ''+r[0]+r[1]+r[2]+r[3]+r[4]+r[5];
 	rrrrrr = rr;
-	alert(rr);
+	//alert(rr);
 	//문자보내기api적용
 	
 //	$.ajax({
@@ -322,21 +322,22 @@ function checkmessage(){
 
 //////////otp저장
 function saveotp(){
-	alert("작동");
+	//alert("작동");
 	//otp고유번호
 	let r1 = random();
 	let rr1 = ''+r1[0]+r1[1]+r1[2]+r1[3]+r1[4]+r1[5];
-	checkoverlap(rr1);
+	checkoverlap(rr1);//중복확인
 }
 /////////db저장함수/////
 function saveotp2db(finalf1,finalf2,finalf3,accnumr){
-			$.ajax({
+			$.ajax({//고유번호,비번,otp난수,계좌번호
 		url : "/jigmBank/saveotp" ,
 		data : { "finalf1" : finalf1,"finalf2" : finalf2,"finalf3" : finalf3,"accnumr":accnumr },
 		type : "POST",
 		success : function( result ){
 			if(result==1){
 				alert("otp저장성공");
+				window.location.href='main.jsp'
 			}else{
 				alert("otp저장실패");
 			}
@@ -352,25 +353,24 @@ function checkoverlap(rr1){
 		type : "POST",
 		success : function( result ){
 			if(result==2){
-				alert("테스트1");
+
 				
 				//중복없는 otp 고유번호
-				console.log(qq);
-				alert(rr1);
+				alert("테스트상황 문자api막아놓음 - 알림으로 확인바람 고유번호:"+rr1);
 				let finalf1 = rr1;
 				
 				//설정된 otp비번 알림
-				alert(pww);
+				//alert(pww);
 				let finalf2 = pww;
 				
 				//otp난수에 무작위수 넣어놓기
 				let r2 = random();
 				let rr2 = ''+r2[0]+r2[1]+r2[2]+r2[3]+r2[4]+r2[5];
-				alert(rr2);
+				//alert(rr2);
 				let finalf3 = rr2;
 				
 				//계좌번호
-				alert(accnumr);
+				//alert(accnumr);
 				
 				//db저장
 				saveotp2db(finalf1,finalf2,finalf3,accnumr);

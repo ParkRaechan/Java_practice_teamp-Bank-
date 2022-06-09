@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import dto.Encryption;
 import dao.OtpDao;
 
 /**
@@ -45,7 +45,9 @@ public class putrand extends HttpServlet {
 			String r5 = request.getParameter("r5");
 			String r6 = request.getParameter("r6");
 			String otpno = request.getParameter("otpno");
-			boolean result = OtpDao.getOtpDao().putrand(otpno,r1,r2,r3,r4,r5,r6);
+			String qwe2 = Encryption.getEncryption().nokeyplus(otpno);
+			String qwe3 = Encryption.getEncryption().sha256(qwe2);
+			boolean result = OtpDao.getOtpDao().putrand(qwe3,r1,r2,r3,r4,r5,r6);
 			
 			
 			if(result) {

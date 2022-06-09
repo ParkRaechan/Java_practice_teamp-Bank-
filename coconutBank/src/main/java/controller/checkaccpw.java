@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.AccountDao;
+import dto.Encryption;
 
 /**
  * Servlet implementation class checkaccpw
@@ -39,8 +40,14 @@ public class checkaccpw extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			String pww3 = request.getParameter("pww3");
 			String accnumr = request.getParameter("accnumr");
+			String acno = accnumr.replace("-", ""); 
 			
-			int result = AccountDao.getAccountDao().checkaccpw(pww3, accnumr);
+			// 패스워드+키 추가
+			String pww3_0 = Encryption.getEncryption().keyplus(acno, pww3);	
+			// 비밀번호 암호화
+			String hexpw = Encryption.getEncryption().sha256(pww3_0);
+			
+			int result = AccountDao.getAccountDao().checkaccpw(hexpw, accnumr);
 			if(result==1) {
 				response.getWriter().print(1);
 			}else {

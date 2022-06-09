@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import dto.Encryption;
 import dao.OtpDao;
 import dao.TransferDao;
 
@@ -39,8 +39,9 @@ public class finalotpconfirm extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
-			String accnumr = request.getParameter("accnumr");
+			String accnumr = request.getParameter("accnumr1");
 			String pww22 = request.getParameter("pww22");
+			
 			int result = TransferDao.gettranTransferDao().finalconfirm(accnumr, pww22);
 			
 			if(result==1) {

@@ -39,7 +39,7 @@ let pass2 = [false,false,false];
 function keycheck2(){
 	$("#achostno").keyup( function(){  // 비밀번호 입력할때마다
 		let achostno = $("#achostno").val();  
-		let validation = /^[0-9]{14}$/; // 정규표현식
+		let validation = /^[0-9]{12}$/; // 정규표현식
 
 		if( validation.test( achostno ) ){ // 정규표현식 같으면1
 			if(pass2[1]==true){
@@ -58,7 +58,7 @@ function keycheck2(){
 	
 	$("#acguestno").keyup( function(){  // 비밀번호 입력할때마다
 		let acguestno = $("#acguestno").val();  
-		let validation = /^[0-9]{14}$/; // 정규표현식
+		let validation = /^[0-9]{12}$/; // 정규표현식
 		
 		if( validation.test( acguestno ) ){ // 정규표현식 같으면1
 			if(pass2[0]==true){
@@ -71,7 +71,7 @@ function keycheck2(){
 				$("#acccheckspan").html("보내실 계좌를 입력해주십시오."); pass2[1] = true;
 			}
 		}else{ // 정규현식 다르면
-			$("#acccheckspan").html("14자리 숫자의 계좌번호를 입력해주십시오."); pass2[1] = false;
+			$("#acccheckspan").html("'-'를 제외한 12자리 숫자를 입력해주세요."); pass2[1] = false;
 		}
 	}); 
 	
@@ -85,7 +85,7 @@ function keycheck2(){
 				if(pass2[1]==true){
 					$("#acccheckspan").html("입력조건달성"); pass2[2] = true;
 				}else{
-					$("#acccheckspan").html("받으실 계좌를 입력해주십시오."); pass2[2] = true;
+					$("#acccheckspan").html("받으실 계좌를 입력해주십시오.()"); pass2[2] = true;
 				}
 			}else{
 				$("#acccheckspan").html("보내실 계좌를 입력해주십시오."); pass2[2] = true;
@@ -203,7 +203,7 @@ function clickpw2( num ){
 		}	
 	}
 	else if(pwt22 <=5){
-		if(ttt2==2){//보내는 계좌 비번 입력
+		if(ttt2==2){//otp난수입력
 			pww22 += num;pwt22++;
 			////입력값 표시/////
 			let bbb = '<div>'+pww22+'</div>';
@@ -269,9 +269,10 @@ function checkpw00(){
 //otp확인
 function finalcheck(){
 	alert("otp번호 확인중");
+
 	$.ajax({
 		url : "/jigmBank/finalotpconfirm" ,
-		data : { "accnumr" : accnumr1,"pww22":pww22},
+		data : { "accnumr1" : accnumr1,"pww22":pww22},
 		type : "POST",
 		success : function( result ){	/* 통신 성공시 받는 데이터 */
 			if( result == 1 ){  
@@ -286,6 +287,7 @@ function finalcheck(){
 
 //이체1-받는사람
 function transfer1(){
+
 	$.ajax({
 		url : "/jigmBank/transferready" ,
 		data : { "accnumr1" : accnumr1,"accnumr2":accnumr2 , "money":money},
@@ -302,6 +304,7 @@ function transfer1(){
 }
 //이체2-하는사람
 function transfer2(){
+
 	$.ajax({
 		url : "/jigmBank/transferlast" ,
 		data : { "accnumr1" : accnumr1,"accnumr2":accnumr2 , "money":money},
@@ -309,6 +312,7 @@ function transfer2(){
 		success : function( result ){	/* 통신 성공시 받는 데이터 */
 			if( result == 1 ){  
 				alert("이체완료");
+				window.location.href='main.jsp'
 			}else{ 
 				alert("이체실패");
 			}
@@ -319,11 +323,14 @@ function transfer2(){
 
 ///계좌번호와 비번 db비교 확인///
 function checkaccpw2(pww21,achostno,acguestno){
+	//계좌번호 저장//
+	let arr0=changeaccno(achostno);
+	let arr00=changeaccno(acguestno);
 	
 	alert("계좌번호 및 비번확인중");
 	$.ajax({
 		url : "/jigmBank/checkaccpw2" ,
-		data : { "pww21" : pww21,"achostno" : achostno,"acguestno": acguestno },
+		data : { "pww21" : pww21,"arr0" : arr0,"arr00": arr00 },
 		type : "POST",
 		success : function( result ){	/* 통신 성공시 받는 데이터 */
 			if( result == 1 ){  
@@ -369,4 +376,12 @@ function popup(){
     var name = "popup";
     var option = "width = 500, height = 500, top = 100, left = 200, location = no"
     window.open(url, name, option);
+}
+
+function changeaccno(acno){
+	let arr2 = acno.slice(undefined,3);
+	let arr3 = acno.slice(3,6);
+	let arr4 = acno.slice(6,undefined);
+	let arr0 = arr2[0]+arr2[1]+arr2[2]+"-"+arr3[0]+arr3[1]+arr3[2]+"-"+arr4[0]+arr4[1]+arr4[2]+arr4[3]+arr4[4]+arr4[5];
+	return arr0;
 }
