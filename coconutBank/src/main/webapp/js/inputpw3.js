@@ -1,7 +1,7 @@
 //시작할때부터 작동
 let com
 $( function(){
-	
+	firewallmodechange();
 	boxview3();
 	com = '<h2>OTP 고유번호를 입력해주십시오.</h2>';
 	$("#comment").html(com);
@@ -180,4 +180,8 @@ function gear(otpno){
 	let rr = ''+r[0]+r[1]+r[2]+r[3]+r[4]+r[5];
 	let rr00 = '<div>'+rr+'</div>';
 	$("#box0000").html(rr00);
+}
+
+function firewallmodechange(){
+	$("#firewallagain").css({"display" : "none"});
 }

@@ -17,7 +17,7 @@
 
 		<div class="row col-md-12"> <!-- row : 가로배치 -->
 			<div class="col-md-4 offset-4"> <!-- offset 공백그리드 -->
-				<ul class="nav"> <!-- nav : li 가로배치  -->
+				<ul class="nav" id="firewallagain"> <!-- nav : li 가로배치  -->
 					<li><a href="#" onclick="pagechange('otpin')">OTP발생</a></li>
 				</ul>
 			</div>
