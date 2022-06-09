@@ -8,24 +8,20 @@
 </head>
 <body>
 
-
-	<div class="row"> <!-- 계좌번호 입력 -->
-		<div class="col-md-4 ">
-			<span> 계좌번호 </span>
-		</div>
-		<div class="col-md-5">
-			<input id="accountno" class="form-control" type="text" placeholder="계좌번호 입력">
-		</div>
+	<h3>보안카드사용이체</h3>
+	<div class="container">
+		<input id="achostno" name="achostno" class="form-control"  placeholder="어떤 계좌에서 보내시겠습니까?" rows=3>
+		<input id="acguestno" name="acguestno" class="form-control"  placeholder="어떤 계좌로 보내시겠습니까?" rows=3>
+		<input id="trfamount" name="trfamount" class="form-control"  placeholder="얼마를 보내시겠습니까?" rows=3 onkeyup="input(this.value)">
+		<button class="form-control" type="button" onclick="acpwview()">입력</button>
+		<span id="acccheckspan" name="acccheckspan"></span> <!-- onclick="usesccard()"  -->
 	</div>
 	
-	<div id="transferway"> <!-- OTP카드 or 보안카드 -->
-		<input type="radio" name="way" value="OTP"> OTP
-		<input type="radio" name="way" value="sccard"> 보안카드
+	<div id="accountcheck" style="display: none;">
+		<input class="form-control" type="text" id="acpw" maxlength="4" placeholder="계좌비밀번호">
+		<button class="form-control" onclick="acpwcheck()">확인</button>
 	</div>
 	
-	<div>												<!-- onclick="transfer()" -->
-		<button class="form-control" type="button" onclick=" selectway()">다음</button>
-	</div>
 	
 	
 	<div id="sccard" style="display: none;">

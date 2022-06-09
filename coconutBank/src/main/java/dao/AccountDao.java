@@ -9,7 +9,7 @@ public class AccountDao extends Dao {
 	}
 	// 호출용
 	public static AccountDao accountDao = new AccountDao();
-	public static AccountDao getaccAccountDao() {return accountDao;}
+	public static AccountDao getAccountDao() {return accountDao;}
 		
 	
 	// 1. 계좌번호 중복체크 메소드

@@ -31,10 +31,10 @@ public class sccardactive extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String accountno = request.getParameter("accountno");
-		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
+		int acidno = AccountDao.getAccountDao().getacidno(accountno);
 		
 		// 계좌식별번호로 보안카드일련번호 출력
-		String secno = AccountDao.getaccAccountDao().getsecno(acidno);
+		String secno = AccountDao.getAccountDao().getsecno(acidno);
 		
 		boolean result = SccardDao.getscSccardDao().activechange(secno);
 		if(result) {

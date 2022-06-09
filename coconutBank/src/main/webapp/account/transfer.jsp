@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>OTP보안사용이체</h3>
+	<h3>OTP사용이체</h3>
 	<div class="container">
 	  <div class="row row-cols-7 offset-5" id="billboard">
 

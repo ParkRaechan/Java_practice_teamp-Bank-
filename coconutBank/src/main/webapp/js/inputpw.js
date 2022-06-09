@@ -248,6 +248,7 @@ function accpw(){
 
 ///문자보내기처음유무
 let ppt = 0;
+
 ///계좌번호와 비번 db비교 확인///
 function checkaccpw(pww3,accnumr){
 	//pww3 계좌비번
@@ -298,7 +299,7 @@ function makeSignature(phonenumber){
 	let r = random();
 	let rr = ''+r[0]+r[1]+r[2]+r[3]+r[4]+r[5];
 	rrrrrr = rr;
-	//alert(rr);
+	alert(rr);
 	//문자보내기api적용
 	
 //	$.ajax({

@@ -36,6 +36,7 @@ public class checkaccpw extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("연동확인");
 		try {
 			request.setCharacterEncoding("UTF-8");
 			String pww3 = request.getParameter("pww3");

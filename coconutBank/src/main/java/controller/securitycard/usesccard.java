@@ -35,9 +35,10 @@ public class usesccard extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		request.setCharacterEncoding("UTF-8");
 		String accountno = request.getParameter("accountno");
-		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
+		int acidno = AccountDao.getAccountDao().getacidno(accountno);
 		// 보안박스 난수
 		int box1 = Integer.parseInt(request.getParameter("box1"));
 		int box2 = Integer.parseInt(request.getParameter("box2"));
@@ -46,8 +47,7 @@ public class usesccard extends HttpServlet {
 		String boxno2 = request.getParameter("boxno2");
 		
 		// 계좌식별번호로 보안카드일련번호 출력
-		String secno = AccountDao.getaccAccountDao().getsecno(acidno);
-		
+		String secno = AccountDao.getAccountDao().getsecno(acidno);
 		// 첫번째 박스 번호 가져오기(앞자리만)
 		String dbboxno1 = SccardDao.getscSccardDao().getboxno(secno, box1);
 		String fdbboxno1 = dbboxno1.substring(0, 2);

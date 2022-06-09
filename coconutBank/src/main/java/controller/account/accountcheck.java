@@ -48,10 +48,10 @@ public class accountcheck extends HttpServlet {
 		String hexpw = Encryption.getEncryption().sha256(keypw);
 		System.out.println(hexpw);
 		// 회원번호 출력
-		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
+		int acidno = AccountDao.getAccountDao().getacidno(accountno);
 		System.out.println(acidno);
 		// 계좌비밀번호 확인
-		boolean result = AccountDao.getaccAccountDao().passwordcheck(acidno, hexpw);
+		boolean result = AccountDao.getAccountDao().passwordcheck(acidno, hexpw);
 		
 		// 결과
 		if(result) { // 결과값이 존재하면

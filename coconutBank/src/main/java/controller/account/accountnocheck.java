@@ -30,7 +30,7 @@ public class accountnocheck extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("통신확인");
 		String accountno = request.getParameter("accountno");
-		boolean result = AccountDao.getaccAccountDao().acnocheck(accountno);
+		boolean result = AccountDao.getAccountDao().acnocheck(accountno);
 		if(result) { // 계좌번호가 존재하면
 			response.getWriter().print(1);
 		}else {
