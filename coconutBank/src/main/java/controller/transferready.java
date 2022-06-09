@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,20 +6,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import dto.Encryption;
-import dao.OtpDao;
+
+import dao.TransferDao;
 
 /**
- * Servlet implementation class putrand
+ * Servlet implementation class transferready
  */
-@WebServlet("/putrand")
-public class putrand extends HttpServlet {
+@WebServlet("/transferready")
+public class transferready extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public putrand() {
+    public transferready() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,19 +38,12 @@ public class putrand extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
-			String r1 = request.getParameter("r1");
-			String r2 = request.getParameter("r2");
-			String r3 = request.getParameter("r3");
-			String r4 = request.getParameter("r4");
-			String r5 = request.getParameter("r5");
-			String r6 = request.getParameter("r6");
-			String otpno = request.getParameter("otpno");
-			String qwe2 = Encryption.getEncryption().nokeyplus(otpno);
-			String qwe3 = Encryption.getEncryption().sha256(qwe2);
-			boolean result = OtpDao.getOtpDao().putrand(qwe3,r1,r2,r3,r4,r5,r6);
+			String accnumr1 = request.getParameter("accnumr1");
+			String accnumr2 = request.getParameter("accnumr2");
+			String money = request.getParameter("money");
+			int result = TransferDao.gettranTransferDao().transferrd(accnumr1, accnumr2,money);
 			
-			
-			if(result) {
+			if(result==1) {
 				response.getWriter().print(1);
 			}else {
 				response.getWriter().print(2);

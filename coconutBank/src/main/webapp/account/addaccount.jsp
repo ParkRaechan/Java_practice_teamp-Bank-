@@ -4,12 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>계좌 추가 생성</title>
 <style type="text/css">
 *{font-family:'SUIT-Medium';}
 </style>
+
 </head>
 <body>
+
 <%@include file = "../header.jsp" %>
 
 	<div class="container" id="addaccountbox">
@@ -79,7 +82,6 @@
 					</div>
 				</div>
 			</div>
-			
 			
 			
 <!-- --------------------------------------- 계좌생성 -------------------------------------------------- -->

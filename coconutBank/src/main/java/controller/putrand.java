@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,20 +6,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import dao.AccountDao;
+import dto.Encryption;
+import dao.OtpDao;
 
 /**
- * Servlet implementation class getphone
+ * Servlet implementation class putrand
  */
-@WebServlet("/getphone")
-public class getphone extends HttpServlet {
+@WebServlet("/putrand")
+public class putrand extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getphone() {
+    public putrand() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,19 +38,26 @@ public class getphone extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
-			String accnumr = request.getParameter("accnumr");
+			String r1 = request.getParameter("r1");
+			String r2 = request.getParameter("r2");
+			String r3 = request.getParameter("r3");
+			String r4 = request.getParameter("r4");
+			String r5 = request.getParameter("r5");
+			String r6 = request.getParameter("r6");
+			String otpno = request.getParameter("otpno");
+			String qwe2 = Encryption.getEncryption().nokeyplus(otpno);
+			String qwe3 = Encryption.getEncryption().sha256(qwe2);
+			boolean result = OtpDao.getOtpDao().putrand(qwe3,r1,r2,r3,r4,r5,r6);
 			
-			String result = AccountDao.getAccountDao().checkphone(accnumr);
-			System.out.println(result);
-			if(!result.equals("false")) {
-				response.getWriter().print(result);
+			
+			if(result) {
+				response.getWriter().print(1);
 			}else {
-				response.getWriter().print("false");
+				response.getWriter().print(2);
 			}
 		}catch (Exception e) {
 			System.out.print(e);
 		}
 	}
-	
 
 }

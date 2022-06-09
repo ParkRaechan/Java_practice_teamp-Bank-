@@ -9,7 +9,7 @@
 <!-- 부트스트랩 css cdn -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
 <!-- 사용자정의 css -->
-<link href="/jigmBank/css/main.css?ver=1" rel="stylesheet">
+<link href="/jigmBank/css/main.css" rel="stylesheet">
 <!-- 폰트어썸[ 아이콘 ]  -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 
@@ -17,6 +17,7 @@
 a{ text-decoration: none; color:#999999; }
 a:hover{ color:#a284c0;}
 </style>
+
 </head>
 <body>
 	<div class="container">
@@ -32,7 +33,7 @@ a:hover{ color:#a284c0;}
 				<div class="headerlist col-md-6 offset-3">
 					<ul class="nav"> <!-- nav : li 가로배치  -->
 
-						<li><a href="#" onclick="pagechange('addacount')">계좌 생성</a></li>
+						<li><a href="#" onclick="pagechange('addaccount')">계좌 생성</a></li>
 						<li><a href="#" onclick="pagechangesec('addsecuritycard')">보안카드 생성</a></li>
 						<li><a href="#" onclick="pagechange('createsecurity')">OTP 생성</a></li>
 						<li><a href="#" onclick="pagechangesec('usesccard')">보안카드 이체</a></li>
@@ -59,23 +60,16 @@ a:hover{ color:#a284c0;}
 			
 		</div>
 		
+	
 	</div> <!-- 컨테이너 끝 -->
-	<hr>
+	
+	
+		<script src="/jigmBank/js/main.js"type="text/javascript"></script>
+		<!-- 부트스트랩 js cdn -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- jquery 최신 cdn -->
+		<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-
-<script src="/jigmBank/js/main.js"type="text/javascript"></script>
-<script src="/jigmBank/js/firewall.js"type="text/javascript"></script>
-<script src="/jigmBank/js/addaccount.js"type="text/javascript"></script>
-<script src="/jigmBank/js/inputpw.js"type="text/javascript"></script>
-<script src="/jigmBank/js/inputpw2.js"type="text/javascript"></script>
-<script src="/jigmBank/js/inputpw3.js"type="text/javascript"></script>
-<script src="/jigmBank/js/makeacount.js"type="text/javascript"></script>
-<script src="/jigmBank/js/security.js"type="text/javascript"></script>
-<script src="/jigmBank/js/usesccard.js"type="text/javascript"></script>
-<!-- 부트스트랩 js cdn -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- jquery 최신 cdn -->
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	
 </body>
 </html>

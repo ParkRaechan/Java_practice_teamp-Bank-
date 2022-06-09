@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TransferDao;
+import dto.Encryption;
+import dao.OtpDao;
 
 /**
- * Servlet implementation class transferready
+ * Servlet implementation class saveotp
  */
-@WebServlet("/transferready")
-public class transferready extends HttpServlet {
+@WebServlet("/saveotp")
+public class saveotp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public transferready() {
+    public saveotp() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,11 +39,22 @@ public class transferready extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
-			String accnumr1 = request.getParameter("accnumr1");
-			String accnumr2 = request.getParameter("accnumr2");
-			String money = request.getParameter("money");
-			int result = TransferDao.gettranTransferDao().transferrd(accnumr1, accnumr2,money);
+			String finalf1 = request.getParameter("finalf1");//otp고유번호
+			//고유번호암호화
+			String qwe2 = Encryption.getEncryption().nokeyplus(finalf1);
+			String qwe3 = Encryption.getEncryption().sha256(qwe2);
 			
+			String finalf2 = request.getParameter("finalf2");//비번암호화전
+			String accnumr = request.getParameter("accnumr");//계좌번호
+			String acno = accnumr.replace("-", ""); 
+			//비번암호화
+			String qwe1 = Encryption.getEncryption().keyplus(acno, finalf2);
+			String qwe33 = Encryption.getEncryption().sha256(qwe1);
+			
+			String finalf3 = request.getParameter("finalf3");//otp난수
+			
+			
+			int result = OtpDao.getOtpDao().saveotp(qwe3,qwe33,finalf3,accnumr);
 			if(result==1) {
 				response.getWriter().print(1);
 			}else {

@@ -1,6 +1,4 @@
-package controller.account;
-
-
+package Controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,16 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.AccountDao;
+import dao.OtpDao;
 
-
-@WebServlet("/account/accountactive")
-public class accountactive extends HttpServlet {
+/**
+ * Servlet implementation class checkotpyno
+ */
+@WebServlet("/checkotpyno")
+public class checkotpyno extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public accountactive() {
+    public checkotpyno() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,19 +29,28 @@ public class accountactive extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String accountno = request.getParameter("accountno");
-		boolean result = AccountDao.getaccAccountDao().activechange(accountno);
-		if(result) {
-			response.getWriter().print(1);
-		} // if end
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		try {
+			request.setCharacterEncoding("UTF-8");
+			String otpno = request.getParameter("otpno");
+			String result = OtpDao.getOtpDao().otpac(otpno);
+			
+			
+			if(result.equals("false")) {
+				response.getWriter().print("false");
+			}else {
+				response.getWriter().print(result);
+			}
+		}catch (Exception e) {
+			System.out.print(e);
+		}
 	}
 
 }

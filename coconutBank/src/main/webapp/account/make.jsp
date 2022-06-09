@@ -12,10 +12,7 @@
     font-weight: normal;
     font-style: normal;
 }
-
-
 *{ font-family: 'SUIT-Medium'; }
-
 .creatbtn{
 	background-color: white;
 	border: 2px solid gray;
@@ -24,7 +21,6 @@
 	border-radius: 10px;
 	font-size: 20px;
 }
-
 .createsecurity_otpinfo{
 	border : 1px solid gray;
 	font-size: 14px;
@@ -33,16 +29,11 @@
 	padding: 20px;
 	margin: 15px;
 }
-
-
 </style>
-
-<!-- 부트스트랩 css cdn -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
-
 </head>
 <body>
-<%@include file = "../header.jsp" %>
+
+<%@include file = "/header.jsp" %>
 <div class="container">
 
 	<div class="createsecurity">
@@ -92,5 +83,6 @@
 <!-- 컨테이너 끝 -->
 </div>
 <script src="/jigmBank/js/main.js" type="text/javascript"></script>
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-package controller;
+package controller.securitycard;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TransferDao;
+import dao.AccountDao;
+import dao.SccardDao;
 
 /**
- * Servlet implementation class transferlast
+ * Servlet implementation class sccardactive
  */
-@WebServlet("/transferlast")
-public class transferlast extends HttpServlet {
+@WebServlet("/securitycard/sccardactive")
+public class sccardactive extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public transferlast() {
+    public sccardactive() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,30 +29,25 @@ public class transferlast extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		String accountno = request.getParameter("accountno");
+		int acidno = AccountDao.getAccountDao().getacidno(accountno);
+		
+		// 계좌식별번호로 보안카드일련번호 출력
+		String secno = AccountDao.getAccountDao().getsecno(acidno);
+		
+		boolean result = SccardDao.getscSccardDao().activechange(secno);
+		if(result) {
+			response.getWriter().print(1);
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			request.setCharacterEncoding("UTF-8");
-			String accnumr1 = request.getParameter("accnumr1");
-			String accnumr2 = request.getParameter("accnumr2");
-			String money = request.getParameter("money");
-			int result = TransferDao.gettranTransferDao().transferla(accnumr1, accnumr2,money);
-			
-			if(result==1) {
-				response.getWriter().print(1);
-			}else {
-				response.getWriter().print(2);
-			}
-		}catch (Exception e) {
-			System.out.print(e);
-		}
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
-	
 
 }

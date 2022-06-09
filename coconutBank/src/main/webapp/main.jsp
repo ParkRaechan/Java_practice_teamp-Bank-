@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>지금은행</title>
-<style type="text/css">
 
+<style type="text/css">
 #acodimain{font-family: 'SUIT-Medium';}
 .h3font{color:#191970;}
 .recobox{ font-family : "SUIT-Medium"; }
@@ -14,15 +14,14 @@ a{font-family : "SUIT-Medium"; color : white; text-decoration: none; }
 a:hover{ color:#a284c0;}
 </style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link href="/jigmBank/css/main.css?ver=1" rel="stylesheet">
+
 </head>
 <body>
 
-
-
-<%@include file = "header.jsp" %>
-
-<div class="container">
+	<%@include file = "header.jsp" %>
+	
+	
+<div class="container" id="mainbox">
 
 <!-- -------------캐러셀 시작 -------------------- -->
 	<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
@@ -33,7 +32,7 @@ a:hover{ color:#a284c0;}
 				<ul class="nav">
 					<li>조회</li>
 					<li><a href="#" onclick="pagechange('usesccard')" style="color:white;">이체</a></li>
-					<li>발급</li>
+					<li><a href="#" onclick="pagechange('make')" style="color:white;">발급</li>
 				</ul>
 			</div>
 			<div class="carousel-caption carouselbox2">
@@ -209,28 +208,11 @@ a:hover{ color:#a284c0;}
 	<!-- --------------------------------------------- -->
 
 </div> <!-- 컨테이너 -->
-
-<%@include file = "footer.jsp" %>
-
-
-<!-- 부트스트랩 js cdn -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script type="text/javascript" src="./CryptoJS/rollups/hmac-sha256.js"></script>
-<script type="text/javascript" src="./CryptoJS/components/enc-base64.js"></script>
-<!-- 사용자 정의 js -->
-<script src="/jigmBank/js/main.js"type="text/javascript"></script>
-<script src="/jigmBank/js/firewall.js"type="text/javascript"></script>
-<script src="/jigmBank/js/addaccount.js"type="text/javascript"></script>
-<script src="/jigmBank/js/inputpw.js"type="text/javascript"></script>
-<script src="/jigmBank/js/inputpw2.js"type="text/javascript"></script>
-<script src="/jigmBank/js/inputpw3.js"type="text/javascript"></script>
-<script src="/jigmBank/js/makeacount.js"type="text/javascript"></script>
-<script src="/jigmBank/js/security.js"type="text/javascript"></script>
-<script src="/jigmBank/js/usesccard.js"type="text/javascript"></script>
-<script src="/jigmBank/js/main.js" type="text/javascript"></script>
-<!-- jquert 최신 cdn -->
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+	
+	<%@include file = "footer.jsp" %>
+	
+	<!-- 사용자 정의 js -->
+	<script src="/jigmBank/js/main.js"type="text/javascript"></script>
 
 </body>
 </html>

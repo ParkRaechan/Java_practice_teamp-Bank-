@@ -1,4 +1,4 @@
-package controller.securitycard;
+package Controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,21 +6,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import dto.Encryption;
 import dao.AccountDao;
-import dao.SccardDao;
+import dao.OtpDao;
 
 /**
- * Servlet implementation class sccardactive
+ * Servlet implementation class checkoverlap
  */
-@WebServlet("/securitycard/sccardactive")
-public class sccardactive extends HttpServlet {
+@WebServlet("/checkoverlap")
+public class checkoverlap extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public sccardactive() {
+    public checkoverlap() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,25 +29,29 @@ public class sccardactive extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		String accountno = request.getParameter("accountno");
-		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
-		
-		// 계좌식별번호로 보안카드일련번호 출력
-		String secno = AccountDao.getaccAccountDao().getsecno(acidno);
-		
-		boolean result = SccardDao.getscSccardDao().activechange(secno);
-		if(result) {
-			response.getWriter().print(1);
-		}
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		try {
+			request.setCharacterEncoding("UTF-8");
+			String rr1 = request.getParameter("rr1");
+			String qwe2 = Encryption.getEncryption().nokeyplus(rr1);
+			int result = OtpDao.getOtpDao().checkoverlap(qwe2);
+			if(result==1) {
+				response.getWriter().print(1);
+				System.out.println("qqq1-1-1");
+			}else {
+				response.getWriter().print(2);
+				System.out.println("qqq2-2-2");
+			}
+		}catch (Exception e) {
+			System.out.print(e);
+		}
 	}
 
 }

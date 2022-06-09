@@ -6,21 +6,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.AccountDao;
 import dto.Encryption;
-import dao.OtpDao;
-import dao.TransferDao;
 
 /**
- * Servlet implementation class finalotpconfirm
+ * Servlet implementation class checkaccpw
  */
-@WebServlet("/finalotpconfirm")
-public class finalotpconfirm extends HttpServlet {
+@WebServlet("/checkaccpw")
+public class checkaccpw extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public finalotpconfirm() {
+    public checkaccpw() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,21 +29,26 @@ public class finalotpconfirm extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("연동확인");
 		try {
 			request.setCharacterEncoding("UTF-8");
-			String accnumr = request.getParameter("accnumr1");
-			String pww22 = request.getParameter("pww22");
+			String pww3 = request.getParameter("pww3");
+			String accnumr = request.getParameter("accnumr");
+			String acno = accnumr.replace("-", ""); 
 			
-			int result = TransferDao.gettranTransferDao().finalconfirm(accnumr, pww22);
+			// 패스워드+키 추가
+			String pww3_0 = Encryption.getEncryption().keyplus(acno, pww3);	
+			// 비밀번호 암호화
+			String hexpw = Encryption.getEncryption().sha256(pww3_0);
 			
+			int result = AccountDao.getAccountDao().checkaccpw(hexpw, accnumr);
 			if(result==1) {
 				response.getWriter().print(1);
 			}else {

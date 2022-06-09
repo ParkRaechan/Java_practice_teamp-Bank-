@@ -8,7 +8,7 @@ $( function(){
 //
 
 
-
+// 1. 이체메뉴 클릭시 첫화면
 function transferfront(){
 	/////계좌번호입력/////
 	com='<h2>돈을 보내실 계좌번호와 받으실 계좌번호를 입력해주십시오.</h2>';$("#comment").html(com);
@@ -32,7 +32,7 @@ function transferfront(){
 	////////////////////
 }
 
-//유효성관련 선언
+// 2. 계좌번호, 이체액 입력 - 유효성검사
 let pass2 = [false,false,false];
 
 //////유효성검사2-이체에서//////
@@ -111,12 +111,12 @@ let accnumr2;
 let	money;
 ////
 
-
+// 3. 보내는계좌, 받는계좌, 금액 입력후 입력버튼 클릭 후
 ///계좌번호입력후비번입력///
 function accpw2(){
 	if( pass2[0]==true && pass2[1]==true && pass2[2]==true ){
 		
-	//계좌번호 임시 저장//
+	// 보내는 계좌번호 임시 저장//
 	achostno = $("#achostno").val();
 	let arr2 = achostno.slice(undefined,3);
 	let arr3 = achostno.slice(3,6);
@@ -124,6 +124,7 @@ function accpw2(){
 	let arr = arr2[0]+arr2[1]+arr2[2]+"-"+arr3[0]+arr3[1]+arr3[2]+"-"+arr4[0]+arr4[1]+arr4[2]+arr4[3]+arr4[4]+arr4[5];
 	accnumr1 = arr;
 	
+	// 받는 계좌번호 임시저장
 	acguestno = $("#acguestno").val();
 	let arr22 = acguestno.slice(undefined,3);
 	let arr33 = acguestno.slice(3,6);
@@ -131,6 +132,7 @@ function accpw2(){
 	let arr00 = arr22[0]+arr22[1]+arr22[2]+"-"+arr33[0]+arr33[1]+arr33[2]+"-"+arr44[0]+arr44[1]+arr44[2]+arr44[3]+arr44[4]+arr44[5];
 	accnumr2 = arr00;
 
+	// 이체액 임시저장
 	trfamount = $("#trfamount").val();
 	money = trfamount;
 	
@@ -235,7 +237,7 @@ function removeone2(){
 	}
 }
 
-
+// 보내는 계좌 비밀번호 입력후 확인버튼 누른 후
 //비번보관 실행
 function checkpw2(){
 	checkpw00();
@@ -352,6 +354,7 @@ function checkaccpw2(pww21,achostno,acguestno){
 	});	
 }
 
+// OTP 비밀번호 입력
 //유효성 검사 확인
 let pass0000;
 
