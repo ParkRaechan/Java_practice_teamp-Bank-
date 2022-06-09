@@ -23,7 +23,7 @@
 	animation-duration: 0.3s;
 	animation-name: focus__end;
 	width: 300px;
-	letter-spacing: 5px;
+	letter-spacing: 10px;
 	text-align: center;
 }
 .active {

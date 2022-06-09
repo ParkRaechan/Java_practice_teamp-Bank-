@@ -299,14 +299,21 @@ background-color: #9FE9D1;
  margin: 0 auto;
 }
 
+/* 래찬이추가 */
 #otpimg{
-	width:100%;
-	opacity: 1;	
-	cursor: pointer;
-	margin-top : 50px;
+   width: 100%;
+   opacity: 1;   
+   cursor: pointer;
+   border-radius : 30px;
+   margin: 10px;
+}
+#otp0909{
+   color:green;
+   font-size: 30px;
 }
 
-<!-----addaccount ----->
+
+/* addaccount */
 
 #addaccountbox{
 	display: block; margin: 0 auto;

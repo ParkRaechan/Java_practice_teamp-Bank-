@@ -37,7 +37,10 @@
 margin-left: 100px;
 }
 
+
+
 </style>
+
 </head>
 <body>
 <div class="container">
@@ -62,7 +65,7 @@ margin-left: 100px;
 				</div>
 				
 				<div class="col-md-5">
-				<img alt="" src="img/OTP발생기.png" id="otpimg" onclick="pagechange('inputpw')">
+					<img alt="" src="img/OTP발생기.png" id="otpimg" onclick="pagechange('inputpw')">
 				</div>
 			</div>
 		
