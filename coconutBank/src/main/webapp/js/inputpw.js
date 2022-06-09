@@ -298,7 +298,7 @@ function makeSignature(phonenumber){
 	let r = random();
 	let rr = ''+r[0]+r[1]+r[2]+r[3]+r[4]+r[5];
 	rrrrrr = rr;
-	//alert(rr);
+	alert(rr);
 	//문자보내기api적용
 	
 //	$.ajax({
