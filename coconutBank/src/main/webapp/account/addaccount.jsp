@@ -6,8 +6,7 @@
 <meta charset="UTF-8">
 <title>계좌 추가 생성</title>
 <style type="text/css">
-*{font-family:'SUIT-Medium';
-}
+*{font-family:'SUIT-Medium';}
 </style>
 </head>
 <body>
