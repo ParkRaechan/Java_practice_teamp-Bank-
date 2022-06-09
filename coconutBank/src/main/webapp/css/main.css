@@ -1,11 +1,15 @@
 @charset "UTF-8";
-
+/*css추가해야합니다.*/
 #otpimg{
 	width:150%;
 	opacity: 1;	
 	cursor: pointer;
 }
-
+#otp0909{
+	color:green;
+	font-size: 30px;
+}
+/*css추가해야합니다.*/
 @font-face { /* 웹폰트*/
 	    font-family: 'KOHIBaeumOTF';
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/KOHIBaeumOTF.woff') format('woff');
