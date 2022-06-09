@@ -32,23 +32,20 @@
 			<div class="col-md-4 offset-4">No. **********</div>
 		</div>
 		<div class="row"> <!-- 보안카드 박스 -->	
-			<%
-				for(int i = 0; i<30; i++){
-					if(i%6 == 0){
-			%>
-					<div class="col-md-2">
-						<div class="row">
-							<span class="col-md-6"><%=i+1 %></span>
-							<span class="col-md-6">****</span>
-						</div>
-					</div>
-			<% 		}else{%>
-					
-			<% 		
-					} 
-				}
-			%>	
-	
+		<%
+		 for(int i = 0; i<6; i++){
+		%>
+			<div class="row">
+			
+			</div>	
+		<%	for(int j = 0; j <= 4; j++){ %>
+			<div class="col-md-2">
+				<div class="row">
+					<span class="col-md-6"><%=i+1+(j*6) %></span>
+					<span class="col-md-6">****</span>
+				</div>
+			</div>
+		<% }} %>
 		</div>
 	</div>
 	

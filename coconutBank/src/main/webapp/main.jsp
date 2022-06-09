@@ -14,7 +14,6 @@ a{font-family : "SUIT-Medium"; color : white; text-decoration: none; }
 a:hover{ color:#a284c0;}
 </style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link href="/jigmBank/css/main.css" rel="stylesheet">
 
 </head>
 <body>

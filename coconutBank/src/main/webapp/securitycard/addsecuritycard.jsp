@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/jigmBank/css/security.css?ver=1" rel="stylesheet">
+<link href="/jigmBank/css/security.css" rel="stylesheet">
 </head>
 <body>
 	<div class="security__main__container">
