@@ -29,7 +29,7 @@ public class accountactive extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String accountno = request.getParameter("accountno");
-		boolean result = AccountDao.getaccAccountDao().activechange(accountno);
+		boolean result = AccountDao.getAccountDao().activechange(accountno);
 		if(result) {
 			response.getWriter().print(1);
 		} // if end

@@ -5,16 +5,14 @@ public class Otp {
 	private String otpno;
 	private String otppw;
 	private String otpactive;
-	private int acidno;
 	
 	public Otp() {}
 
-	public Otp(String otpno, String otppw, String otpactive, int acidno) {
+	public Otp(String otpno, String otppw, String otpactive) {
 		super();
 		this.otpno = otpno;
 		this.otppw = otppw;
 		this.otpactive = otpactive;
-		this.acidno = acidno;
 	}
 
 	public String getOtpno() {
@@ -41,20 +39,10 @@ public class Otp {
 		this.otpactive = otpactive;
 	}
 
-	public int getAcidno() {
-		return acidno;
-	}
-
-	public void setAcidno(int acidno) {
-		this.acidno = acidno;
-	}
-
-	// 테스트용
 	@Override
 	public String toString() {
-		return "Otp [otpno=" + otpno + ", otppw=" + otppw + ", otpactive=" + otpactive + ", acidno=" + acidno + "]";
+		return "Otp [otpno=" + otpno + ", otppw=" + otppw + ", otpactive=" + otpactive + "]";
 	}
 	
-	
-	
+
 }
