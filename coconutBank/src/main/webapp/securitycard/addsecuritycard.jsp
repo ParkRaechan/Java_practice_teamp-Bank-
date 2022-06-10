@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="security__main__container">
-		<h2>보안 카드 생성</h2>
+		<h2 style="font-weight: bold;">보안 카드 생성</h2>
 		<div class="security__text active">
 		<div>비밀번호로 사용 할 숫자 6자리를 입력해주세요.</div>
 		<input maxlength='6' type="text" id="security__password" class="input__box" >

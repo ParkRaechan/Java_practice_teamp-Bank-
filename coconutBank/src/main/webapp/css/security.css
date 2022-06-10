@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
+@font-face { /* 웹폰트*/
+	    font-family: 'KOHIBaeumOTF';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/KOHIBaeumOTF.woff') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+}
+
+*{
+	font-family: 'KOHIBaeumOTF';
+}
+
 .security__main__container {
 	margin: 200px 150px;
 	text-align: center;
@@ -23,7 +34,7 @@
 	animation-duration: 0.3s;
 	animation-name: focus__end;
 	width: 300px;
-	letter-spacing: 10px;
+	letter-spacing: 40px;
 	text-align: center;
 }
 .active {
