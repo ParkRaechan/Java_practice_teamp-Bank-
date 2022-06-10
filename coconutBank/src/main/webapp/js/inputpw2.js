@@ -11,15 +11,16 @@ $( function(){
 // 1. 이체메뉴 클릭시 첫화면
 function transferfront(){
 	/////계좌번호입력/////
-	com='<h2>돈을 보내실 계좌번호와 받으실 계좌번호를 입력해주십시오.</h2>';$("#comment").html(com);
+	com='<h6 style="text-align: center;">돈을 보내실 계좌번호와 받으실 계좌번호를 입력해주십시오.</h6>';$("#comment").html(com);
 	let acc = '<div></div>';
-	acc += '<h3>계좌번호입력</h3><br>'+
+	acc += '<h4 style="text-align: center;">계좌번호입력</h4><br>'+
+	'<div class="sendaccountinput col-md-4 offset-4">'+
 	
-	'<input id="achostno" name="achostno" class="form-control"  placeholder="어떤 계좌에서 보내시겠습니까?" rows=3>'+
-	'<input id="acguestno" name="acguestno" class="form-control"  placeholder="어떤 계좌로 보내시겠습니까?" rows=3>'+
-	'<input id="trfamount" name="trfamount" class="form-control"  placeholder="얼마를 보내시겠습니까?" rows=3>'+
+	'<input id="achostno" name="achostno" class="form-control"  placeholder="어떤 계좌에서 보내시겠습니까?" rows=3><br>'+
+	'<input id="acguestno" name="acguestno" class="form-control"  placeholder="어떤 계좌로 보내시겠습니까?" rows=3><br>'+
+	'<input id="trfamount" name="trfamount" class="form-control"  placeholder="얼마를 보내시겠습니까?" rows=3><br>'+
 	'<button class="form-control" type="button" onclick="accpw2()">입력</button>'+
-	'<span id="acccheckspan" name="acccheckspan">유효성검사</span>';
+	'<span id="acccheckspan" name="acccheckspan" style="text-align:center;"></span>'+'</div><br>';
 	
 	$("#accin").html(acc);
 	///////////////////
@@ -146,7 +147,7 @@ function accpw2(){
 	
 	//계좌번호 비번입력용 키패드 새로  띄우기//
 	boxview2();
-	com = '<h2>보내시는 계좌의 비밀번호를 입력해주십시오.</h2>';
+	com = '<h6 style="text-align: center;">보내시는 계좌의 비밀번호를 입력해주십시오.</h6>';
 	$("#comment").html(com);
 	////////////////
 	}
@@ -329,7 +330,7 @@ function checkaccpw2(pww21,achostno,acguestno){
 	let arr0=changeaccno(achostno);
 	let arr00=changeaccno(acguestno);
 	
-	alert("계좌번호 및 비번확인중");
+	alert("계좌번호 및 비밀번호 확인 중");
 	$.ajax({
 		url : "/jigmBank/checkaccpw2" ,
 		data : { "pww21" : pww21,"arr0" : arr0,"arr00": arr00 },
@@ -337,7 +338,7 @@ function checkaccpw2(pww21,achostno,acguestno){
 		success : function( result ){	/* 통신 성공시 받는 데이터 */
 			if( result == 1 ){  
 				matchaccpw = true;
-				alert("정보일치");
+				alert("정보가 일치합니다.");
 				
 				ttt2=2;
 				boxview2();
@@ -348,7 +349,7 @@ function checkaccpw2(pww21,achostno,acguestno){
 				///////////////////
 			}else{ 
 				matchaccpw = false;
-				alert("정보불일치");
+				alert("정보가 불일치합니다. 다시 확인해주세요.");
 			}
 		}
 	});	

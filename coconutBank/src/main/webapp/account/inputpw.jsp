@@ -69,7 +69,6 @@ width : 350px;
 		 <br>
 	<div class="row row-cols-12" id="comment"> </div>
 
-	<!-- 수정x -->
 		<div class="row row-cols-3" id="accin2"> </div>
 
 	  
