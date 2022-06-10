@@ -98,7 +98,7 @@ scacpwd.addEventListener("keyup", function(key){
 						sctext[4].className += "active";
 						errtext.innerHTML = " "
 					}else{ 
-						alert("비밀번호불일치"+(index+1)+"회/3회//////비밀번호를 맞게 입력하였는데 이 메세지창이 뜬다면 잠금된 계좌이므로 가까운 지금은행으로가서 신분증과 휴대전화를 지참한 대면인증 ");
+						alert("비밀번호불일치"+(index+1)+"회/3회//////비밀번호를 맞게 입력하였는데 이 메세지창이 뜬다면 잠금된 계좌이므로 가까운 지금은행으로가셔서 신분증과 휴대전화를 지참한 대면인증을 해주시길 바랍니다. ");
 						index++;
 						if(index >= 3){
 							$.ajax({

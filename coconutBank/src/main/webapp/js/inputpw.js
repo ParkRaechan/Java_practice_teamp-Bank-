@@ -192,7 +192,7 @@ function checkpw0(){
 				window.location.href='main.jsp'
 				}
 				ghgh01+=1;
-				alert("입력 비밀번호 불일치 입력오류횟수:"+ghgh01);
+				alert("입력 비밀번호 불일치 입력오류횟수:"+ghgh01+"/3"+"------//////비밀번호를 맞게 입력하였는데 이 메세지창이 뜬다면 잠금된 계좌이므로 가까운 지금은행으로가셔서 신분증과 휴대전화를 지참한 대면인증을 해주시길 바랍니다. ");
 			}
 		}else{
 			alert("6자리 모두 입력해주시길 바랍니다.");
@@ -296,7 +296,7 @@ function checkaccpw(pww3,accnumr){
 				window.location.href='main.jsp'
 				}
 				ghgh02= ghgh02+1;
-				alert("입력 비밀번호 불일치 /// 입력오류횟수:"+ghgh02+"///(입력 오류3번 초과시 계좌잠금)");
+				alert("입력 비밀번호 불일치 /// 입력오류횟수:"+ghgh02+"/3------////////비밀번호를 맞게 입력하였는데 이 메세지창이 뜬다면 잠금된 계좌이므로 가까운 지금은행으로가셔서 신분증과 휴대전화를 지참한 대면인증을 해주시길 바랍니다. ");
 			}
 		}
 	});	
@@ -317,16 +317,15 @@ function makeSignature(phonenumber){
 	let r = random();
 	let rr = ''+r[0]+r[1]+r[2]+r[3]+r[4]+r[5];
 	rrrrrr = rr;
-	alert(rr);
 	//문자보내기api적용
 	
-//	$.ajax({
-//		url : 'makeSignature',
-//		data : { "phonenum" : phonenum, "rr":rr} ,
-//		success : function(re){
-//			alert("통신성공");
-//		}
-//	});
+	$.ajax({
+		url : 'makeSignature',
+		data : { "phonenum" : phonenum, "rr":rr} ,
+		success : function(re){
+			alert("통신성공");
+		}
+	});
 
 }	
 ////////////////////////

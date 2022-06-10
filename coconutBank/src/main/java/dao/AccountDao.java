@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.ArrayList;
+
 import dto.Account;
 
 public class AccountDao extends Dao {
@@ -182,5 +184,42 @@ public class AccountDao extends Dao {
 			}catch (Exception e) {System.out.println(e);}
 			return 2;
 		}
-	
+		// 8. 계좌생성한 목록 출력
+		public ArrayList<Account> getaddaccount(){
+			ArrayList<Account> addaclist = new ArrayList<Account>();
+			String sql = "select * from account where acactive='사용불가'";
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				while(rs.next() ) {
+					Account account = new Account(rs.getInt(1), 
+							rs.getString(2), 
+							rs.getString(3), 
+							rs.getString(4), 
+							rs.getString(5), 
+							rs.getString(6), 
+							rs.getInt(7), 
+							rs.getString(8), 
+							rs.getString(9), 
+							rs.getString(10));
+					addaclist.add(account);
+				} // while end
+				return addaclist;
+			}catch (Exception e) {System.out.println("계좌생성목록출력오류"+e);}
+			return null;
+		} // 계좌생성한 목록출력 end
+		
+
+		//OTP용 계좌잠금
+		public int changemode(String acidno) {
+			String sql = "update account set acactive = '사용가능' where acno ='"+acidno+"'";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.executeUpdate();
+				return 1;
+			}catch (Exception e) {System.out.println(e);}
+			return 2;
+		}
+		
+		
 } // class end

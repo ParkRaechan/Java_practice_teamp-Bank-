@@ -26,7 +26,6 @@ a:hover{ color:#a284c0;}
 				<div class="col-md-3 headermaintop">
 					<img alt="" src="img/bank.png" width="20%">
 					<a href="/jigmBank/main.jsp" id="qwer" style="color:#429fdf; font-family: 'KOHIBaeumOTF'">지금은행</a>
-					<button class="loginbtn">로그인</button>
 				</div>
 				
 				<div class="headerlist col-md-6 offset-3">
