@@ -53,6 +53,7 @@ function acpwview(){
 	$("#accountcheck").css("display", "block");
 }
 
+let index2 = 0;
 // 계좌비밀번호 체크
 function acpwcheck(){
 	let accountno = $("#achostno").val();
@@ -66,15 +67,17 @@ function acpwcheck(){
 				alert("해당계좌확인");
 				usesccard();
 			}else{ 
-				alert("비밀번호불일치"+(index+1)+"회/3회");
-				index++;
-				if(index >= 3){
+				alert("비밀번호불일치"+(index2+1)+"회/3회");
+				index2++;
+				if(index2 >= 3){
 					$.ajax({
 						url : "/jigmBank/account/accountactive",
 						data : {"accountno" : arr},
 						success : function(result){
 							if(result == 1){
 								alert("비밀번호입력횟수제한-해당계좌잠금(관리자문의)");
+								accrock();
+								window.location.href='main.jsp'
 							} // end
 						} // success end
 					}); // ajax end
@@ -200,4 +203,17 @@ function transfer2(){
 	});	
 }
 
-
+function accrock(){
+		$.ajax({
+		url : "/jigmBank/accrock" ,
+		data : { "accnumr" : accnumr },
+		type : "POST",
+		success : function( result ){
+			if(result==1){
+				alert("계좌잠금"+accnumr);
+			}else{
+				alert("계좌잠금 실패!");
+			}
+		}
+	});
+}

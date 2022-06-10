@@ -4,6 +4,7 @@ var sctext = document.querySelectorAll(".security__text");
 var errtext = document.getElementById("security__err__text");
 var scacnum = document.getElementById("security__accnum");
 var scacpwd = document.getElementById("security__accpwd");
+var scemail = document.getElementById("security__email");
 pwd1.focus();
 //비밀번호 1
 
@@ -97,7 +98,7 @@ scacpwd.addEventListener("keyup", function(key){
 						sctext[4].className += "active";
 						errtext.innerHTML = " "
 					}else{ 
-						alert("비밀번호불일치"+(index+1)+"회/3회");
+						alert("비밀번호불일치"+(index+1)+"회/3회//////비밀번호를 맞게 입력하였는데 이 메세지창이 뜬다면 잠금된 계좌이므로 가까운 지금은행으로가서 신분증과 휴대전화를 지참한 대면인증 ");
 						index++;
 						if(index >= 3){
 							$.ajax({
@@ -106,6 +107,8 @@ scacpwd.addEventListener("keyup", function(key){
 								success : function(result){
 									if(result == 1){
 										alert("비밀번호입력횟수제한-해당계좌잠금(관리자문의)");
+										accrock();
+										window.location.href='main.jsp'
 									} // end
 								} // success end
 							}); // ajax end
@@ -124,6 +127,25 @@ scacpwd.addEventListener("keyup", function(key){
 		
 	}
 });
+  
+scemail.addEventListener("keyup", function(key){
+	let email_format = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+	console.sc
+	if(key.keyCode == 13){
+		if(email_format.test(scemail.value)){
+			sctext[4].className = "security__text ";
+			sctext[5].className += "active";
+			errtext.innerHTML = " "		
+		}else{
+			errtext.innerHTML = "잘못된 이메일 형식입니다."
+		}
+	}
+});
+
+
+
+
+
 
 // 보안카드 일련번호 난수생성
 function secnoran(){
@@ -156,7 +178,7 @@ function addsccard(){
 	$.ajax({
 		url : "/jigmBank/securitycard/addsccard",
 		type : "POST",
-		data : {"secno" : secno, "scbox" : scbox, "accountno" : arr, "sccardpw" : scacpwd.value},
+		data : {"secno" : secno, "scbox" : scbox, "accountno" : arr, "sccardpw" : scacpwd.value, "scemail" : scemail.value},
 		success : function(result){
 			if(result == 1){
 				alert("보안카드일련번호 중복");
@@ -175,3 +197,18 @@ function addsccard(){
 	
 } // 보안카드 생성 end
 
+//////계좌잠금
+function accrock(){
+		$.ajax({
+		url : "/jigmBank/accrock" ,
+		data : { "accnumr" : accnumr },
+		type : "POST",
+		success : function( result ){
+			if(result==1){
+				alert("계좌잠금"+accnumr);
+			}else{
+				alert("계좌잠금 실패!");
+			}
+		}
+	});
+}

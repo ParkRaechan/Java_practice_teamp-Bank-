@@ -55,7 +55,7 @@ public class addaccount extends HttpServlet {
 		String dbpw = Encryption.getEncryption().sha256(keypw);
 		
 		// 객체화
-		Account account = new Account(0, accountno, dbpw, accounthost, birth, phone, balance, "사용가능", "null", "null");
+		Account account = new Account(0, accountno, dbpw, accounthost, birth, phone, balance, "사용불가", "null", "null");
 		boolean result = AccountDao.getAccountDao().addaccount(account);
 		// 결과
 		if(result) {

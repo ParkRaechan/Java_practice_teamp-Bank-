@@ -13,6 +13,41 @@
     font-style: normal;
 }
 *{ font-family: 'SUIT-Medium'; }
+
+#box{
+display : block;
+margin: 0 auto;
+width: 300px;
+}
+#box button{
+width:80px;
+height:60px;
+background-color: white;
+color:gray;
+border: 1px solid gray;
+}
+.otpaccountcheck{
+border: 1px solid #999999;
+border-radius : 20px;
+padding: 20px;
+text-align: center;
+width : 350px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-190px;
+    margin-top:-230px;
+}
+#inputpwbtn{
+	font-family : 'SUIT-Medium';
+	width:100px; margin-top:5px; color:gray;
+	margin-left: 100px;
+}
+#accnum{
+	width:300px;
+}
+
+
 </style>
 </head>
 <body>

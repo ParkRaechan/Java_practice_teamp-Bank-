@@ -26,6 +26,11 @@
 	font-weight:200;
 	margin-top:15px;
 }
+.security__small {
+	
+	letter-spacing: 10px !important;
+}
+
 .input__box {
 	margin-top: 20px;
 	padding: 10px;
