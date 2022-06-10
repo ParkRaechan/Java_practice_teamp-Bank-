@@ -53,6 +53,7 @@ function acpwview(){
 	$("#accountcheck").css("display", "block");
 }
 
+let index2 = 0;
 // 계좌비밀번호 체크
 function acpwcheck(){
 	let accountno = $("#achostno").val();
@@ -66,9 +67,9 @@ function acpwcheck(){
 				alert("해당계좌확인");
 				usesccard();
 			}else{ 
-				alert("비밀번호불일치"+(index+1)+"회/3회");
-				index++;
-				if(index >= 3){
+				alert("비밀번호불일치"+(index2+1)+"회/3회");
+				index2++;
+				if(index2 >= 3){
 					$.ajax({
 						url : "/jigmBank/account/accountactive",
 						data : {"accountno" : arr},

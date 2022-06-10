@@ -33,7 +33,7 @@
 		</div>
 		<div class="security__text">
 		<div>생성완료 버튼을 눌러주세요 </div>
-		<input type="button" onclick="addsccard()"  class="input__box security__small" value="생성완료">
+		<input type="button" onclick="addsccard()"  class="input__box security__small" value="생성">
 		</div>
 		<div id="security__err__text">
 		 
