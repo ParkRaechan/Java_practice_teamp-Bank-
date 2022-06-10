@@ -374,7 +374,7 @@ function checkoverlap(rr1){
 
 				
 				//중복없는 otp 고유번호
-				alert("테스트상황 문자api막아놓음 - 알림으로 확인바람 고유번호:"+rr1);
+				alert("고유번호:"+rr1);
 				let finalf1 = rr1;
 				
 				//설정된 otp비번 알림
