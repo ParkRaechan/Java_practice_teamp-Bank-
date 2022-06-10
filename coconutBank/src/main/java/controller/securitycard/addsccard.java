@@ -41,11 +41,12 @@ public class addsccard extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String secno = request.getParameter("secno");
 		String box = request.getParameter("scbox");
+		String scemail = request.getParameter("scemail");
 			String accountno = request.getParameter("accountno");
 		int acidno = AccountDao.getAccountDao().getacidno(accountno);
 		
 		String sccardpw = request.getParameter("sccardpw");
-		
+
 		boolean result = SccardDao.getscSccardDao().secnocheck(secno);
 		if(result) { // 보안카드 일련번호가 DB에 존재하면
 			response.getWriter().print(1);
@@ -68,6 +69,9 @@ public class addsccard extends HttpServlet {
 				boolean result3 = SccardDao.getscSccardDao().addsccard(securitycard);
 				if(result3) { // 보안테이블에 보안카드 등록
 					AccountDao.getAccountDao().addsecno(acidno, dbsecno);
+
+					SccardDao.getscSccardDao().sendEmail(secno, box, scemail);
+					//email 전송
 					response.getWriter().print(2);
 				}else { // 보안테이블에 보안카드 DB저장 X
 					response.getWriter().print(4);

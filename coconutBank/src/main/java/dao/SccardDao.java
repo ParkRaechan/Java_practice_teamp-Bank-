@@ -1,9 +1,9 @@
 package dao;
 
 import java.util.Properties;
-
-import javax.mail.Authenticator;
-import javax.mail.Session;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import dto.Securitycard;
 
@@ -70,7 +70,7 @@ public class SccardDao extends Dao{
 	} // 보안카드상태 잠금 end
 	
 	// 5. 보안카드 생성 후 이메일 전송 메소드
-	public void sendEmail(String secno, String box) {
+	public void sendEmail(String secno, String box, String scemail) {
 		String 보내는사람이메일 = "kimsunwj@naver.com";
 		String 보내는사람이메일비밀번호 = "qksdnjfcka123!";
 		
@@ -104,12 +104,12 @@ public class SccardDao extends Dao{
 		try {
 			MimeMessage message = new MimeMessage(session);		// Mime 프로토콜 : 전자우편 표준 포멧[형식]
 			message.setFrom( new InternetAddress("kimsunwj@naver.com") ); // 보내는사람 
-			message.addRecipient( Message.RecipientType.TO , new InternetAddress("test1231@ruu.kr") ); // 받는사람이메일
+			message.addRecipient( Message.RecipientType.TO , new InternetAddress(scemail) ); // 받는사람이메일
 			// 내용 
-			message.setSubject("테스트 1234"); // 메일 전송 
-			message.setText("일련번호  : " + secno 
+			message.setSubject("지금은행: 보안카드 발급","UTF-8"); // 메일 전송 
+			message.setContent("일련번호  : " + secno 
 					+ "<br> 보안카드: <br>" + box1[0] + "<br>"
-					+ box1[1] + "<br>" +box1[2] + "<br>" + box1[3] + "<br>" +box1[4] + "<br>" +box1[5] + "<br>");
+					+ box1[1] + "<br>" +box1[2] + "<br>" + box1[3] + "<br>" +box1[4] + "<br>" +box1[5] + "<br>", "text/html; charset=UTF-8");
 			// 전송
 			Transport.send(message);
 		}catch (Exception e) { System.out.println("메일전송실패 "  +e);}
