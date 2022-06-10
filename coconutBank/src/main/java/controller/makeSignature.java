@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -31,8 +31,8 @@ public class makeSignature extends HttpServlet {
 		String rr = request.getParameter("rr");
 		
 		
-		String api_key = "NCSDEAGBJ6JLD1GV";
-	    String api_secret = "H3S6CEOSGQ9VEAH4FSBWO33F5E2VWUBV";
+		String api_key = "NCSKVJ7MLDCGI0CM";
+	    String api_secret = "4STLLEOANTZHCPKAGOACTZZJJU6ATG4L";
 	    Message coolsms = new Message(api_key, api_secret);
 
 	    // 4 params(to, from, type, text) are mandatory. must be filled

@@ -13,7 +13,6 @@
 </head>
 <body>
 
-<%@include file = "../header.jsp" %>
 
 	<div class="container" id="addaccountbox">
 		<h4 style="text-align: center;"><b>계좌 추가 생성</b></h4>	
@@ -45,8 +44,8 @@
 						<div class="col-md-5">
 							<input id="accounthost" class="form-control" type="text" placeholder="예금주"> 
 						</div>
-						<div class="col-md-1" id="namecheck"></div>
 					</div>
+					<div class="col-md-5 offset-1" id="namecheck"></div>
 	<hr>
 					<div class="row">	
 						<div class="col-md-3 offset-1" >
@@ -55,8 +54,8 @@
 						<div class="col-md-5">
 							<p><input id="birth" type="date"></p>
 						</div>
-						<div class="col-md-1" id="birthcheck"></div>
 					</div>
+					<div class="col-md-5 offset-1" id="birthcheck"></div>
 	<hr>
 			
 					<div class="row">
@@ -64,10 +63,10 @@
 							<span> 휴대전화번호 </span>
 						</div>
 						<div class="col-md-5">
-							<input id="phone" class="form-control" type="text" placeholder="휴대전화번호"> 
+							<input id="phone" class="form-control" type="text" placeholder="010-0000-0000 형식"> 
 						</div>
-						<div class="col-md-1" id="phonecheck"></div>
 					</div>
+					<div class="col-md-5 offset-1" id="phonecheck"></div>
 	<hr>
 			<div class="form-check  offset-1">
 			  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
@@ -86,9 +85,9 @@
 			
 <!-- --------------------------------------- 계좌생성 -------------------------------------------------- -->
 			<br><br>
-			<div  class="container" id="addcount" style="display: none">	
+			<div  class="container col-md-6 offset-6" id="addcount" style="display: none">	
 				<div class="row ">
-					<div class="col-md-4 ">
+					<div class="col-md-3 offset-1">
 						<span> 계좌번호 </span>
 					</div>
 					<div class="col-md-5">
@@ -96,8 +95,9 @@
 					</div>
 				</div>
 <hr>	
+				
 				<div class="row ">
-					<div class="col-md-4 " >
+					<div class="col-md-3 offset-1" >
 						<span> 예금액 </span>
 					</div>
 					<div class="col-md-5">
@@ -106,7 +106,7 @@
 				</div>
 <hr>				
 				<div class="row ">
-					<div class="col-md-4 " >
+					<div class="col-md-3 offset-1" >
 						<span> 계좌비번 </span>
 					</div>
 					<div class="col-md-5">
@@ -114,12 +114,15 @@
 					</div>
 				</div> 
 <hr>	
-			<br><br><br>
+					<div class="col-md-2 offset-7">
+						<button class="form-control" type="button" onclick="next()">다음</button> <!-- js에서 form 비동기 통신  -->
+					</div>
+
 			<div class="row">
-				<div class="col-md-5">
+				<div class="col-md-2 offset-7">
 					<button class="form-control" type="button" onclick="add()">계좌등록</button> <!-- js에서 form 비동기 통신  -->
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-2 offset-1">
 					<input class="form-control" type="reset" value="초기화">
 				</div>
 			</div>

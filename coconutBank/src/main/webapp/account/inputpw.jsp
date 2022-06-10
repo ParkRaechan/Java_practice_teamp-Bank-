@@ -30,9 +30,27 @@ border: 1px solid gray;
 }
 
 .otpaccountcheck{
-border: 1px solid gray;
+border: 1px solid #999999;
+border-radius : 20px;
 padding: 20px;
-margin-right: 300px;
+text-align: center;
+width : 350px;
+
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-190px;
+    margin-top:-230px;
+}
+
+#inputpwbtn{
+	font-family : 'SUIT-Medium';
+	width:100px; margin-top:5px; color:gray;
+	margin-left: 100px;
+}
+
+#accnum{
+	width:300px;
 }
 
 </style>
@@ -50,7 +68,6 @@ margin-right: 300px;
 		 
 		 <br>
 	<div class="row row-cols-12" id="comment"> </div>
-		 <h6 style="text-align: center; color:red;"> 비밀번호 유출에 주의해주시기 바랍니다. </h6>
 
 	<!-- 수정x -->
 		<div class="row row-cols-3" id="accin2"> </div>
