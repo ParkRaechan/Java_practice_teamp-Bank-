@@ -138,7 +138,7 @@ function checkpw0(){
 			
 			/////////
 			boxview();
-			com = '<h2>OTP의 비밀번호를 한번더 입력해 확인해주십시요.</h2>';
+			com = '<h5 style="text-align: center;"><b>OTP의 비밀번호를 한번 더 입력해 확인해주십시오.</b></h5>';
 			$("#comment").html(com);
 			/////////
 			////입력값 표시/////
@@ -424,13 +424,13 @@ function checkphonenum(accnumr){
 //계좌에 해당하는 전화번호 불러오기
 function loadpp(phonenumber){
 	
-	phapi = '<form action="">'+
+	phapi = '<div class="col-md-4 offset-4"><form action="">'+ //// *******************************
 				'전화번호 <input type="text" id="phonenum" value='+phonenumber+' readonly>  <br>'+							
 				'인증번호 (1분 안에 입력 바랍니다.)'+
 				'<button type="button" onclick="makeSignature('+phonenumber+')">발송</button> <br>'+
 				'인증번호 입력 <input id="finalmsg" type="text"> '+
 				'<button type="button" onclick="checkmessage()">확인</button>'+
-			'</form>';
+			'</form></div>';
 
 	$("#accin2").html(phapi);
 				
