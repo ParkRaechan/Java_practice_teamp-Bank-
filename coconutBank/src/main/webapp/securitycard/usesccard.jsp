@@ -4,20 +4,55 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>보안ㅋ드사용이체</title>
+<style type="text/css">
+*{font-family: "SUIT-Medium"; }
+
+.usercardinfobox{
+	border: 1px solid gray;
+	padding:20px;
+	border-radius: 20px;
+}
+
+.usercardinfobox input{	width: 300px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+   
+.usercardinfobox button{
+	width: 100px;
+	margin-left: 140px;
+}
+
+.usercardinfoboxlittle input{	width: 300px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+
+.usercardinfoboxlittle button{
+	width: 100px;
+	margin-left: 140px;
+}
+
+
+
+</style>
 </head>
 <body>
 
-	<h3>보안카드사용이체</h3>
-	<div class="container">
+	<h3 style="text-align: center;">보안카드 사용이체</h3>
+	<h4 style="text-align: center;">계좌번호 입력</h4>
+	<div class="container usercardinfobox col-md-4 offset-4">
 		<input id="achostno" name="achostno" class="form-control"  placeholder="어떤 계좌에서 보내시겠습니까?" rows=3>
 		<input id="acguestno" name="acguestno" class="form-control"  placeholder="어떤 계좌로 보내시겠습니까?" rows=3>
 		<input id="trfamount" name="trfamount" class="form-control"  placeholder="얼마를 보내시겠습니까?" rows=3 onkeyup="input(this.value)">
 		<button class="form-control" type="button" onclick="acpwview()">입력</button>
 		<span id="acccheckspan" name="acccheckspan"></span> <!-- onclick="usesccard()"  -->
 	</div>
-	
-	<div id="accountcheck" style="display: none;">
+	<br><br>
+	<div class="usercardinfoboxlittle col-md-4 offset-4" id="accountcheck" style="display: none;">
 		<input class="form-control" type="text" id="acpw" maxlength="4" placeholder="계좌비밀번호">
 		<button class="form-control" onclick="acpwcheck()">확인</button>
 	</div>
