@@ -10,7 +10,7 @@ $( function(){
 
 // 1. 이체메뉴 클릭시 첫화면
 function transferfront(){
-	/////계좌번호입력/////
+	/////계좌번호입력///// //// *******************************
 	com='<h6 style="text-align: center;">돈을 보내실 계좌번호와 받으실 계좌번호를 입력해주십시오.</h6>';$("#comment").html(com);
 	let acc = '<div></div>';
 	acc += '<h4 style="text-align: center;">계좌번호입력</h4><br>'+
@@ -147,7 +147,7 @@ function accpw2(){
 	
 	//계좌번호 비번입력용 키패드 새로  띄우기//
 	boxview2();
-	com = '<h6 style="text-align: center;">보내시는 계좌의 비밀번호를 입력해주십시오.</h6>';
+	com = '<h6 style="text-align: center;">보내시는 계좌의 비밀번호를 입력해주십시오.</h6>'; //// *******************************
 	$("#comment").html(com);
 	////////////////
 	}

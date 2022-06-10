@@ -137,7 +137,7 @@ function checkpw0(){
 			
 			/////////
 			boxview();
-			com = '<h5 style="text-align: center;"><b>OTP의 비밀번호를 한번 더 입력해 확인해주십시오.</b></h5>';
+			com = '<h5 style="text-align: center;"><b>OTP의 비밀번호를 한번 더 입력해 확인해주십시오.</b></h5>';//// *******************************
 			$("#comment").html(com);
 			/////////
 			////입력값 표시/////
@@ -164,7 +164,7 @@ function checkpw0(){
 					
 				
 				///////////////////
-/////계좌번호입력/////////////////////////////////////////////
+/////계좌번호입력///////////////////////////////////////////// *******************************
 com='';$("#comment").html(com);
 let acc = '<div></div>';
 acc += 
@@ -242,7 +242,7 @@ function accpw(){
 	
 	//계좌번호 비번입력용 키패드 새로  띄우기//
 	boxview();
-	com = '<h4 style="text-align: center;"><b>계좌의 비밀번호를 입력해주십시오.</b></h4>';
+	com = '<h4 style="text-align: center;"><b>계좌의 비밀번호를 입력해주십시오.</b></h4>'; //// *******************************
 	$("#comment").html(com);
 	////////////////
 	}
@@ -396,7 +396,7 @@ function checkphonenum(accnumr){
 		success : function( result ){
 			if(result!="false"){
 				phonenumber = result;
-				com = '<h6 style="text-align: center;">문자로 받은 숫자를 입력해주세요.</h6>';
+				com = '<h6 style="text-align: center;">문자로 받은 숫자를 입력해주세요.</h6>';//// *******************************
 				$("#comment").html(com);
 				loadpp(phonenumber);
 			}else{
@@ -409,13 +409,13 @@ function checkphonenum(accnumr){
 //계좌에 해당하는 전화번호 불러오기
 function loadpp(phonenumber){
 	
-	phapi = '<form action="">'+
+	phapi = '<div class="col-md-4 offset-4"><form action="">'+ //// *******************************
 				'전화번호 <input type="text" id="phonenum" value='+phonenumber+' readonly>  <br>'+							
 				'인증번호 (1분 안에 입력 바랍니다.)'+
 				'<button type="button" onclick="makeSignature('+phonenumber+')">발송</button> <br>'+
 				'인증번호 입력 <input id="finalmsg" type="text"> '+
 				'<button type="button" onclick="checkmessage()">확인</button>'+
-			'</form>';
+			'</form></div>';
 
 	$("#accin2").html(phapi);
 				
