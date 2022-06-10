@@ -76,6 +76,8 @@ function acpwcheck(){
 						success : function(result){
 							if(result == 1){
 								alert("비밀번호입력횟수제한-해당계좌잠금(관리자문의)");
+								accrock();
+								window.location.href='main.jsp'
 							} // end
 						} // success end
 					}); // ajax end
@@ -201,4 +203,17 @@ function transfer2(){
 	});	
 }
 
-
+function accrock(){
+		$.ajax({
+		url : "/jigmBank/accrock" ,
+		data : { "accnumr" : accnumr },
+		type : "POST",
+		success : function( result ){
+			if(result==1){
+				alert("계좌잠금"+accnumr);
+			}else{
+				alert("계좌잠금 실패!");
+			}
+		}
+	});
+}

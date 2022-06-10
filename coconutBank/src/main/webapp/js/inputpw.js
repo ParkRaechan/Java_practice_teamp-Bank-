@@ -128,7 +128,8 @@ function checkpw(){
 
 //유효성관련 선언
 let pass = false;
-
+//잠금성
+let ghgh01=0;
 //비번임시보관
 function checkpw0(){
 	if(ttt==0){
@@ -164,17 +165,19 @@ function checkpw0(){
 					
 				
 				///////////////////
-				/////계좌번호입력/////
-				com='';$("#comment").html(com);
-				let acc = '<div></div>';
-				acc += '<h3>계좌번호입력</h3><br>'+
-				
-				'<input id="accnum" name="accnum" class="form-control"  placeholder="계좌번호" rows=3>'+
-				'<button class="form-control" type="button" onclick="accpw()">입력</button>'+
-				'<span id="acccheckspan" name="acccheckspan">유효성검사</span>';
-				
-				$("#accin").html(acc);
-				///////////////////
+			/////계좌번호입력/////////////////////////////////////////////
+			com='';$("#comment").html(com);
+			let acc = '<div></div>';
+			acc += 
+			'<h4 style="text-align: center;"><b>계좌번호 입력</b></h4><br>'+
+			'<span id="acccheckspan" name="acccheckspan"></span>'+
+			'<div class="otpaccountcheck">'+
+				'<input id="accnum" name="accnum" class="form-control" placeholder="보유한 계좌번호를 입력해주세요.">'+
+				'<button class="form-control" id="inputpwbtn" type="button" onclick="accpw()">입력</button>'+
+			'</div><br><br><br><br><br>';
+			
+			$("#accin").html(acc);
+			///////////////////
 				
 				
 					
@@ -185,7 +188,11 @@ function checkpw0(){
 				
 			}
 			else{
-				alert("입력 비밀번호 불일치");
+				if(ghgh01==3){
+				window.location.href='main.jsp'
+				}
+				ghgh01+=1;
+				alert("입력 비밀번호 불일치 입력오류횟수:"+ghgh01);
 			}
 		}else{
 			alert("6자리 모두 입력해주시길 바랍니다.");
@@ -199,6 +206,10 @@ function checkpw0(){
 		}
 	}
 }
+
+
+
+
 
 //////유효성검사//////
 function keycheck(){
@@ -240,7 +251,7 @@ function accpw(){
 	
 	//계좌번호 비번입력용 키패드 새로  띄우기//
 	boxview();
-	com = '<h2>계좌의 비밀번호를 입력해주십시오.</h2>';
+	com = '<h4 style="text-align: center;"><b>계좌의 비밀번호를 입력해주십시오.</b></h4>';
 	$("#comment").html(com);
 	////////////////
 	}
@@ -248,7 +259,8 @@ function accpw(){
 
 ///문자보내기처음유무
 let ppt = 0;
-
+//잠금성
+let ghgh02=0;
 ///계좌번호와 비번 db비교 확인///
 function checkaccpw(pww3,accnumr){
 	//pww3 계좌비번
@@ -278,7 +290,13 @@ function checkaccpw(pww3,accnumr){
 				}
 				
 			}else{ 
-				alert("해당정보가 틀렸습니다.");
+				if(ghgh02==3){
+				//계좌잠금
+				accrock();
+				window.location.href='main.jsp'
+				}
+				ghgh02= ghgh02+1;
+				alert("입력 비밀번호 불일치 /// 입력오류횟수:"+ghgh02+"///(입력 오류3번 초과시 계좌잠금)");
 			}
 		}
 	});	
@@ -394,7 +412,7 @@ function checkphonenum(accnumr){
 		success : function( result ){
 			if(result!="false"){
 				phonenumber = result;
-				com = '<h2>문자로 받은 숫자를 입력해주세요.</h2>';
+				com = '<h6 style="text-align: center;">문자로 받은 숫자를 입력해주세요.</h6>';
 				$("#comment").html(com);
 				loadpp(phonenumber);
 			}else{
@@ -464,6 +482,20 @@ function random(){
 }
 
 
-
+//////계좌잠금(otp용)
+function accrock(){
+		$.ajax({
+		url : "/jigmBank/accrock" ,
+		data : { "accnumr" : accnumr },
+		type : "POST",
+		success : function( result ){
+			if(result==1){
+				alert("계좌잠금"+accnumr);
+			}else{
+				alert("계좌잠금 실패!");
+			}
+		}
+	});
+}
 
 

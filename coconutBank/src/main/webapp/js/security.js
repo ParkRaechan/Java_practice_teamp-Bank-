@@ -98,7 +98,7 @@ scacpwd.addEventListener("keyup", function(key){
 						sctext[4].className += "active";
 						errtext.innerHTML = " "
 					}else{ 
-						alert("비밀번호불일치"+(index+1)+"회/3회");
+						alert("비밀번호불일치"+(index+1)+"회/3회//////비밀번호를 맞게 입력하였는데 이 메세지창이 뜬다면 잠금된 계좌이므로 가까운 지금은행으로가서 신분증과 휴대전화를 지참한 대면인증 ");
 						index++;
 						if(index >= 3){
 							$.ajax({
@@ -107,6 +107,8 @@ scacpwd.addEventListener("keyup", function(key){
 								success : function(result){
 									if(result == 1){
 										alert("비밀번호입력횟수제한-해당계좌잠금(관리자문의)");
+										accrock();
+										window.location.href='main.jsp'
 									} // end
 								} // success end
 							}); // ajax end
@@ -195,3 +197,18 @@ function addsccard(){
 	
 } // 보안카드 생성 end
 
+//////계좌잠금
+function accrock(){
+		$.ajax({
+		url : "/jigmBank/accrock" ,
+		data : { "accnumr" : accnumr },
+		type : "POST",
+		success : function( result ){
+			if(result==1){
+				alert("계좌잠금"+accnumr);
+			}else{
+				alert("계좌잠금 실패!");
+			}
+		}
+	});
+}

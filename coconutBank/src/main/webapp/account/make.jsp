@@ -67,7 +67,7 @@
 					</div>
 					
 					<div class="col-md-2 offset-4">
-						<button class="creatbtn" type="button" onclick="#)">보안카드 발급 신청</button>
+						<button class="creatbtn" type="button" onclick="pagechangesec('addsecuritycard')">보안카드 발급 신청</button>
 					</div>
 				</div>
 			

@@ -146,7 +146,7 @@ function accpw2(){
 	
 	//계좌번호 비번입력용 키패드 새로  띄우기//
 	boxview2();
-	com = '<h2>보내시는 계좌의 비밀번호를 입력해주십시오.</h2>';
+	com = '<h6 style="text-align: center;">보내시는 계좌의 비밀번호를 입력해주십시오.</h6>';
 	$("#comment").html(com);
 	////////////////
 	}
@@ -267,7 +267,8 @@ function checkpw00(){
 	}
 }
 
-
+//잠금성
+let ghgh66=0;
 //otp확인
 function finalcheck(){
 	alert("otp번호 확인중");
@@ -281,7 +282,14 @@ function finalcheck(){
 				alert("일치");
 				transfer1();
 			}else{ 
-				alert("실패");
+				if(ghgh66==3){
+				//계좌잠금
+
+				accrock();
+				window.location.href='main.jsp'
+				}
+				ghgh66= ghgh66+1;
+				alert("입력 비밀번호 불일치 입력오류횟수:"+ghgh66+"///(입력 오류3번 초과시 계좌잠금)");
 			}
 		}
 	});	
@@ -322,7 +330,8 @@ function transfer2(){
 	});	
 }
 
-
+//잠금성
+let ghgh08=0;
 ///계좌번호와 비번 db비교 확인///
 function checkaccpw2(pww21,achostno,acguestno){
 	//계좌번호 저장//
@@ -348,7 +357,13 @@ function checkaccpw2(pww21,achostno,acguestno){
 				///////////////////
 			}else{ 
 				matchaccpw = false;
-				alert("정보불일치");
+				if(ghgh08==3){
+				//계좌잠금
+				accrock();
+				window.location.href='main.jsp'
+				}
+				ghgh08= ghgh08+1;
+				alert("입력 불일치 /// 입력오류횟수:"+ghgh08+"///(입력 오류3번 초과시 계좌잠금)");
 			}
 		}
 	});	
@@ -387,4 +402,21 @@ function changeaccno(acno){
 	let arr4 = acno.slice(6,undefined);
 	let arr0 = arr2[0]+arr2[1]+arr2[2]+"-"+arr3[0]+arr3[1]+arr3[2]+"-"+arr4[0]+arr4[1]+arr4[2]+arr4[3]+arr4[4]+arr4[5];
 	return arr0;
+}
+
+
+//////OTP용 계좌잠금
+function accrock(){
+		$.ajax({
+		url : "/jigmBank/accrock2" ,
+		data : { "accnumr1" : accnumr1 },
+		type : "POST",
+		success : function( result ){
+			if(result==1){
+				alert("계좌잠금"+accnumr1);
+			}else{
+				alert("계좌잠금 실패!");
+			}
+		}
+	});
 }
