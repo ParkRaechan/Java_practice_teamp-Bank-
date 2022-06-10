@@ -15,6 +15,7 @@ function change(acidno){
 		success : function( result ){
 			if(result==1){
 				alert("변경성공");
+				location.reload();
 			}else{
 				alert("변경실패");
 			}

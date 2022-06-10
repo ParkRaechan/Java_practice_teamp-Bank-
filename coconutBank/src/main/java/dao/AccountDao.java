@@ -212,7 +212,7 @@ public class AccountDao extends Dao {
 
 		//OTP용 계좌잠금
 		public int changemode(String acidno) {
-			String sql = "update account set acactive = '사용가능' where acno ='"+acidno+"'";
+			String sql = "update account set acactive = '사용가능' where acidno ='"+acidno+"'";
 			try {
 				ps = con.prepareStatement(sql);
 				ps.executeUpdate();

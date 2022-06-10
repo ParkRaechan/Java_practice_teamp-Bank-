@@ -43,7 +43,7 @@
 		%>
 		
 	</table>
-		<script src="/jigmBank/js/security.js"type="text/javascript"></script>
+		<script src="/jigmBank/js/admin.js"type="text/javascript"></script>
 		<!-- 부트스트랩 js cdn -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 		<!-- jquery 최신 cdn -->
