@@ -46,7 +46,7 @@ public class addsccard extends HttpServlet {
 		String secno = request.getParameter("secno");
 		String box = request.getParameter("scbox");
 			String accountno = request.getParameter("accountno");
-		int acidno = AccountDao.getaccAccountDao().getacidno(accountno);
+		int acidno = AccountDao.getAccountDao().getacidno(accountno);
 		String sccardpw = request.getParameter("sccardpw");
 		
 		boolean result = SccardDao.getscSccardDao().secnocheck(secno);
@@ -65,14 +65,14 @@ public class addsccard extends HttpServlet {
 			// 객체화
 			Securitycard securitycard = new Securitycard(dbsecno, box, dbpw, "사용가능");
 			// 계좌테이블에 보안카드가 존재하는지 DB확인
-			boolean result2 = AccountDao.getaccAccountDao().findsecno(acidno);
+			boolean result2 = AccountDao.getAccountDao().findsecno(acidno);
 			if(result2 == true) { // 보안카드가 존재하면
 				response.getWriter().print(3);
 			}else { // 보안카드가 존재하지않으면
 				// DB 추가
 				boolean result3 = SccardDao.getscSccardDao().addsccard(securitycard);
 				if(result3) { // 보안카드테이블에 저장
-					boolean result4 = AccountDao.getaccAccountDao().addsecno(acidno, dbsecno);
+					boolean result4 = AccountDao.getAccountDao().addsecno(acidno, dbsecno);
 					if(result4) { // 보안카드생성 + 계좌테이블에 보안일련번호 저장
 						response.getWriter().print(2);
 					}
