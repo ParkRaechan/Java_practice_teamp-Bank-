@@ -318,7 +318,7 @@ function makeSignature(phonenumber){
 function checkmessage(){
 	let finalmsgcheck = $("#finalmsg").val();
 	if(finalmsgcheck==rrrrrr){
-		alert("otp생성준비완료!");
+		alert("otp 생성 준비가 완료되었습니다.");
 		saveotp();
 	}
 }
@@ -396,7 +396,7 @@ function checkphonenum(accnumr){
 		success : function( result ){
 			if(result!="false"){
 				phonenumber = result;
-				com = '<h6>문자로 받은 숫자를 입력해주세요.</h6>';
+				com = '<h6 style="text-align: center;">문자로 받은 숫자를 입력해주세요.</h6>';
 				$("#comment").html(com);
 				loadpp(phonenumber);
 			}else{

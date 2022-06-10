@@ -101,28 +101,24 @@
 						<span> 예금액 </span>
 					</div>
 					<div class="col-md-5">
-						<input id="balance" class="form-control" type="text" placeholder="예금액" onkeyup="input(this.value)"> 원
+						<input id="balance" class="form-control" type="text" placeholder="예금액(단위:원)" onkeyup="input(this.value)">
 					</div>
 				</div>
 <hr>				
 				<div class="row ">
 					<div class="col-md-3 offset-1" >
-						<span> 계좌비번 </span>
+						<span> 비밀번호 </span>
 					</div>
 					<div class="col-md-5">
-						<input id="accountpw" class="form-control" type="password" placeholder="계좌비번" maxlength="4"> 
+						<input id="accountpw" class="form-control" type="password" placeholder="계좌 비밀번호" maxlength="4"> 
 					</div>
 				</div> 
 <hr>	
-					<div class="col-md-2 offset-7">
-						<button class="form-control" type="button" onclick="next()">다음</button> <!-- js에서 form 비동기 통신  -->
-					</div>
-
 			<div class="row">
 				<div class="col-md-2 offset-7">
 					<button class="form-control" type="button" onclick="add()">계좌등록</button> <!-- js에서 form 비동기 통신  -->
 				</div>
-				<div class="col-md-2 offset-1">
+				<div class="col-md-2">
 					<input class="form-control" type="reset" value="초기화">
 				</div>
 			</div>
