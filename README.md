@@ -1,4 +1,4 @@
-# Java_practice_teamp-coconutBank-
+# Java_practice_teamp-JIGMBank-
 # 지금은행
 ----------
 
