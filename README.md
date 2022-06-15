@@ -1,8 +1,9 @@
 # Java_practice_teamp-JIGMBank-
-# 지금은행
-----------
-https://youtu.be/g3p50vwRdm8
-
+# 지금은행  
+----------  
+시연영상  
+https://youtu.be/g3p50vwRdm8   
+----------  
 ![image](https://user-images.githubusercontent.com/100547978/173530904-794f0d43-3a4a-4a63-a55a-1afaa0988b05.png)
 ![image](https://user-images.githubusercontent.com/100547978/173530923-717eb014-ccc7-4f33-87ee-33b652a347d8.png)
 ![image](https://user-images.githubusercontent.com/100547978/173530950-5392c1a7-eead-4c2f-9d87-dce6aca6b5b2.png)
