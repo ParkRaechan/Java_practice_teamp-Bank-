@@ -22,6 +22,7 @@
 
 </head>
 <body>
+		<h1>웹페이지(임시) -> 전용소프트웨어로변경필요</h1>
 		<%
 			ArrayList<Account> account = AccountDao.getAccountDao().getaddaccount();
 			for( Account a : account  ){ // 모든 제품 반복문

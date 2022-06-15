@@ -31,7 +31,7 @@ li{ font-family : SUIT-Medium  }</style>
 				<li>평일 09:00~18:00</li>
 				<li>(은행휴무일 제외)</li>
 				<li style="color:#999999;">© JIGEUM BANK. All rights reserved.</li>
-				<li style="color:#808080;"><a href="/jigmBank/admin.jsp">관리자모드</a></li>
+				<li style="color:#808080;"><a href="/jigmBank/admin.jsp">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></li>
 			</ul>
 		</div>
 	</div>
