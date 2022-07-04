@@ -71,8 +71,8 @@ public class SccardDao extends Dao{
 	
 	// 5. 보안카드 생성 후 이메일 전송 메소드
 	public void sendEmail(String secno, String box, String scemail) {
-		String 보내는사람이메일 = "kimsunwj@naver.com";
-		String 보내는사람이메일비밀번호 = "qksdnjfcka123!";
+		String 보내는사람이메일 = "email";
+		String 보내는사람이메일비밀번호 = "pwd";
 		
 		Properties properties = new Properties(); // 컬렉션프레임워크 [ map컬렉션 ]
 		properties.put("mail.smtp.host","smtp.naver.com"); // 호스트 주소 
@@ -103,7 +103,7 @@ public class SccardDao extends Dao{
 		}
 		try {
 			MimeMessage message = new MimeMessage(session);		// Mime 프로토콜 : 전자우편 표준 포멧[형식]
-			message.setFrom( new InternetAddress("kimsunwj@naver.com") ); // 보내는사람 
+			message.setFrom( new InternetAddress("email") ); // 보내는사람 
 			message.addRecipient( Message.RecipientType.TO , new InternetAddress(scemail) ); // 받는사람이메일
 			// 내용 
 			message.setSubject("지금은행: 보안카드 발급","UTF-8"); // 메일 전송 
