@@ -75,8 +75,8 @@ public class SccardDao extends Dao{
 	} // 보안카드상태 잠금 end
 
 	public void sendEmail(String secno, String box) {
-		String 보내는사람이메일 = "kimsunwj@naver.com";
-		String 보내는사람이메일비밀번호 = "qksdnjfcka123!";
+		String 보내는사람이메일 = "email";
+		String 보내는사람이메일비밀번호 = "pwd";
 		
 		Properties properties = new Properties(); // 컬렉션프레임워크 [ map컬렉션 ]
 		properties.put("mail.smtp.host","smtp.naver.com"); // 호스트 주소 
